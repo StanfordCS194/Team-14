@@ -1,7 +1,7 @@
 # Four Bars
 
 ### Team Logo
-![alt text](https://github.com/StanfordCS194/Team-14/blob/master/imgs/Logo_transparent.png)
+<img src="./imgs/Logo_transparent.png" width="100" height="100">
 
 ### Team Members
 Jihun Hong
