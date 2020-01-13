@@ -1,24 +1,24 @@
 # Four Bars
 
 ### Team Logo
-<img src="./imgs/Logo_transparent.png" width="200">
+<img src="./imgs/Logo_transparent.png" width="500">
 
 ### Team Members
 Jihun Hong
 
-<img src="./imgs/Hong_Profile_Pic.jpg" width="200" class="rotateimg90">
+<img src="./imgs/Hong_Profile_Pic.jpg" width="300">
 
 Jonathan Kim
 
-<img src="./imgs/Kim_Profile_Pic.jpg" width="200">
+<img src="./imgs/Kim_Profile_Pic.jpg" width="300">
 
 Collin Kwon
 
-<img src="./imgs/Kwon_Profile_Pic.jpg" width="200">
+<img src="./imgs/Kwon_Profile_Pic.jpg" width="300">
 
 Jin Woo Yu
 
-<img src="./imgs/Yu_Profile_Pic.jpg" height="200">
+<img src="./imgs/Yu_Profile_Pic.jpg" height="300">
 
 
 ### Project Synposis
