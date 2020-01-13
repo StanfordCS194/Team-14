@@ -5,16 +5,20 @@
 
 ### Team Members
 Jihun Hong
-<img src="./imgs/Hong_Profile_Pic.jpg" width="200">
+
+<img src="./imgs/Hong_Profile_Pic.jpg" width="200" class="rotateimg90">
 
 Jonathan Kim
+
 <img src="./imgs/Kim_Profile_Pic.jpg" width="200">
 
 Collin Kwon
+
 <img src="./imgs/Kwon_Profile_Pic.jpg" width="200">
 
 Jin Woo Yu
-<img src="./imgs/Yu_Profile_Pic.jpg" width="200">
+
+<img src="./imgs/Yu_Profile_Pic.jpg" height="200">
 
 
 ### Project Synposis
