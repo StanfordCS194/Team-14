@@ -3,7 +3,7 @@
 ### Team Logo
 ![alt text][logo]
 
-[logo]: https://github.com/StanfordCS194/Team-14/blob/master/imgs/'Logo (Transparent).png' "Logo"
+[logo]: https://github.com/StanfordCS194/Team-14/blob/master/imgs/Logo_transparent).png "Logo"
 
 ### Team Members
 Jihun Hong
