@@ -1,20 +1,20 @@
 # Four Bars
 
 ### Team Logo
-<img src="./imgs/Logo_transparent.png" width="100" height="100">
+<img src="./imgs/Logo_transparent.png" width="200">
 
 ### Team Members
 Jihun Hong
-![alt text](https://github.com/StanfordCS194/Team-14/blob/master/imgs/Hong_Profile_Pic.jpg)
+<img src="./imgs/Hong_Profile_Pic.jpg" width="200">
 
 Jonathan Kim
-![alt text](https://github.com/StanfordCS194/Team-14/blob/master/imgs/Kim_Profile_Pic.jpg)
+<img src="./imgs/Kim_Profile_Pic.jpg" width="200">
 
 Collin Kwon
-![alt text](https://github.com/StanfordCS194/Team-14/blob/master/imgs/Kwon_Profile_Pic.jpg)
+<img src="./imgs/Kwon_Profile_Pic.jpg" width="200">
 
 Jin Woo Yu
-![alt text](https://github.com/StanfordCS194/Team-14/blob/master/imgs/Yu_Profile_Pic.jpg)
+<img src="./imgs/Yu_Profile_Pic.jpg" width="200">
 
 
 ### Project Synposis
