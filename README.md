@@ -5,7 +5,7 @@ TBD
 
 ### Team Members
 Jihun Hong
-![alt text](https://github.com/StanfordCS194/Team-14/raw/master/imgs/Hong_Profile_Pic.jpg "Jihun with two seagulls at Mont St. Michel")
+!(https://github.com/StanfordCS194/Team-14/raw/master/imgs/Hong_Profile_Pic.jpg "Jihun with two seagulls at Mont St. Michel")
 
 Jonathan Kim
 
