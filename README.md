@@ -3,23 +3,23 @@
 ### Team Logo
 ![alt text][logo]
 
-[logo]: https://github.com/StanfordCS194/Team-14/blob/master/imgs/Logo_transparent.png | width=50 "Logo"
+[logo]: https://github.com/StanfordCS194/Team-14/blob/master/imgs/Logo_transparent.png | width=50
 
 ### Team Members
 Jihun Hong
 ![alt text][hong]
 
-[hong]: https://github.com/StanfordCS194/Team-14/blob/master/imgs/Hong_Profile_Pic.jpg | width=100 "Jihun"
+[hong]: https://github.com/StanfordCS194/Team-14/blob/master/imgs/Hong_Profile_Pic.jpg | width=100
 
 Jonathan Kim
 ![alt text][kim]
 
-[kim]: https://github.com/StanfordCS194/Team-14/blob/master/imgs/Kim_Profile_Pic.jpg | width=100 "Jonathan"
+[kim]: https://github.com/StanfordCS194/Team-14/blob/master/imgs/Kim_Profile_Pic.jpg | width=100
 
 Collin Kwon
 ![alt text][Kwon]
 
-[kwon]: https://github.com/StanfordCS194/Team-14/blob/master/imgs/Kwon_Profile_Pic.jpg | width=100 "Collin"
+[kwon]: https://github.com/StanfordCS194/Team-14/blob/master/imgs/Kwon_Profile_Pic.jpg | width=100
 
 Jin Woo Yu
 ![alt text][yu]
