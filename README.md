@@ -5,13 +5,25 @@ TBD
 
 ### Team Members
 Jihun Hong
-!(https://github.com/StanfordCS194/Team-14/raw/master/imgs/Hong_Profile_Pic.jpg "Jihun with two seagulls at Mont St. Michel")
+![alt text][hong]
+
+[hong]: https://github.com/StanfordCS194/Team-14/blob/master/imgs/Hong_Profile_Pic.jpg "Jihun"
 
 Jonathan Kim
+![alt text][kim]
+
+[kim]: https://github.com/StanfordCS194/Team-14/blob/master/imgs/Kim_Profile_Pic.jpg "Jonathan"
 
 Collin Kwon
+![alt text][Kwon]
+
+[kwon]: https://github.com/StanfordCS194/Team-14/blob/master/imgs/Kwon_Profile_Pic.jpg "Collin"
 
 Jin Woo Yu
+![alt text][yu]
+
+[yu]: https://github.com/StanfordCS194/Team-14/blob/master/imgs/Hong_Profile_Pic.jpg "Jin Woo"
+
 
 
 ### Project Synposis
