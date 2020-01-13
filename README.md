@@ -22,6 +22,12 @@ Jin Woo Yu
 
 
 ### Project Synposis
+Our project is a university campus tour guide-tourist matchmaking platform. Every year, thousands of families and students visit college campus, in the hopes that they themselves, or their children would find a school that would best fit their interest. 
+
+Many of them have varying fields of interest - some might be more interested in the life of an engineering student, while others would love to hear more about what the school's arts program has to offer. Some tourists might require different accomodations than others - a family might need a Chinese student to tour their around, because the parent could not speak English as well. 
+
+We, the Four Bars team, plan on creating a platform where campus tourists can find the perfect tour guide. This service would enable customzied school tours conducted by real students, and allow for a customized tour experience. 
+
 
 ### Contact
 Email:
