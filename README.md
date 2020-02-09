@@ -4,7 +4,7 @@
 <img src="./imgs/Logo_transparent.png" width="500">
 
 ### Team Members
-Jihun Hong
+Jihun Hong is the best.
 
 <img src="./imgs/Hong_Profile_Pic.jpg" width="300">
 
