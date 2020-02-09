@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background: url('./imgs/stanford-1.jpg');
 }
 
 .App-logo {
@@ -27,6 +28,7 @@
 .App-link {
   color: #61dafb;
 }
+
 
 @keyframes App-logo-spin {
   from {
