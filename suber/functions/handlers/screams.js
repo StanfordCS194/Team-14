@@ -1,4 +1,4 @@
-const {db} = require('../util/admin');
+const {admin, db} = require('../util/admin');
 
 exports.getAllScreams = (req, res) => {
     admin.firestore().collection('screams')
@@ -12,8 +12,8 @@ exports.getAllScreams = (req, res) => {
                 body: doc.data().body,
                 userHandle: doc.data().userHandle,
                 createdAt: doc.data().createdAt,
-                commentCount: doc.data(). commentCount,
-                likeCount: doc.data().likeCount
+                //commentCount: doc.data(). commentCount,
+                //likeCount: doc.data().likeCount
             });
         });
         return res.json(screams);
