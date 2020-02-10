@@ -1,0 +1,72 @@
+*{
+    margin : 0;
+    padding : 0;
+}
+
+body {
+    background: url('imgs/stanford-1.jpg');
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+#menubar {
+    width: 100%;
+    height: 60px;
+
+    background-color: #ffffff;
+    display: inline-block;
+    text-align:center;
+}
+
+#guide-login{
+    width: 40%;
+    display: inline-block;
+    padding-left: 20px;
+    text-align:left;
+    line-height: 60px;
+    vertical-align: middle;
+}
+
+#logo {
+    display: inline-block;
+}
+
+#guide-text{
+    display: inline-block;
+}
+
+#guide-signup{
+    display: inline-block;
+    width:40%;
+    text-align:right;
+    padding-right:20px;
+    margin-bottom:11px;
+
+}
+
+
+
+#container {
+    width: 450px;
+    height: 580px;
+
+    margin-top: 150px;
+    margin-right: 250px;
+    margin-bottom: 172px;
+    margin-left: 850px;
+
+    border-radius: 10px;
+    background-color:#ffffff;
+}
+
+#textbox {
+    font-family: 'Open Sans';
+    font-size: 25px;
+    font-weight: bold;
+
+    padding : 30px 40px;
+}
+
+
+
+  
