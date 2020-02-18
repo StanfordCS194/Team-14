@@ -83,7 +83,7 @@ class Home extends React.Component {
                         <img id="logo-img" src= { suberimg } />
                     </div>
                     <div id="guide-signup">
-                        <p>Register Now</p>
+                        <a href = "/#/register">Register Now</a>
                     </div>
                 </div>
                 <div id="mainpage">
