@@ -4,7 +4,7 @@ import './Tourguide.css';
 import DatePicker from "react-datepicker";
 import Select from "react-select";
 import StarRatings from "react-star-ratings";
-import suberimg from '../../imgs/SUBER.png'
+
 
 
 const options_time = [
@@ -105,50 +105,36 @@ class Home extends React.Component {
                 </div>
                 <div id="tourguide_tour__mainpage">
                     <div class="split" id="tourguide_sidebar">
-                        <div class="findbox">
-                            <div class="fb-text">Tour Date</div>
-                            <DatePicker id="tourguide_date-picker"
-                                selected={this.state.startDate}
-                                onChange={this.handleChange}
-                                customInput={<ExampleCustomInput />}
+                    <div id="tourguide_guide_img_container">
+                            <img id="tourguide_guide_img" 
+                                 src= { require('../../imgs/default-profile-picture1.jpg') } 
+                                 width='350px' />
+                        </div>
+                        <div class="guide-text">
+                            <div class="guide-name">
+                                <b>Collin</b>
+                            </div>
+                            <div class="guide-language">
+                                <p>
+                                    <b>Languages: </b>English, Korean
+                                </p>
+                            </div>
+                            <div class="guide-major">
+                                <p>
+                                    <b>Major: </b>Electrical Engineering
+                                </p>
+                            </div>
+                            <StarRatings
+                                rating={this.state.rating}
+                                starRatedColor="#FEB156"
+                                numberOfStars={5}
+                                name='rating'
+                                class='ratings'
+                                starDimension='25px'
+                                starSpacing='1px'
                             />
                         </div>
-                        <div class="findbox">
-                            <div class="fb-text">Starting Time</div>
-                            <Select
-                                value={this.state.startTime}
-                                onChange={this.handleTimeChange}
-                                options={options_time}
-                            />
-                        </div>
-                        <div class="findbox">
-                            <div class="fb-text">Duration</div>
-                            <Select
-                                value={this.state.duration}
-                                onChange={this.handleDurationChange}
-                                options={options_duration}
-                            />
-                        </div>
-                        <div class="findbox">
-                            <div class="fb-text">Group Size</div>
-                            <Select
-                                value={this.state.groupSize}
-                                onChange={this.handleSizeChange}
-                                options={options_size}
-                            />
-                        </div>
-                        <div class="findbox">
-                            <div class="fb-text">Language</div>
-                            <Select
-                                options={options_language}
-                            />
-                        </div>
-                        <div class="findbox">
-                            <div class="fb-text">Major</div>
-                            <Select
-                                options={options_major}
-                            />
-                        </div>
+
                     </div>
                     <div class="split" id="tourguide_guide-list">
                         <div class="guidebox">
