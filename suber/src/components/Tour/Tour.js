@@ -163,9 +163,9 @@ class Home extends React.Component {
                         <div class="guidebox">
                             <div class="guide-image"></div>
                             <div class="guide-text">
-                                <div class="guide-name">
+                                <a class="guide-name" href="/#/tourguide">
                                     <b>Collin</b>
-                                </div>
+                                </a>
                                 <div class="guide-language">
                                     <p>
                                         <b>Languages: </b>English, Korean
@@ -190,9 +190,9 @@ class Home extends React.Component {
                         <div class="guidebox">
                             <div class="guide-image"></div>
                             <div class="guide-text">
-                                <div class="guide-name">
+                                <a class="guide-name" href="/#/tourguide">
                                     <b>Collin</b>
-                                </div>
+                                </a>
                                 <div class="guide-language">
                                     <p>
                                         <b>Languages: </b>English, Korean
@@ -217,9 +217,9 @@ class Home extends React.Component {
                         <div class="guidebox">
                             <div class="guide-image"></div>
                             <div class="guide-text">
-                                <div class="guide-name">
+                                <a class="guide-name" href="/#/tourguide">
                                     <b>Collin</b>
-                                </div>
+                                </a>
                                 <div class="guide-language">
                                     <p>
                                         <b>Languages: </b>English, Korean
@@ -244,9 +244,9 @@ class Home extends React.Component {
                         <div class="guidebox">
                             <div class="guide-image"></div>
                             <div class="guide-text">
-                                <div class="guide-name">
+                                <a class="guide-name" href="/#/tourguide" >
                                     <b>Collin</b>
-                                </div>
+                                </a>
                                 <div class="guide-language">
                                     <p>
                                         <b>Languages: </b>English, Korean
@@ -271,9 +271,9 @@ class Home extends React.Component {
                         <div class="guidebox">
                             <div class="guide-image"></div>
                             <div class="guide-text">
-                                <div class="guide-name">
+                                <a class="guide-name" href="/#/tourguide">
                                     <b>Collin</b>
-                                </div>
+                                </a>
                                 <div class="guide-language">
                                     <p>
                                         <b>Languages: </b>English, Korean
@@ -298,9 +298,9 @@ class Home extends React.Component {
                         <div class="guidebox">
                             <div class="guide-image"></div>
                             <div class="guide-text">
-                                <div class="guide-name">
+                                <a class="guide-name" href="/#/tourguide">
                                     <b>Collin</b>
-                                </div>
+                                </a>
                                 <div class="guide-language">
                                     <p>
                                         <b>Languages: </b>English, Korean
