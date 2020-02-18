@@ -47,7 +47,7 @@ exports.postNewTour = (req, res) => {
   
     admin
     .firestore()
-    .collection('ours')
+    .collection('tours')
     .add(newTour)
     .then((doc) => {
       res.json({message: `document ${doc.id} created successfully`});
