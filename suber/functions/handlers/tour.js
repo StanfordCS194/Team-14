@@ -12,7 +12,7 @@ exports.getAllTours = (req, res) => {
                 tours.push({
                 tourId: doc.id,
                 status: doc.data().status,
-                uid: doc.data().uid,
+                userId: doc.data().userId,
                 touristName: doc.data().touristName,
                 touristContact: doc.data().touristContact,
                 startTime: doc.data().startTime,
@@ -34,7 +34,7 @@ exports.getAllTours = (req, res) => {
 exports.postNewTour = (req, res) => {
     const newTour = {
       status: 'pending',
-      uid: req.user.uid,
+      userId: req.user.userId,
       touristName: req.touristName,
       touristContact: req.touristContact,
       partySize: req.partySize,
@@ -68,7 +68,7 @@ exports.postNewTour = (req, res) => {
                 tours.push({
                 tourId: doc.id,
                 status: doc.data().status,
-                uid: doc.data().uid,
+                userId: doc.data().userId,
                 touristName: doc.data().touristName,
                 touristContact: doc.data().touristContact,
                 startTime: doc.data().startTime,
@@ -86,9 +86,9 @@ exports.postNewTour = (req, res) => {
          res.status(500).json({error: err.code});
      });
 
-  exports.getTourForGuide = (req, res) => {
+  exports.getTourForGuserIde = (req, res) => {
     admin.firestore().collection('tours')
-        .orderBy('uid').equalTo(req.uid)
+        .orderBy('userId').equalTo(req.userId)
         .orderBy('status').equalTo(req.status)
         .get()
         .then((data) => {
@@ -97,7 +97,7 @@ exports.postNewTour = (req, res) => {
                 tours.push({
                 tourId: doc.id,
                 status: doc.data().status,
-                uid: doc.data().uid,
+                userId: doc.data().userId,
                 touristName: doc.data().touristName,
                 touristContact: doc.data().touristContact,
                 startTime: doc.data().startTime,
