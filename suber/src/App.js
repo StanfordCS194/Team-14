@@ -1,27 +1,17 @@
-import React, {Component} from 'react';
-import {Route, Switch, Router, Redirect, Link} from 'react-router-dom'
-import Home from './components/Home'
-import './App.css';
+import React from 'react';
+import { HashRouter, Route } from 'react-router-dom';
+import Home from './components/Home/Home';
+import Tour from './components/Tour/Tour';
+import Tourguide from './components/Tourguide/Tourguide'
+
 
 function App() {
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> jonkim95.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      <Route path='/' exact={true} component={Home} />
+      <Route path='/tour' component={Tour} />
+      <Route path='/tourguide' component={Tourguide} />
+    </HashRouter>
   );
 }
 
