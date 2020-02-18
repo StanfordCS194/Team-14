@@ -2,7 +2,6 @@ import React from 'react';
 import './Home.css';
 
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import Select from "react-select";
 
 
@@ -93,7 +92,7 @@ class Home extends React.Component {
                             <h1>Stanford University</h1>
                         </div>
                         <div id="findbox-date">
-                            <div class="fb-text">Tour Date</div>
+                            <div class="tour__fb-text">Tour Date</div>
                             <DatePicker id="date-picker"
                                 selected={this.state.startDate}
                                 onChange={this.handleChange}
@@ -128,9 +127,9 @@ class Home extends React.Component {
                         <div id="findbox-size">
                             <div class="fb-text-red">Find an Existing Reservation</div>
                         </div>
-                        <div id="findbox-search">
-                            <div class="fb-text-white">Find a Tour Guide</div>
-                        </div>
+                        <button id="findbox-search">
+                            <a href="/#/about" class="fb-text-white">Find a Tour Guide</a>
+                        </button>
                     </div>
                 </div>
             </body>

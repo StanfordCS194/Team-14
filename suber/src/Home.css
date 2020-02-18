@@ -119,8 +119,11 @@ body {
     margin-top: 20px;
     margin-left: 40px;
     margin-right: 40px;
+
     padding-top: 15px;
     padding-bottom: 15px;
+
+    width: 350px;
     border-radius: 10px;
     background-color: #eb5757;
     text-align: center;
@@ -132,7 +135,7 @@ body {
     font-size: 16px;
 }
 
-.fb-text {
+.tour__fb-text {
     font-weight: 200;
     font-size: 18px;
     margin-bottom: 10px;
