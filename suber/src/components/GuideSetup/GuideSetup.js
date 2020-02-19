@@ -95,9 +95,12 @@ class GuideSetup extends React.Component {
                                 
                             </div>
 
-                            <button id="guidesetup__findbox-search" > 
-                                <a href="/#/welcome" class="fb-text-white" color='#ffffff'>Next</a>
-                            </button>
+                            <a href="/#/welcome"> 
+                                <button id="guidesetup__findbox-search" class="fb-text-white" color='#ffffff'> 
+                                    Next
+                                </button>
+                            </a>
+                            
                             
                         </div>
                     </div>
