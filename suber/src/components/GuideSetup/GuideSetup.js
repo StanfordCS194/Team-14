@@ -13,15 +13,15 @@ class GuideSetup extends React.Component {
     render() {
         return (
             <body>
-                <div id="menubar">
-                    <div id="logo">
-                        <img id="logo-img" src= { suberimg } />
+                <div id="guidesetup__menubar">
+                    <div id="guidesetup__logo">
+                        <img id="guidesetup__logo-img" src= { suberimg } />
                     </div>
                 </div>
                 
-                <div id="mainbox">
-                    <div id="container">
-                        <div id="textbox">
+                <div id="guidesetup__mainbox">
+                    <div id="guidesetup__container">
+                        <div id="guidesetup__textbox">
                             <h1>Shit</h1>
                         </div>
                         
@@ -37,8 +37,8 @@ class GuideSetup extends React.Component {
                             </InputGroup>
                         </div>
 
-                        <button id="findbox-search">
-                            <a href="/#/register" class="fb-text-white" color='#ffffff'>Send a confirmation code</a>
+                        <button id="guidesetup__findbox-search">
+                            <a href="/#/register" class="guidesetup__fb-text-white" color='#ffffff'>Send a confirmation code</a>
                         </button>
                     </div>
                 </div>
