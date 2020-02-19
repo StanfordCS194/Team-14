@@ -6,6 +6,7 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+
 body {
     background: url('../../imgs/stanford-1.jpg');
     background-repeat: no-repeat;
@@ -53,6 +54,10 @@ body {
     text-align:right;
     padding-right:10px;
     margin-bottom:11px;
+}
+
+#guide_signup_link {
+    color: #eb5757;
 }
 
 #mainpage {
