@@ -5,13 +5,23 @@ body {
     flex-direction: column;
 }
 
+
+#tourguide_guide-login{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #eb5757;
+
+    width: 40%;
+    display: inline-block;
+    text-align:left;
+}
+
 #tourguide_menubar {
     flex: 0 0 60px;
-
     background-color: #ffffff;
     display: inline-block;
     text-align:center;
-
     border-bottom: 1px solid #e3e3e3;
 }
 
@@ -36,16 +46,6 @@ body {
     padding-bottom: 6px;
 }
 
-#tourguide_guide-login{
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    color: #eb5757;
-
-    width: 40%;
-    display: inline-block;
-    text-align:left;
-}
 
 #tourguide_logo {
     display: inline-block;
@@ -62,7 +62,6 @@ body {
     font-weight: 700;
     font-size: 16px;
     color: #eb5757;
-
     display: inline-block;
     width: 40%;
     text-align:right;
@@ -114,6 +113,21 @@ body {
     font-size: 18px;
 }
 
+.tourguide__button {
+    width: 270px;
+    height: 40px;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    background-color: #eb5757;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 12px;
+    display: inline-block;
+    margin: 30px 15px;
+    font-size: 20px;
+}
+
+
 #tourguide__recommended_course {
     margin-top: 30px;
 }
@@ -140,28 +154,16 @@ body {
     font-size: 16px;
 }
 
-.tourguide__button {
-    width: 270px;
-    height: 40px;
-    border: 1px solid #e3e3e3;
-    border-radius: 8px;
-    background-color: #eb5757;
-    color: #ffffff;
-    text-align: center;
-    padding-top: 12px;
-    display: inline-block;
-    margin: 30px 15px;
-    font-size: 20px;
+
+#tourguide__tour_map {
+    border-left: 1px solid #e3e3e3;
+    flex: 0 0 60px;
 }
 
 .tourguide__btn_text {
     color: white;
 }
 
-#tourguide__tour_map {
-    border-left: 1px solid #e3e3e3;
-    flex: 0 0 60px;
-}
 
 .tour_map {
     object-fit: cover;
