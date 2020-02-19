@@ -132,9 +132,9 @@ class GuideSetup extends React.Component {
         return (
             <body>
                 <div id="guidesetup__menubar">
-                    <div id="guidesetup__logo">
-                        <img id="guidesetup__logo-img" src= { suberimg } />
-                    </div>
+                    <a id="logo" href="/#/">
+                        <img id="logo-img" src= { suberimg } />
+                    </a>
                 </div>
                 
                 {this.PageChange(this.state.page)}
