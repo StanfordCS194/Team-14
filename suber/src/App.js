@@ -11,13 +11,15 @@ import Search from './components/Search/Search'
 import Searchconfirmation from './components/Searchconfirmation/Searchconfirmation'
 import Cancel from './components/Cancel/Cancel'
 import Cancelconfirmation from './components/Cancelconfirmation/Cancelconfirmation';
+import Tourguideconfirmation from './components/Tourguideconfirmation/Tourguideconfirmation';
 
 function App() {
   return (
     <HashRouter>
       <Route path='/' exact={true} component={Home} />
       <Route path='/tour' component={Tour} />
-      <Route path='/tourguide' component={Tourguide} />
+      <Route path='/tourguide' exact={true} component={Tourguide} />
+      <Route path='/tourguide/confirmation' component={Tourguideconfirmation} />
       <Route path='/confirmation' component={Tourconfirmation} />
       <Route path='/register' component={Register} />
       <Route path='/registerpw' component={RegisterPW} />

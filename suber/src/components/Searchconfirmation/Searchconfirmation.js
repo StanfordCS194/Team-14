@@ -142,7 +142,7 @@ class Searchconfirmation extends React.Component {
                         </a>
                     </div>
                     <div class="split" id="searchconfirmation__tour_map">
-                        <img src={ mapimg } width='550px' height='850px' />
+                        <img src={ mapimg } width='550px' height='850px' class='tour_map'/>
                     </div>
                 </div>
             </body>

@@ -142,13 +142,13 @@ body {
 
 .tourguide__button {
     width: 270px;
-    height: 50px;
+    height: 40px;
     border: 1px solid #e3e3e3;
     border-radius: 8px;
     background-color: #eb5757;
     color: #ffffff;
     text-align: center;
-    padding-top: 18px;
+    padding-top: 12px;
     display: inline-block;
     margin: 30px 15px;
     font-size: 20px;
@@ -161,4 +161,8 @@ body {
 #tourguide__tour_map {
     border-left: 1px solid #e3e3e3;
     flex: 0 0 60px;
+}
+
+.tour_map {
+    object-fit: cover;
 }
