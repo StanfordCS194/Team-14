@@ -164,19 +164,20 @@ class Home extends React.Component {
                         <div id="tourconfirmation__">
                             <p>We will send you a confirmation email as soon as Collin accepts the reservation.</p>
                         </div>
-                        <div id="tourconfirmation__recommended_course">
-                            <div class="tourconfirmation__detail_bullet">Reservation Number</div>
-                            <div>BXDKAL</div>
-                            <div>Reservation Status</div>
-                            <div>Awaiting Confirmation</div>
-                            <div>Tour Date/Time</div>
-                            <div>Reservation Status</div>
-                            <div>Meetup Place</div>
-                            <div>Reservation Status</div>
-                            <div>Total Price</div>
-                            <div>Reservation Status</div>
-                            <div>Instruction</div>
-                            <div>Please arrive at the meetup place 5 minutes before 
+                        <div id="tourconfirmation__detail">
+                            <div class="tourconfirmation__detail_important">Reservation Number</div>
+                            <div class="tourconfirmation__detail_content">BXDKAL</div>
+                            <div class="tourconfirmation__detail_important">Reservation Status</div>
+                            <div class="tourconfirmation__detail_content"
+                                 id="tourguideconfirmation__waiting">Awaiting Confirmation</div>
+                            <div class="tourconfirmation__detail_important">Tour Date/Time</div>
+                            <div class="tourconfirmation__detail_content">November 20, 2020, 8:30 AM - 9:00 AM</div>
+                            <div class="tourconfirmation__detail_important">Meetup Place</div>
+                            <div class="tourconfirmation__detail_content">Main Quad</div>
+                            <div class="tourconfirmation__detail_important">Total Price</div>
+                            <div class="tourconfirmation__detail_content">$30</div>
+                            <div class="tourconfirmation__detail_important">Instruction</div>
+                            <div class="tourconfirmation__detail_content">Please arrive at the meetup place 5 minutes before 
                                 the start of the tour. Payments for the tour service 
                                 will be directly made to the guide in cash.</div>
                         </div>

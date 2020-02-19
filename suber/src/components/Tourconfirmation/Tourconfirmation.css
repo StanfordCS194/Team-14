@@ -119,14 +119,24 @@ body {
     font-size: 18px;
 }
 
-#tourconfirmation__recommended_course {
+#tourconfirmation__detail {
     margin-top: 30px;
+    margin-left: 25px;
+    margin-bottom: 20px;
 }
 
-#tourconfirmation__recommended_course_text {
-    font-style: bold;
-    font-weight: 700;
-    font-size: 24px;
+.tourconfirmation__detail_important {
+    font-weight: 600;
+    margin-bottom: 4px;
+    margin-top: 20px;
+}
+
+.tourconfirmation__detail_content {
+    max-width: 450px;
+}
+
+#tourguideconfirmation__waiting {
+    color: #d65341;
 }
 
 .tourconfirmation__button {
@@ -138,7 +148,8 @@ body {
     text-align: center;
     padding-top: 18px;
     display: inline-block;
-    margin: 30px 15px;
+    margin-top: 90px;
+    margin-left: 140px;
     font-size: 20px;
 }
 
