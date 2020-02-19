@@ -57,8 +57,8 @@ body {
 
 #welcome__container {
     text-align: center;
-    width: 700px;
-    height: 350px;
+    width: 300px;
+    height: 200px;
     display: inline-block;
     border-radius: 10px;
     background-color:#ffffff;
@@ -77,7 +77,7 @@ body {
 
 #welcome__findbox-search {
     background-color: #d65341;
-    padding: 10px 30px;
+    padding: 10px 70px;
     border-radius: 10px;
 }
 

@@ -22,11 +22,13 @@ class Welcome extends React.Component {
                 <div id="welcome__mainpage">
                     <div id="welcome__container">
                         <div id="welcome__textbox">
-                            <h1>Welcome</h1>
+                            <h1>Welcome!</h1>
                         </div>
-                        <button id="welcome__findbox-search">
-                            <a href="/#/loggedin" class="welcome__fb-text-white" color='#ffffff'>Home</a>
-                        </button>
+                        <a href="/#/loggedin" >
+                            <button id="welcome__findbox-search">
+                                <p class="welcome__fb-text-white" color='#ffffff'>Go Back Home</p>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </body>

@@ -41,13 +41,11 @@ class GuideSetup extends React.Component {
         }
     }
 
- 
     handleChange = newSchedule => {
       this.setState({ schedule: newSchedule })
     }
    
   
-    
     page1 = () => {
         return(
             <div>
@@ -148,13 +146,10 @@ class GuideSetup extends React.Component {
                             <div>
                                 <h1>Tell us more about yourself</h1>
                             </div>
-                            
-
                             <div id="guidesetup__textbox3" >
                                 <h2>9. What is your availability?</h2>
                                 Remember, you can always change this later.
                             </div>
-
                             <ScheduleSelector
                                 selection={this.state.schedule}
                                 numDays={7}
@@ -205,6 +200,7 @@ class GuideSetup extends React.Component {
             case 2:
                 return this.page2();
             case 3:
+                console.log("3")
                 return this.page3();
         }
     }
@@ -220,8 +216,7 @@ class GuideSetup extends React.Component {
                 {this.PageChange(this.state.page)}
             </body>
         )
-    
-  }
+    }
 }
 
 export default GuideSetup;
