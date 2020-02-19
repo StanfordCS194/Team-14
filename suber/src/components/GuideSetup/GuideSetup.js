@@ -65,24 +65,16 @@ class GuideSetup extends React.Component {
                 
                 <div id="guidesetup__mainbox">
                     <div id="guidesetup__container">
-                        <div id="guidesetup__textbox">
-                            <h1>Shit</h1>
-                        </div>
                         <div>
                             {this.PageBar(this.state.page)}
+                            <h1>Tell us more about yourself</h1>
+                        </div>
+
+                        <div id="guidesetup__textbox">
+                            <h2>1. Upload your profile picture</h2>
+                            
                         </div>
                         
-                        <div>
-                            <InputGroup className="mb-3">
-                                <InputGroup.Prepend>
-                                <InputGroup.Text id="basic-addon1">Password</InputGroup.Text>
-                                </InputGroup.Prepend>
-                                <FormControl
-                                    aria-label="Username"
-                                    aria-describedby="basic-addon1"
-                                />
-                            </InputGroup>
-                        </div>
 
                         <button id="guidesetup__findbox-search">
                             <a href="/#/register" class="guidesetup__fb-text-white" color='#ffffff'>Send a confirmation code</a>

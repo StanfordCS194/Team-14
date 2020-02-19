@@ -43,7 +43,7 @@ body {
 #guidesetup__bar-img {
     vertical-align: middle;
     height: 5px;
-    width: 300px;
+    width: 400px;
 }
 
 
@@ -63,18 +63,18 @@ body {
 #guidesetup__mainbox {
     text-align: center;
 
-    padding-top: 2%;
+    padding-top: 1%;
 }
 
 #guidesetup__container {
     text-align: center;
-    width: 700px;
-    height: 350px;
+    width: 480px;
+    height: 850px;
     display: inline-block;
     border-radius: 10px;
     background-color:#ffffff;
-    padding-left: 5%;
-    padding-right:5%;
+    padding-left: 2%;
+    padding-right:2%;
 }
 
 #guidesetup__textbox {
@@ -82,11 +82,9 @@ body {
     font-weight: 600;
     font-size: 14px;
     font-weight: bold;
-
-    padding : 40px 40px;
+    padding-top: 10px;
+    padding-right : 130px;
 }
-
-
 
 .guidesetup__tour__fb-text {
     font-weight: 200;
