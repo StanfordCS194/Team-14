@@ -39,8 +39,12 @@ class Search extends React.Component {
                             <h1 id="search__reservation_code_text">Reservation Code</h1>
                             <form onSubmit={this.handleSubmit}>
                                 <input id="search__findbox-input" type="text" value={this.state.value} onChange={this.handleChange} />
-                                <input id="search__findbox-search" type="submit" value="Submit" />
                             </form>
+                            <a href="/#/search/confirmation">
+                                <button id="search__findbox-search" type="submit" value="Submit">
+                                    View Reservation Detail
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
