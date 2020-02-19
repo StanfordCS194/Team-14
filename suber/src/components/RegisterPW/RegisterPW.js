@@ -29,7 +29,7 @@ class RegisterPW extends React.Component {
                             <form onSubmit={this.handleSubmit}>
                                 <label>
                                     <p id="registerpw__password_text">Password</p>
-                                    <input id="registerpw__findbox-input" type="text" value={this.state.value} onChange={this.handleChange} />
+                                    <input id="registerpw__findbox-input" type="password" value={this.state.value} onChange={this.handleChange} />
                                 </label>
                             </form>
                             <a href="/#/guidesetup">

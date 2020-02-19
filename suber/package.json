@@ -9,6 +9,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "core-util-is": "^1.0.2",
+    "date-fns": "^2.9.0",
     "es-abstract": "^1.17.4",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
@@ -16,11 +17,13 @@
     "react-dom": "^16.12.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
+    "react-schedule-selector": "^1.0.3",
     "react-scripts": "3.4.0",
     "react-select": "^3.0.8",
     "react-star-ratings": "^2.3.0",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
