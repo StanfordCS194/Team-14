@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
 
 body {
-    background: white;
+    background: url('../../imgs/stanford-1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#guidesetup__menubar {
+#welcome__menubar {
     width: 100%;
     height: 60px;
 
@@ -15,7 +15,7 @@ body {
     text-align:center;
 }
 
-#guidesetup__guide-login{
+#welcome__guide-login{
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     font-size: 16px;
@@ -26,28 +26,17 @@ body {
     text-align:left;
 }
 
-#guidesetup__logo {
+#welcome__logo {
     display: inline-block;
     margin-top: 10px;
 }
 
-#guidesetup__logo-img {
+#welcome__logo-img {
     vertical-align: middle;
     height: 40px;
 }
 
-#guidesetup__bar {
-    display: inline-block;
-}
-
-#guidesetup__bar-img {
-    vertical-align: middle;
-    height: 5px;
-    width: 400px;
-}
-
-
-#guidesetup__guide-signup{
+#welcome__guide-signup{
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     font-size: 16px;
@@ -60,61 +49,53 @@ body {
     margin-bottom:11px;
 }
 
-#guidesetup__mainbox {
+#welcome__mainpage {
     text-align: center;
-
-    padding-top: 1%;
+    padding-left: 12%;
+    padding-top: 15%;
 }
 
-#guidesetup__container {
+#welcome__container {
     text-align: center;
-    width: 480px;
-    height: 850px;
+    width: 700px;
+    height: 350px;
     display: inline-block;
     border-radius: 10px;
     background-color:#ffffff;
-    padding-left: 2%;
-    padding-right:2%;
+    padding-left: 5%;
+    padding-right:5%;
 }
 
-#guidesetup__textbox {
+#welcome__textbox {
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     font-size: 14px;
     font-weight: bold;
-    padding-top: 10px;
-    padding-right : 130px;
+
+    padding : 40px 40px;
 }
 
-.guidesetup__tour__fb-text {
+#welcome__findbox-search {
+    background-color: #d65341;
+    padding: 10px 30px;
+    border-radius: 10px;
+}
+
+.welcome__tour__fb-text {
     font-weight: 200;
     font-size: 18px;
     margin-bottom: 10px;
 }
 
-.guidesetup__fb-text-red {
+.welcome__fb-text-red {
     font-weight: 550;
     font-size: 16px;
     color: #eb5757;
 }
 
-.guidesetup__fb-text-white {
+.welcome__fb-text-white {
     font-weight: 600;
     font-size: 20px;
     color: #ffffff;
-}
-
-#guidesetup__findbox-search {
-    margin-top: 20px;
-    margin-left: 40px;
-    margin-right: 40px;
-
-    padding-top: 15px;
-    padding-bottom: 15px;
-
-    width: 350px;
-    border-radius: 10px;
-    background-color: #eb5757;
-    text-align: center;
 }
 

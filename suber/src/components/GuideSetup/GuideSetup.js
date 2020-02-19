@@ -17,40 +17,129 @@ class GuideSetup extends React.Component {
             page: 1
         }
     }
+    
 
 
-    img1 = () => {
+    page1 = () => {
         return(
-            <div id="guidesetup__bar">
-                <img id="guidesetup__bar-img" src= { bar1 } />
+            <div>
+                <div id="guidesetup__mainbox">
+                        <div id="guidesetup__container">
+                            <div>
+                                <h1>Tell us more about yourself</h1>
+                            </div>
+                            <div id="guidesetup__bar">
+                                <img id="guidesetup__bar-img" src= { bar1 } />
+                            </div>
+
+                            <div id="guidesetup__textbox">
+                                <h2>1. Upload your profile picture</h2>
+                                <h2>2. What's your name?</h2>
+                                <h2>3. What is your major(s)?</h2>
+                                <h2>4. What language(s) do you speak?</h2>
+                                <h2>5. Write a short bio to introduce yourself</h2>
+                                
+                            </div>
+
+                            <button id="guidesetup__findbox-search" onClick = {this.nextPage1} class="fb-text-white" color='#ffffff'> Next  </button>
+                            
+                        </div>
+                    </div>
+
+
+                <div id="guidesetup__bar">
+                    <img id="guidesetup__bar-img" src= { bar1 } />
+                </div>
+            </div>
+
+        );
+    }
+
+    page2 = () => {
+        return(
+            <div>
+                <div id="guidesetup__mainbox">
+                        <div id="guidesetup__container">
+                            <div>
+                                <h1>Tell us more about yourself</h1>
+                            </div>
+                            <div id="guidesetup__bar">
+                                <img id="guidesetup__bar-img" src= { bar2 } />
+                            </div>
+
+                            <div id="guidesetup__textbox">
+                                <h2>6. Contact Information</h2>
+                                <h2>7. Where would you prefer to meet with visitors?</h2>
+                                <h2>8. Please describe an example tour path you can lead</h2>
+                                
+                            </div>
+
+                            <button id="guidesetup__findbox-search" onClick = {this.nextPage2} class="fb-text-white" color='#ffffff'> Next  </button>
+                            
+                        </div>
+                    </div>
+
+
+                <div id="guidesetup__bar">
+                    <img id="guidesetup__bar-img" src= { bar1 } />
+                </div>
             </div>
         );
     }
 
-    img2 = () => {
+    page3 = () => {
         return(
-            <div id="guidesetup__bar">
-                <img id="guidesetup__bar-img" src= { bar2 } />
+            <div>
+                <div id="guidesetup__mainbox">
+                        <div id="guidesetup__container">
+                            <div>
+                                <h1>Tell us more about yourself</h1>
+                            </div>
+                            <div id="guidesetup__bar">
+                                <img id="guidesetup__bar-img" src= { bar3} />
+                            </div>
+
+                            <div id="guidesetup__textbox">
+                                <h2>9. What is your availability?</h2>
+                                Remember, you can always change this later.
+                                
+                            </div>
+
+                            <button id="guidesetup__findbox-search" > 
+                                <a href="/#/welcome" class="fb-text-white" color='#ffffff'>Next</a>
+                            </button>
+                            
+                        </div>
+                    </div>
+
+
+                <div id="guidesetup__bar">
+                    <img id="guidesetup__bar-img" src= { bar1 } />
+                </div>
             </div>
         );
     }
 
-    img3 = () => {
-        return(
-            <div id="guidesetup__bar">
-                <img id="guidesetup__bar-img" src= { bar3 } />
-            </div>
-        );
+    nextPage1 = () => {
+        this.setState({
+            page: 2
+        })
     }
 
-    PageBar = (param) => {
+    nextPage2 = () => {
+        this.setState({
+            page: 3
+        })
+    }
+
+    PageChange = (param) => {
         switch (param) {
             case 1:
-                return this.img1();
+                return this.page1();
             case 2:
-                return this.img2();
+                return this.page2();
             case 3:
-                return this.img3();
+                return this.page3();
         }
     }
     
@@ -63,24 +152,7 @@ class GuideSetup extends React.Component {
                     </div>
                 </div>
                 
-                <div id="guidesetup__mainbox">
-                    <div id="guidesetup__container">
-                        <div>
-                            {this.PageBar(this.state.page)}
-                            <h1>Tell us more about yourself</h1>
-                        </div>
-
-                        <div id="guidesetup__textbox">
-                            <h2>1. Upload your profile picture</h2>
-                            
-                        </div>
-                        
-
-                        <button id="guidesetup__findbox-search">
-                            <a href="/#/register" class="guidesetup__fb-text-white" color='#ffffff'>Send a confirmation code</a>
-                        </button>
-                    </div>
-                </div>
+                {this.PageChange(this.state.page)}
             </body>
         )
   }

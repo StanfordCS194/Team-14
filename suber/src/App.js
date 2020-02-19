@@ -9,6 +9,7 @@ import RegisterPW from './components/RegisterPW/RegisterPW'
 import GuideSetup from './components/GuideSetup/GuideSetup'
 import Search from './components/Search/Search'
 import Searchconfirmation from './components/Searchconfirmation/Searchconfirmation';
+import Welcome from './components/Welcome/Welcome';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path='/guidesetup' component={GuideSetup} />
       <Route path='/search' exact={true} component={Search} />
       <Route path='/search/confirmation' component={Searchconfirmation} />
+      <Route path='/welcome' component={Welcome} />
     </HashRouter>
   );
 }
