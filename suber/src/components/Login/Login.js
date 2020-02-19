@@ -32,7 +32,7 @@ class Login extends React.Component {
                             <form onSubmit={this.handleSubmit}>
                                 <label id="login__stanford_email">
                                     <p class="login__category_text">Password</p>
-                                    <input id="login__findbox-input" type="text" value={this.state.value} onChange={this.handleChange} />
+                                    <input id="login__findbox-input" type="password" value={this.state.value} onChange={this.handleChange} />
                                 </label>
                             </form>
                             <a href="/#/loggedin">
