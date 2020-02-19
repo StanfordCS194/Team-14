@@ -130,7 +130,9 @@ class Searchconfirmation extends React.Component {
                                 the start of the tour. Payments for the tour service 
                                 will be directly made to the guide in cash.</div>
                             <div id="searchconfirmation__cancel_reservation">
-                                <a href="/#/" id="searchconfirmation__cancel_reservation_text">Cancel this reservation</a>
+                                <a href="/#/cancel" id="searchconfirmation__cancel_reservation_text">
+                                    Cancel this reservation
+                                </a>
                             </div>
                         </div>
                         <a href="/#/">
