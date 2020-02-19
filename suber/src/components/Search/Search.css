@@ -100,6 +100,7 @@ body {
 }
 
 #search__findbox-search {
+    width: 450px;
     font-weight: 600;
     font-size: 20px;
     color: #ffffff;
