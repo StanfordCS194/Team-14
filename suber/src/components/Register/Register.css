@@ -81,7 +81,11 @@ body {
     padding : 40px 40px;
 }
 
-
+#register__findbox-search {
+    background-color: #d65341;
+    padding: 10px 30px;
+    border-radius: 10px;
+}
 
 .register__tour__fb-text {
     font-weight: 200;
