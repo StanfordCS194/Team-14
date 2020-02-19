@@ -66,7 +66,6 @@ class Tour extends React.Component {
         startTime: null,
         duration: null,
         groupSize: null,
-        rating: 4,
         guides: null
     };
     

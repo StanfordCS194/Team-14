@@ -28,7 +28,6 @@ app.post('/user/image', FBAuth, uploadImage);
 app.post('/user', FBAuth, addUserDetails);
 app.get('/user', FBAuth, getAuthenticatedUser);
 
-
 //Guides route
 app.get('/guides', getAllGuides);
 
