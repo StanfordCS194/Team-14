@@ -1,7 +1,6 @@
 import React from 'react';
 import './Register.css';
 import {InputGroup, FormControl} from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import suberimg from '../../imgs/SUBER.png'
 
@@ -14,15 +13,15 @@ class Register extends React.Component {
     render() {
         return (
             <body>
-                <div id="menubar">
-                    <div id="logo">
-                        <img id="logo-img" src= { suberimg } />
+                <div id="register__menubar">
+                    <div id="register__logo">
+                        <img id="register__logo-img" src= { suberimg } />
                     </div>
                 </div>
                 
-                <div id="mainpage">
-                    <div id="container">
-                        <div id="textbox">
+                <div id="register__mainpage">
+                    <div id="register__container">
+                        <div id="register__textbox">
                             <h1>Verify your student email</h1>
                         </div>
                         
@@ -34,12 +33,12 @@ class Register extends React.Component {
                                 aria-describedby="basic-addon2"
                             />
                             <InputGroup.Append>
-                            <InputGroup.Text id="basic-addon2">@stanford.edu</InputGroup.Text>
+                            <InputGroup.Text id="register__basic-addon2">@stanford.edu</InputGroup.Text>
                             </InputGroup.Append>
                         </InputGroup>
                         </div>
-                        <button id="findbox-search">
-                            <a href="/#/register" class="fb-text-white" color='#ffffff'>Send a confirmation code</a>
+                        <button id="register__findbox-search">
+                            <a href="/#/register" class="register__fb-text-white" color='#ffffff'>Send a confirmation code</a>
                         </button>
                     </div>
                 </div>
