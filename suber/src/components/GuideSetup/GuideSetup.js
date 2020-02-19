@@ -45,11 +45,6 @@ class GuideSetup extends React.Component {
                             
                         </div>
                     </div>
-
-
-                <div id="guidesetup__bar">
-                    <img id="guidesetup__bar-img" src= { bar1 } />
-                </div>
             </div>
 
         );
@@ -78,11 +73,6 @@ class GuideSetup extends React.Component {
                             
                         </div>
                     </div>
-
-
-                <div id="guidesetup__bar">
-                    <img id="guidesetup__bar-img" src= { bar1 } />
-                </div>
             </div>
         );
     }
@@ -111,11 +101,6 @@ class GuideSetup extends React.Component {
                             
                         </div>
                     </div>
-
-
-                <div id="guidesetup__bar">
-                    <img id="guidesetup__bar-img" src= { bar1 } />
-                </div>
             </div>
         );
     }
