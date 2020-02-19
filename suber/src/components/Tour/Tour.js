@@ -4,7 +4,6 @@ import './Tour.css';
 
 import DatePicker from "react-datepicker";
 import Select from "react-select";
-import StarRatings from "react-star-ratings";
 import Guidebox from './Guidebox';
 
 import suberimg from '../../imgs/SUBER.png'

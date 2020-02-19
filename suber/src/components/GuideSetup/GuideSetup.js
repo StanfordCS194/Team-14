@@ -1,12 +1,28 @@
 import React from 'react';
 import './GuideSetup.css';
-import {InputGroup, FormControl} from 'react-bootstrap'
+import Select from "react-select";
 
 import suberimg from '../../imgs/SUBER.png'
 import bar1 from '../../imgs/bar1.jpg'
 import bar2 from '../../imgs/bar2.jpg'
 import bar3 from '../../imgs/bar3.jpg'
 
+const options_language = [
+    { value: '1', label: 'English' },
+    { value: '2', label: 'Spanish' },
+    { value: '3', label: 'Chinese' },
+    { value: '4', label: 'Japanese' },
+    { value: '5', label: 'Korean' },
+    { value: '6', label: 'Hindi' }
+];
+
+const options_major = [
+    { value: '1', label: 'Computer Science' },
+    { value: '2', label: 'Engineering' },
+    { value: '3', label: 'Social Sciences' },
+    { value: '4', label: 'Humanities' },
+    { value: '5', label: 'Other' }
+];
 
 class GuideSetup extends React.Component {
     
@@ -45,11 +61,28 @@ class GuideSetup extends React.Component {
                                     <input class="guidesetup__name_input_box" type="text" placeholder={this.state.placeholder_last_name}
                                            value={this.state.value} onChange={this.handleChange} />
                                 </div>
-                                <h2>3. What is your major(s)?</h2>
                                 <div>
-
+                                    <h2>3. What is your major(s)?</h2>
+                                    <div class="guidesetup__select">
+                                        <Select
+                                            isMulti={true}
+                                            value={this.state.startTime}
+                                            onChange={this.handleTimeChange}
+                                            options={options_major}
+                                        />
+                                    </div>
                                 </div>
-                                <h2>4. What language(s) do you speak?</h2>
+                                <div>
+                                    <h2>4. What language(s) do you speak?</h2>
+                                    <div class="guidesetup__select">
+                                        <Select
+                                            isMulti={true}
+                                            value={this.state.startTime}
+                                            onChange={this.handleTimeChange}
+                                            options={options_language}
+                                        />
+                                    </div>
+                                </div>
                                 <div>
                                     <h2>5. Write a short bio to introduce yourself</h2>
                                     <textarea class="guidesetup__bio_input_box" placeholder={this.state.placeholder_bio}

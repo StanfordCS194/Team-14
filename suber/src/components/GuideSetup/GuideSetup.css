@@ -87,6 +87,14 @@ body {
     font-weight: 700;
 }
 
+.guidesetup__select {
+    padding-top: 10px;
+    margin-bottom: 16px;
+    width: 440px;
+    height: 40px;
+    font-size: 16px;
+}
+
 #guidesetup__textbox {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
@@ -99,7 +107,7 @@ body {
 
 .guidesetup__name_input_box {
     width: 200px;
-    height: 35px;
+    height: 26px;
     font-size: 16px;
     margin-top: 6px;
     margin-bottom: 16px;
