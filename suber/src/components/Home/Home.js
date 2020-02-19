@@ -3,7 +3,7 @@ import './Home.css';
 
 import DatePicker from "react-datepicker";
 import Select from "react-select";
-
+import "react-datepicker/dist/react-datepicker.css";
 import suberimg from '../../imgs/SUBER.png'
 
 const options_time = [
