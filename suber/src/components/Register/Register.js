@@ -31,7 +31,7 @@ class Register extends React.Component {
                                     &nbsp;@stanford.edu
                                 </label>
                             </form>
-                            <a href="/#/search/confirmation">
+                            <a href="/#/registerpw">
                                 <button id="search__findbox-search" type="submit" value="Submit">
                                     Send a confirmation code
                                 </button>
