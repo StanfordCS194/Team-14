@@ -34,7 +34,7 @@ exports.getAllTours = (req, res) => {
 exports.postNewTour = (req, res) => {
     const newTour = {
       status: 'pending',
-      userId: req.user.userId,
+      userId: null,
       touristName: req.touristName,
       touristContact: req.touristContact,
       partySize: req.partySize,
