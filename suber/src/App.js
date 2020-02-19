@@ -18,7 +18,7 @@ function App() {
       <Route path='/confirmation' component={Tourconfirmation} />
       <Route path='/register' component={Register} />
       <Route path='/registerpw' component={RegisterPW} />
-      <Route path='guidesetup' component={GuideSetup} />
+      <Route path='/guidesetup' component={GuideSetup} />
     </HashRouter>
   );
 }
