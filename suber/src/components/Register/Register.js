@@ -24,22 +24,19 @@ class Register extends React.Component {
                         <div id="register__textbox">
                             <h1>Verify your student email</h1>
                         </div>
-                        
                         <div>
-                        <InputGroup className="mb-3">
-                            <FormControl
-                                placeholder="Enter your email here"
-                                aria-label="Enter your email here"
-                                aria-describedby="basic-addon2"
-                            />
-                            <InputGroup.Append>
-                            <InputGroup.Text id="register__basic-addon2">@stanford.edu</InputGroup.Text>
-                            </InputGroup.Append>
-                        </InputGroup>
+                            <form onSubmit={this.handleSubmit}>
+                                <label id="register__stanford_email">
+                                    <input id="register__findbox-input" type="text" value={this.state.value} onChange={this.handleChange} />
+                                    &nbsp;@stanford.edu
+                                </label>
+                            </form>
+                            <a href="/#/search/confirmation">
+                                <button id="search__findbox-search" type="submit" value="Submit">
+                                    Send a confirmation code
+                                </button>
+                            </a>
                         </div>
-                        <button id="register__findbox-search">
-                            <a href="/#/registerpw" class="register__fb-text-white" color='#ffffff'>Send a confirmation code</a>
-                        </button>
                     </div>
                 </div>
             </body>
