@@ -133,11 +133,13 @@ class Home extends React.Component {
                             />
                         </div>
                         <div id="findbox-size">
-                            <div class="fb-text-red">Find an Existing Reservation</div>
+                            <a href="/#/search" class="fb-text-red">Find an Existing Reservation</a>
                         </div>
-                        <button id="findbox-search">
-                            <a href="/#/tour" class="fb-text-white">Find a Tour Guide</a>
-                        </button>
+                        <a href="/#/tour">
+                            <button id="findbox-search">
+                                <p class="fb-text-white">Find a Tour Guide</p>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </body>

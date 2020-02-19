@@ -207,12 +207,16 @@ class Tourguide extends React.Component {
                                 <div class="tourguide__recommended_course_boxtext">&bull;&nbsp;&nbsp;Tresidder Memorial Union</div>
                             </div>
                         </div>
-                        <div class="tourguide__button">
-                            <a href="/#/tour" class="tourguide__btn_text">Back to list</a>
-                        </div>
-                        <div class="tourguide__button">
-                            <a href="/#/confirmation" class="tourguide__btn_text">Select Tour Guide</a>
-                        </div>
+                        <a href="/#/tour">
+                            <div class="tourguide__button">
+                                <p class="tourguide__btn_text">Back to list</p>
+                            </div>
+                        </a>
+                        <a href="/#/confirmation">
+                            <div class="tourguide__button">
+                                <p class="tourguide__btn_text">Select Tour Guide</p>
+                            </div>
+                        </a>
                     </div>
                     <div class="split" id="tourguide__tour_map">
                         <img src={ mapimg } width='550px' height='850px' />

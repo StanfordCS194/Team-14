@@ -181,9 +181,11 @@ class Tourconfirmation extends React.Component {
                                 the start of the tour. Payments for the tour service 
                                 will be directly made to the guide in cash.</div>
                         </div>
-                        <div class="tourconfirmation__button">
-                            <a href="/#/" id="tourconfirmation__back_btn">Go Back Home</a>
-                        </div>
+                        <a href="/#/">
+                            <div class="tourconfirmation__button">
+                                <p id="tourconfirmation__back_btn">Go Back Home</p>
+                            </div>
+                        </a>
                     </div>
                     <div class="split" id="tourconfirmation__tour_map">
                         <img src={ mapimg } width='550px' height='850px' />
