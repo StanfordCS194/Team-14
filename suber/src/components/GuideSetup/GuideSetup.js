@@ -94,11 +94,7 @@ class GuideSetup extends React.Component {
                                 </div>
                                 <div>
                                     <h2>5. Write a short bio to introduce yourself</h2>
-<<<<<<< HEAD
-                                    <textarea class="guidesetup__bio_input_box"
-=======
                                     <textarea class="guidesetup__bio_input_box" placeholder="example) Hi! I am Collin, a junior..."
->>>>>>> e67abc9371b726a3d921b3102c639c9bd898f942
                                               value={this.state.value} onChange={this.handleChange}/>
                                 </div>
                             </div>
