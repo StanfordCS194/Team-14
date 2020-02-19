@@ -69,21 +69,23 @@ body {
 #guidesetup__container {
     text-align: center;
     width: 480px;
-    height: 850px;
+    height: 830px;
     display: inline-block;
     border-radius: 10px;
     background-color:#ffffff;
-    padding-left: 2%;
-    padding-right:2%;
+    padding-left: 0%;
+    padding-right:0%;
 }
 
 #guidesetup__textbox {
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     padding-top: 10px;
-    padding-right : 130px;
+    text-align: left;
+    padding-left: 10px;
+
 }
 
 .guidesetup__tour__fb-text {
