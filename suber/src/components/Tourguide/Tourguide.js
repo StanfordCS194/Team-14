@@ -212,14 +212,14 @@ class Tourguide extends React.Component {
                                 <p class="tourguide__btn_text">Back to list</p>
                             </div>
                         </a>
-                        <a href="/#/confirmation">
+                        <a href="/#/tourguide/confirmation">
                             <div class="tourguide__button">
                                 <p class="tourguide__btn_text">Select Tour Guide</p>
                             </div>
                         </a>
                     </div>
                     <div class="split" id="tourguide__tour_map">
-                        <img src={ mapimg } width='550px' height='850px' />
+                        <img src={ mapimg } width='550px' height='850px' class="tour_map"/>
                     </div>
                 </div>
             </body>

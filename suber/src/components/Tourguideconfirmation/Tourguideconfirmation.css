@@ -6,7 +6,7 @@ body {
     background-size: cover;
 }
 
-#register__menubar {
+#cancel__menubar {
     width: 100%;
     height: 60px;
 
@@ -15,7 +15,7 @@ body {
     text-align:center;
 }
 
-#register__guide-login{
+#cancel__guide-login{
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     font-size: 16px;
@@ -26,17 +26,17 @@ body {
     text-align:left;
 }
 
-#register__logo {
+#cancel__logo {
     display: inline-block;
     margin-top: 10px;
 }
 
-#register__logo-img {
+#cancel__logo-img {
     vertical-align: middle;
     height: 40px;
 }
 
-#register__guide-signup{
+#cancel__guide-signup{
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     font-size: 16px;
@@ -49,66 +49,48 @@ body {
     margin-bottom:11px;
 }
 
-#register__mainpage {
+#cancel__mainpage {
     text-align: center;
     padding-left: 12%;
     padding-top: 15%;
 }
 
-#register__container {
+#cancelconfirmation__container {
     text-align: center;
-    width: 600px;
-    height: 350px;
+    width: 550px;
+    height: 250px;
     display: inline-block;
-    border-radius: 10px;
+    border-radius: 4px;
     background-color:#ffffff;
     padding-left: 5%;
     padding-right:5%;
+    border: 1px solid #e3e3e3;
 }
 
-#register__textbox {
+#tourguideconfirmation__textbox {
     font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 14px;
-    font-weight: bold;
-    margin-top: 16px;
+    margin-top: 20px;
     padding : 40px 40px;
+    border-radius: 20px;
 }
 
-#register__findbox-search {
+#cancel__info_text {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#cancel__findbox-search {
     background-color: #d65341;
     padding: 10px 30px;
     border-radius: 10px;
-}
-
-#register__findbox-input {
-    width: 300px;
-    height: 40px;
-    font-size: 18px;
-    margin-top: 16px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-}
-
-#register__stanford_email {
-    font-size: 20px;
-}
-
-.register__tour__fb-text {
-    font-weight: 200;
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.register__fb-text-red {
-    font-weight: 550;
-    font-size: 16px;
-    color: #eb5757;
-}
-
-.register__fb-text-white {
+    width: 450px;
     font-weight: 600;
     font-size: 20px;
     color: #ffffff;
+    margin-top: 20px;
 }
+
 
