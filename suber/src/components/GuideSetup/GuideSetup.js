@@ -35,7 +35,9 @@ class GuideSetup extends React.Component {
 
         this.state = {
             page: 1,
-            schedule: []
+            schedule: [],
+            placeholder_first_name: 'First Name',
+            placeholder_last_name: 'Last Name'
         }
     }
 
@@ -92,7 +94,7 @@ class GuideSetup extends React.Component {
                                 </div>
                                 <div>
                                     <h2>5. Write a short bio to introduce yourself</h2>
-                                    <textarea class="guidesetup__bio_input_box" placeholder={this.state.placeholder_bio}
+                                    <textarea class="guidesetup__bio_input_box"
                                               value={this.state.value} onChange={this.handleChange}/>
                                 </div>
                             </div>
@@ -215,10 +217,10 @@ class GuideSetup extends React.Component {
                         <img id="logo-img" src= { suberimg } />
                     </a>
                 </div>
-                
                 {this.PageChange(this.state.page)}
             </body>
         )
+    
   }
 }
 
