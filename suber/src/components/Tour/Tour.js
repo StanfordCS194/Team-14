@@ -111,7 +111,7 @@ class Tour extends React.Component {
         let guidesMarkup = this.state.guides ? (
             this.state.guides.map(guide => <Guidebox guide={guide}/>)
         ) : (
-            <p>Loading...</p>
+            <p id="tour__loading_text">Loading...</p>
         );
         const ExampleCustomInput = ({ value, onClick }) => (
             <button class="custom-input" onClick={onClick}>
@@ -133,7 +133,7 @@ class Tour extends React.Component {
                     </div>
                 </div>
                 <div id="tour__mainpage">
-                    <div class="split" id="sidebar">
+                    <div class="split" id="tour__sidebar">
                         <div class="findbox">
                             <div class="fb-text">Tour Date</div>
                             <DatePicker id="date-picker"
@@ -178,6 +178,9 @@ class Tour extends React.Component {
                                 options={options_major}
                             />
                         </div>
+                        <button id="tour__findbox-search">
+                                <p class="fb-text-white">Filter Result</p>
+                        </button>
                     </div>
                     <div class="split" id="guide-list">
                         {guidesMarkup}
