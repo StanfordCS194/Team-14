@@ -83,7 +83,7 @@ class Home extends React.Component {
             <body>
                 <div id="menubar">
                     <div id="guide-login">
-                        <a id="guide_login_link" href="/#/loggedin">Already a suber guide?</a>
+                        <a id="guide_login_link" href="/#/login">Already a suber guide?</a>
                     </div>
                     <a id="logo" href="/#/">
                         <img id="logo-img" src= { suberimg } />

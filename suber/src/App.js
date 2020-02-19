@@ -14,6 +14,7 @@ import Welcome from './components/Welcome/Welcome';
 import Cancel from './components/Cancel/Cancel'
 import Cancelconfirmation from './components/Cancelconfirmation/Cancelconfirmation';
 import Tourguideconfirmation from './components/Tourguideconfirmation/Tourguideconfirmation';
+import Login from './components/Login/Login'
 import Loggedin from './components/Loggedin/Loggedin';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
       <Route path='/welcome' component={Welcome} />
       <Route path='/cancel' exact={true} component={Cancel} />
       <Route path='/cancel/confirmation' component={Cancelconfirmation} />
+      <Route path='/login' component={Login} />
       <Route path='/loggedin' component={Loggedin} />
     </HashRouter>
   );

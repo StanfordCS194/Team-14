@@ -16,7 +16,6 @@ body {
 #menubar {
     width: 100%;
     height: 60px;
-
     background-color: #ffffff;
     display: inline-block;
     text-align:center;
@@ -27,7 +26,6 @@ body {
     font-weight: 700;
     font-size: 16px;
     color: #eb5757;
-
     width: 40%;
     display: inline-block;
     text-align:left;
@@ -38,17 +36,11 @@ body {
     margin-top: 10px;
 }
 
-#logo-img {
-    vertical-align: middle;
-    height: 40px;
-}
-
 #guide-signup{
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     font-size: 16px;
     color: #eb5757;
-
     display: inline-block;
     width:40%;
     text-align:right;
@@ -56,13 +48,18 @@ body {
     margin-bottom:11px;
 }
 
-#guide_login_link {
-    color: #eb5757;
-} 
+#logo-img {
+    vertical-align: middle;
+    height: 40px;
+}
 
 #guide_signup_link {
     color: #eb5757;
 }
+
+#guide_login_link {
+    color: #eb5757;
+} 
 
 #mainpage {
     text-align: right;
@@ -128,14 +125,18 @@ body {
     margin-top: 20px;
     margin-left: 40px;
     margin-right: 40px;
-
     padding-top: 15px;
     padding-bottom: 15px;
-
     width: 350px;
     border-radius: 10px;
     background-color: #eb5757;
     text-align: center;
+}
+
+.tour__fb-text {
+    font-weight: 200;
+    font-size: 18px;
+    margin-bottom: 10px;
 }
 
 .home-custom-input {
@@ -145,12 +146,6 @@ body {
     text-align: left;
     padding-left: 10px;
     font-size: 16px;
-}
-
-.tour__fb-text {
-    font-weight: 200;
-    font-size: 18px;
-    margin-bottom: 10px;
 }
 
 .fb-text-red {

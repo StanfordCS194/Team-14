@@ -62,9 +62,17 @@ body {
     padding: 0%;
 }
 
-#sidebar {
+#tour__sidebar {
     flex: 0 0 400px;
+    padding-top: 20px;
     border-right: 1px solid #e3e3e3;
+}
+
+#tour__loading_text {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 30px;
+    color: #d65341;
 }
 
 .custom-input {
@@ -79,7 +87,21 @@ body {
 .findbox {
     width: 320px;
     padding-left: 40px;
-    padding-top: 32px;
+    padding-top: 20px;
+}
+
+#tour__findbox-search {
+    margin-top: 80px;
+    margin-left: 40px;
+    margin-right: 40px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    width: 320px;
+    border-radius: 10px;
+    background-color: #eb5757;
+    text-align: center;
 }
 
 .fb-text {
@@ -93,9 +115,12 @@ body {
 }
 
 .guidebox {
-    width: 500px;
-    height: 170px;
-    margin: 30px;
+    width: 440px;
+    height: 150px;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-right: 20px;
+    margin-bottom: 20px;
     display: inline-block;
     border: 1px solid #e3e3e3;
     border-radius: 15px;
@@ -104,8 +129,8 @@ body {
 .guide-image {
     background-image: url('../../imgs/default-profile-picture1.jpg');
     background-size: cover;
-    height: 170px;
-    width: 170px;
+    height: 150px;
+    width: 150px;
     border-radius: 15px;
     display: inline-block;
 }
@@ -115,25 +140,26 @@ body {
     width: 250px; 
     display: inline-block;
     vertical-align: top;
-    margin: 20px;
-
-    font-size: 15px;
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 14px;
 }
 
 .guide-name {
     font-size: 20px;
     color: black;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .guide-language {
+    margin-top: 5px;
     margin-bottom: 5px;
 }
 
 .guide-major {
-    margin-bottom: 15px;
+    margin-bottom: 7px;
 }
 
 .ratings {
-    margin-top: 15px;
+    margin-top: 7px;
 }
