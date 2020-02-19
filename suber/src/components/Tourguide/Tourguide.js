@@ -57,7 +57,7 @@ const options_major = [
     { value: '5', label: 'Other' }
 ];
 
-class Home extends React.Component {
+class Tourguide extends React.Component {
     state = {
         startDate: new Date(),
         startTime: null,
@@ -103,11 +103,11 @@ class Home extends React.Component {
                     <div id="guide-login">
                         <p>Already a suber guide?</p>
                     </div>
-                    <div id="logo">
+                    <a id="logo" href="/#/">
                         <img id="logo-img" src= { suberimg } />
-                    </div>
+                    </a>
                     <div id="guide-signup">
-                        <p>Register Now</p>
+                        <a id="guide_signup_link" href="/#/register">Register Now</a>
                     </div>
                 </div>
                 <div id="tourguide_tour__mainpage">
@@ -223,4 +223,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default Tourguide;

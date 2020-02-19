@@ -14,9 +14,9 @@ class Register extends React.Component {
         return (
             <body>
                 <div id="register__menubar">
-                    <div id="register__logo">
+                    <a id="register__logo" href="/#/">
                         <img id="register__logo-img" src= { suberimg } />
-                    </div>
+                    </a>
                 </div>
                 
                 <div id="register__mainpage">

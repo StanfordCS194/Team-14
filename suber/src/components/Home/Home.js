@@ -85,11 +85,11 @@ class Home extends React.Component {
                     <div id="guide-login">
                         <p>Already a suber guide?</p>
                     </div>
-                    <div id="logo">
+                    <a id="logo" href="/#/">
                         <img id="logo-img" src= { suberimg } />
-                    </div>
+                    </a>
                     <div id="guide-signup">
-                        <a href = "/#/register">Register Now</a>
+                        <a id="guide_signup_link" href = "/#/register">Register Now</a>
                     </div>
                 </div>
                 <div id="mainpage">
