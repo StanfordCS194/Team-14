@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
 
 body {
-    background: url('../../imgs/stanford-1.jpg');
+    background: white;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -36,6 +36,17 @@ body {
     height: 40px;
 }
 
+#guidesetup__bar {
+    display: inline-block;
+}
+
+#guidesetup__bar-img {
+    vertical-align: middle;
+    height: 5px;
+    width: 300px;
+}
+
+
 #guidesetup__guide-signup{
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
@@ -49,10 +60,10 @@ body {
     margin-bottom:11px;
 }
 
-#guidesetup__mainpage {
+#guidesetup__mainbox {
     text-align: center;
-    padding-left: 12%;
-    padding-top: 15%;
+
+    padding-top: 2%;
 }
 
 #guidesetup__container {
