@@ -65,9 +65,9 @@ class GuideSetup extends React.Component {
                                 <h2>1. Upload your profile picture</h2>
                                 <div>
                                     <h2>2. What's your name?</h2>
-                                    <input class="guidesetup__name_input_box" type="text" placeholder={this.state.placeholder_first_name}
+                                    <input class="guidesetup__name_input_box" type="text" placeholder="First Name"
                                            value={this.state.value} onChange={this.handleChange} />
-                                    <input class="guidesetup__name_input_box" type="text" placeholder={this.state.placeholder_last_name}
+                                    <input class="guidesetup__name_input_box" type="text" placeholder="Last Name"
                                            value={this.state.value} onChange={this.handleChange} />
                                 </div>
                                 <div>
@@ -94,7 +94,11 @@ class GuideSetup extends React.Component {
                                 </div>
                                 <div>
                                     <h2>5. Write a short bio to introduce yourself</h2>
+<<<<<<< HEAD
                                     <textarea class="guidesetup__bio_input_box"
+=======
+                                    <textarea class="guidesetup__bio_input_box" placeholder="example) Hi! I am Collin, a junior..."
+>>>>>>> e67abc9371b726a3d921b3102c639c9bd898f942
                                               value={this.state.value} onChange={this.handleChange}/>
                                 </div>
                             </div>
