@@ -28,12 +28,9 @@ function App() {
       <Route path='/guidesetup' component={GuideSetup} />
       <Route path='/search' exact={true} component={Search} />
       <Route path='/search/confirmation' component={Searchconfirmation} />
-<<<<<<< HEAD
       <Route path='/welcome' component={Welcome} />
-=======
       <Route path='/cancel' exact={true} component={Cancel} />
       <Route path='/cancel/confirmation' component={Cancelconfirmation} />
->>>>>>> 44cc4e2a420176d64f70ac348399dc8bb806b60d
     </HashRouter>
   );
 }
