@@ -3,12 +3,56 @@ import './GuideSetup.css';
 import {InputGroup, FormControl} from 'react-bootstrap'
 
 import suberimg from '../../imgs/SUBER.png'
+import bar1 from '../../imgs/bar1.jpg'
+import bar2 from '../../imgs/bar2.jpg'
+import bar3 from '../../imgs/bar3.jpg'
+
 
 class GuideSetup extends React.Component {
-    state = {
-        email: null
-    };
     
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            page: 1
+        }
+    }
+
+
+    img1 = () => {
+        return(
+            <div id="guidesetup__bar">
+                <img id="guidesetup__bar-img" src= { bar1 } />
+            </div>
+        );
+    }
+
+    img2 = () => {
+        return(
+            <div id="guidesetup__bar">
+                <img id="guidesetup__bar-img" src= { bar2 } />
+            </div>
+        );
+    }
+
+    img3 = () => {
+        return(
+            <div id="guidesetup__bar">
+                <img id="guidesetup__bar-img" src= { bar3 } />
+            </div>
+        );
+    }
+
+    PageBar = (param) => {
+        switch (param) {
+            case 1:
+                return this.img1();
+            case 2:
+                return this.img2();
+            case 3:
+                return this.img3();
+        }
+    }
     
     render() {
         return (
@@ -23,6 +67,9 @@ class GuideSetup extends React.Component {
                     <div id="guidesetup__container">
                         <div id="guidesetup__textbox">
                             <h1>Shit</h1>
+                        </div>
+                        <div>
+                            {this.PageBar(this.state.page)}
                         </div>
                         
                         <div>
