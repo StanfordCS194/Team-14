@@ -1,9 +1,11 @@
 import React from 'react';
+import axios from 'axios';
 import './Tour.css';
 
 import DatePicker from "react-datepicker";
 import Select from "react-select";
 import StarRatings from "react-star-ratings";
+import Guidebox from './Guidebox';
 
 import suberimg from '../../imgs/SUBER.png'
 
@@ -66,6 +68,7 @@ class Tour extends React.Component {
         duration: null,
         groupSize: null,
         rating: 4,
+        guides: null
     };
     
     handleChange = date => {
@@ -92,7 +95,24 @@ class Tour extends React.Component {
         );
     };
 
+    componentDidMount(){
+        axios
+            .get('/guides')
+            .then((res) => {
+                console.log(res.data);
+                this.setState({
+                    guides: res.data
+                });
+            })
+            .catch(err => console.log(err.response));
+    }
+
     render() {
+        let guidesMarkup = this.state.guides ? (
+            this.state.guides.map(guide => <Guidebox guide={guide}/>)
+        ) : (
+            <p>Loading...</p>
+        );
         const ExampleCustomInput = ({ value, onClick }) => (
             <button class="custom-input" onClick={onClick}>
               {value}
@@ -160,168 +180,7 @@ class Tour extends React.Component {
                         </div>
                     </div>
                     <div class="split" id="guide-list">
-                        <div class="guidebox">
-                            <div class="guide-image"></div>
-                            <div class="guide-text">
-                                <a class="guide-name" href="/#/tourguide">
-                                    <b>Collin</b>
-                                </a>
-                                <div class="guide-language">
-                                    <p>
-                                        <b>Languages: </b>English, Korean
-                                    </p>
-                                </div>
-                                <div class="guide-major">
-                                    <p>
-                                        <b>Major: </b>Electrical Engineering
-                                    </p>
-                                </div>
-                                <StarRatings
-                                    rating={this.state.rating}
-                                    starRatedColor="#FEB156"
-                                    numberOfStars={5}
-                                    name='rating'
-                                    class='ratings'
-                                    starDimension='25px'
-                                    starSpacing='1px'
-                                />
-                            </div>
-                        </div>
-                        <div class="guidebox">
-                            <div class="guide-image"></div>
-                            <div class="guide-text">
-                                <a class="guide-name" href="/#/tourguide">
-                                    <b>Collin</b>
-                                </a>
-                                <div class="guide-language">
-                                    <p>
-                                        <b>Languages: </b>English, Korean
-                                    </p>
-                                </div>
-                                <div class="guide-major">
-                                    <p>
-                                        <b>Major: </b>Electrical Engineering
-                                    </p>
-                                </div>
-                                <StarRatings
-                                    rating={this.state.rating}
-                                    starRatedColor="#FEB156"
-                                    numberOfStars={5}
-                                    name='rating'
-                                    class='ratings'
-                                    starDimension='25px'
-                                    starSpacing='1px'
-                                />
-                            </div>
-                        </div>
-                        <div class="guidebox">
-                            <div class="guide-image"></div>
-                            <div class="guide-text">
-                                <a class="guide-name" href="/#/tourguide">
-                                    <b>Collin</b>
-                                </a>
-                                <div class="guide-language">
-                                    <p>
-                                        <b>Languages: </b>English, Korean
-                                    </p>
-                                </div>
-                                <div class="guide-major">
-                                    <p>
-                                        <b>Major: </b>Electrical Engineering
-                                    </p>
-                                </div>
-                                <StarRatings
-                                    rating={this.state.rating}
-                                    starRatedColor="#FEB156"
-                                    numberOfStars={5}
-                                    name='rating'
-                                    class='ratings'
-                                    starDimension='25px'
-                                    starSpacing='1px'
-                                />
-                            </div>
-                        </div>
-                        <div class="guidebox">
-                            <div class="guide-image"></div>
-                            <div class="guide-text">
-                                <a class="guide-name" href="/#/tourguide" >
-                                    <b>Collin</b>
-                                </a>
-                                <div class="guide-language">
-                                    <p>
-                                        <b>Languages: </b>English, Korean
-                                    </p>
-                                </div>
-                                <div class="guide-major">
-                                    <p>
-                                        <b>Major: </b>Electrical Engineering
-                                    </p>
-                                </div>
-                                <StarRatings
-                                    rating={this.state.rating}
-                                    starRatedColor="#FEB156"
-                                    numberOfStars={5}
-                                    name='rating'
-                                    class='ratings'
-                                    starDimension='25px'
-                                    starSpacing='1px'
-                                />
-                            </div>
-                        </div>
-                        <div class="guidebox">
-                            <div class="guide-image"></div>
-                            <div class="guide-text">
-                                <a class="guide-name" href="/#/tourguide">
-                                    <b>Collin</b>
-                                </a>
-                                <div class="guide-language">
-                                    <p>
-                                        <b>Languages: </b>English, Korean
-                                    </p>
-                                </div>
-                                <div class="guide-major">
-                                    <p>
-                                        <b>Major: </b>Electrical Engineering
-                                    </p>
-                                </div>
-                                <StarRatings
-                                    rating={this.state.rating}
-                                    starRatedColor="#FEB156"
-                                    numberOfStars={5}
-                                    name='rating'
-                                    class='ratings'
-                                    starDimension='25px'
-                                    starSpacing='1px'
-                                />
-                            </div>
-                        </div>
-                        <div class="guidebox">
-                            <div class="guide-image"></div>
-                            <div class="guide-text">
-                                <a class="guide-name" href="/#/tourguide">
-                                    <b>Collin</b>
-                                </a>
-                                <div class="guide-language">
-                                    <p>
-                                        <b>Languages: </b>English, Korean
-                                    </p>
-                                </div>
-                                <div class="guide-major">
-                                    <p>
-                                        <b>Major: </b>Electrical Engineering
-                                    </p>
-                                </div>
-                                <StarRatings
-                                    rating={this.state.rating}
-                                    starRatedColor="#FEB156"
-                                    numberOfStars={5}
-                                    name='rating'
-                                    class='ratings'
-                                    starDimension='25px'
-                                    starSpacing='1px'
-                                />
-                            </div>
-                        </div>
+                        {guidesMarkup}
                     </div>
                 </div>
             </body>

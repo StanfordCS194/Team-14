@@ -5,14 +5,14 @@ const app = express();
 const FBAuth = require('./util/fbAuth');
 
 const {getAllScreams, postOneScream} = require('./handlers/screams');
-const {signup, login, uploadImage, addUserDetails}, getAuthenticatedUser = require('./handlers/users');
+const {signup, login, uploadImage, addUserDetails, getAuthenticatedUser} = require('./handlers/users');
+const {getAllGuides} = require('./handlers/guides');
 
 
 
 //Screams route
-app.get('/screams', getAllScreams)
+app.get('/screams', getAllScreams);
 app.post('/screams', FBAuth, postOneScream);
-app.get('/scream/:screamId', getScream);
 //TODO : delete scream
 //TODO : like scream
 //TODO : unlike scream
@@ -22,12 +22,15 @@ app.get('/scream/:screamId', getScream);
 //signup route
 app.post('/signup', signup);
 //login route
-app.post('/login', login)
+app.post('/login', login);
 
-app.post('/user/image', FBAuth, uploadImage)
+app.post('/user/image', FBAuth, uploadImage);
 app.post('/user', FBAuth, addUserDetails);
 app.get('/user', FBAuth, getAuthenticatedUser);
 
+
+//Guides route
+app.get('/guides', getAllGuides);
 
 
 //functions
