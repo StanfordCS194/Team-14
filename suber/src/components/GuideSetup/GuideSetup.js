@@ -6,7 +6,9 @@ import suberimg from '../../imgs/SUBER.png'
 import bar1 from '../../imgs/bar1.jpg'
 import bar2 from '../../imgs/bar2.jpg'
 import bar3 from '../../imgs/bar3.jpg'
+
 import ScheduleSelector from 'react-schedule-selector'
+import ReactUploadFile from 'react-upload-file'
 
 
 const options_language = [
@@ -26,6 +28,11 @@ const options_major = [
     { value: '5', label: 'Other' }
 ];
 
+const options = {
+    multiple: true,
+    dataType: 'json'
+}
+
 
 
 class GuideSetup extends React.Component {
@@ -44,9 +51,21 @@ class GuideSetup extends React.Component {
     handleChange = newSchedule => {
       this.setState({ schedule: newSchedule })
     }
-   
+    
   
     page1 = () => {
+        let chooseButton = (
+            <button className="guidesetup__choose_button">
+                <p className="guidesetup__choose_button_text">Choose</p>
+            </button>
+        );
+
+        let uploadButton = (
+            <button className="guidesetup__choose_button">
+                <p className="guidesetup__choose_button_text">Upload</p>
+            </button>
+        );
+
         return(
             <div>
                 <div id="guidesetup__mainbox">
@@ -57,10 +76,14 @@ class GuideSetup extends React.Component {
                             <div>
                                 <h1>Tell us more about yourself</h1>
                             </div>
-                            
 
                             <div id="guidesetup__textbox">
-                                <h2>1. Upload your profile picture</h2>
+                                <div>
+                                    <h2>1. Upload your profile picture</h2>
+                                    <ReactUploadFile options={options} 
+                                        chooseFileButton={chooseButton} 
+                                        uploadFileButton={uploadButton} />
+                                </div>
                                 <div>
                                     <h2>2. What's your name?</h2>
                                     <input class="guidesetup__name_input_box" type="text" placeholder="First Name"
@@ -92,12 +115,12 @@ class GuideSetup extends React.Component {
                                 </div>
                                 <div>
                                     <h2>5. Write a short bio to introduce yourself</h2>
-                                    <textarea class="guidesetup__bio_input_box" placeholder="example) Hi! I am Collin, a junior..."
+                                    <textarea class="guidesetup__bio_input_box" placeholder="Example) Hi! I am Collin, a junior studying..."
                                               value={this.state.value} onChange={this.handleChange}/>
                                 </div>
                             </div>
 
-                            <button id="guidesetup__findbox-search" onClick = {this.nextPage1} class="fb-text-white" color='#ffffff'> Next  </button>
+                            <button id="guidesetup__findbox-search" onClick = {this.nextPage1} class="fb-text-white" color='#ffffff'> Next</button>
                             
                         </div>
                     </div>
@@ -114,20 +137,32 @@ class GuideSetup extends React.Component {
                             <div id="guidesetup__bar">
                                 <img id="guidesetup__bar-img" src= { bar2 } />
                             </div>
-
                             <div>
                                 <h1>Tell us more about yourself</h1>
                             </div>
-                            
-
                             <div id="guidesetup__textbox">
-                                <h2>6. Contact Information</h2>
+                                <div>
+                                    <h2>6. Contact Information</h2>
+                                    <input class="guidesetup__contact_input_box" type="text" placeholder="Mobile Number"
+                                           value={this.state.value} onChange={this.handleChange} />
+                                </div>
                                 <h2>7. Where would you prefer to meet with visitors?</h2>
+                                <input class="guidesetup__contact_input_box" type="text" placeholder="Example) Tresidder Union"
+                                           value={this.state.value} onChange={this.handleChange} />
                                 <h2>8. Please describe an example tour path you can lead</h2>
-                                
+                                <input class="guidesetup__path_input_box" type="text" placeholder="Place 1"
+                                           value={this.state.value} onChange={this.handleChange} />
+                                <input class="guidesetup__path_input_box" type="text" placeholder="Place 2"
+                                       value={this.state.value} onChange={this.handleChange} />
+                                <input class="guidesetup__path_input_box" type="text" placeholder="Place 3"
+                                       value={this.state.value} onChange={this.handleChange} />
+                                <input class="guidesetup__path_input_box" type="text" placeholder="Place 4"
+                                       value={this.state.value} onChange={this.handleChange} />
+                                <input class="guidesetup__path_input_box" type="text" placeholder="Place 5"
+                                       value={this.state.value} onChange={this.handleChange} />
                             </div>
 
-                            <button id="guidesetup__findbox-search" onClick = {this.nextPage2} class="fb-text-white" color='#ffffff'> Next  </button>
+                            <button id="guidesetup__findbox-search" onClick = {this.nextPage2} class="fb-text-white" color='#ffffff'> Next</button>
                             
                         </div>
                     </div>

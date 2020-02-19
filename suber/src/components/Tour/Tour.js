@@ -112,6 +112,7 @@ class Tour extends React.Component {
         ) : (
             <p id="tour__loading_text">Loading...</p>
         );
+        
         const ExampleCustomInput = ({ value, onClick }) => (
             <button class="custom-input" onClick={onClick}>
               {value}

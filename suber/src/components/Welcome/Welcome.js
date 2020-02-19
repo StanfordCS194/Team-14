@@ -1,6 +1,5 @@
 import React from 'react';
 import './Welcome.css';
-import {InputGroup, FormControl} from 'react-bootstrap'
 
 import suberimg from '../../imgs/SUBER.png'
 
@@ -26,7 +25,7 @@ class Welcome extends React.Component {
                         </div>
                         <a href="/#/loggedin" >
                             <button id="welcome__findbox-search">
-                                <p class="welcome__fb-text-white" color='#ffffff'>Go Back Home</p>
+                                <p class="welcome__fb-text-white" color='#ffffff'>Go To Account</p>
                             </button>
                         </a>
                     </div>

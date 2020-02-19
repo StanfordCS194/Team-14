@@ -109,6 +109,20 @@ body {
     padding-bottom: 150px;
 }
 
+.guidesetup__choose_button {
+    width: 80px;
+    height: 20px;
+    color: #d65341;
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 2;
+    margin: 5px;
+}
+
+.guidesetup__choose_button_text {
+    color: #d65341;
+    font-size: 12px;
+}
 
 .guidesetup__container_text {
     margin-top: 5px;
@@ -147,10 +161,32 @@ body {
     padding: 4px;
 }
 
+.guidesetup__contact_input_box {
+    width: 400px;
+    height: 26px;
+    font-size: 16px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    margin-right: 14px;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.guidesetup__path_input_box {
+    width: 400px;
+    height: 26px;
+    font-size: 16px;
+    margin-top: 6px;
+    margin-bottom: 2px;
+    margin-right: 14px;
+    border-radius: 5px;
+    padding: 4px;
+}
+
 .guidesetup__bio_input_box {
     border: 2px solid #e3e3e3;
     width: 430px;
-    height: 200px;
+    height: 160px;
     font-size: 16px;
     margin-top: 6px;
     border-radius: 5px;
