@@ -37,6 +37,8 @@ body {
 }
 
 #guidesetup__bar {
+    margin-top: 15px;
+    margin-bottom: 10px;
     display: inline-block;
 }
 
@@ -68,8 +70,8 @@ body {
 
 #guidesetup__container {
     text-align: center;
-    width: 480px;
-    height: 830px;
+    width: 550px;
+    height: 800px;
     display: inline-block;
     border-radius: 10px;
     background-color:#ffffff;
@@ -77,15 +79,43 @@ body {
     padding-right:0%;
 }
 
+.guidesetup__container_text {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+
 #guidesetup__textbox {
     font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    font-weight: bold;
+    font-weight: 300;
+    font-size: 12px;
     padding-top: 10px;
     text-align: left;
-    padding-left: 10px;
+    padding-left: 45px;
 
+}
+
+.guidesetup__name_input_box {
+    width: 200px;
+    height: 35px;
+    font-size: 16px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    margin-right: 14px;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.guidesetup__bio_input_box {
+    border: 2px solid #e3e3e3;
+    width: 430px;
+    height: 200px;
+    font-size: 16px;
+    margin-top: 6px;
+    border-radius: 5px;
+    padding: 4px;
 }
 
 .guidesetup__tour__fb-text {

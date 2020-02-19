@@ -8,7 +8,6 @@ class Login extends React.Component {
         email: null
     };
     
-    
     render() {
         return (
             <body>

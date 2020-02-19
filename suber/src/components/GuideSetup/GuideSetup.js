@@ -14,7 +14,10 @@ class GuideSetup extends React.Component {
         super(props)
 
         this.state = {
-            page: 1
+            page: 1,
+            placeholder_first_name: 'First Name',
+            placeholder_last_name: 'Last Name',
+            placeholder_bio: 'Introduce yourself'
         }
     }
     
@@ -25,20 +28,33 @@ class GuideSetup extends React.Component {
             <div>
                 <div id="guidesetup__mainbox">
                         <div id="guidesetup__container">
-                            <div>
-                                <h1>Tell us more about yourself</h1>
-                            </div>
                             <div id="guidesetup__bar">
                                 <img id="guidesetup__bar-img" src= { bar1 } />
                             </div>
+                            <div class="guidesetup__container_text">
+                                <h1>Tell us more about yourself</h1>
+                            </div>
+                            
 
                             <div id="guidesetup__textbox">
                                 <h2>1. Upload your profile picture</h2>
-                                <h2>2. What's your name?</h2>
+                                <div>
+                                    <h2>2. What's your name?</h2>
+                                    <input class="guidesetup__name_input_box" type="text" placeholder={this.state.placeholder_first_name}
+                                           value={this.state.value} onChange={this.handleChange} />
+                                    <input class="guidesetup__name_input_box" type="text" placeholder={this.state.placeholder_last_name}
+                                           value={this.state.value} onChange={this.handleChange} />
+                                </div>
                                 <h2>3. What is your major(s)?</h2>
+                                <div>
+
+                                </div>
                                 <h2>4. What language(s) do you speak?</h2>
-                                <h2>5. Write a short bio to introduce yourself</h2>
-                                
+                                <div>
+                                    <h2>5. Write a short bio to introduce yourself</h2>
+                                    <textarea class="guidesetup__bio_input_box" placeholder={this.state.placeholder_bio}
+                                              value={this.state.value} onChange={this.handleChange}/>
+                                </div>
                             </div>
 
                             <button id="guidesetup__findbox-search" onClick = {this.nextPage1} class="fb-text-white" color='#ffffff'> Next  </button>
@@ -55,11 +71,11 @@ class GuideSetup extends React.Component {
             <div>
                 <div id="guidesetup__mainbox">
                         <div id="guidesetup__container">
-                            <div>
-                                <h1>Tell us more about yourself</h1>
-                            </div>
                             <div id="guidesetup__bar">
                                 <img id="guidesetup__bar-img" src= { bar2 } />
+                            </div>
+                            <div class="guidesetup__container_text">
+                                <h1>Tell us more about yourself</h1>
                             </div>
 
                             <div id="guidesetup__textbox">
@@ -82,12 +98,13 @@ class GuideSetup extends React.Component {
             <div>
                 <div id="guidesetup__mainbox">
                         <div id="guidesetup__container">
-                            <div>
-                                <h1>Tell us more about yourself</h1>
-                            </div>
                             <div id="guidesetup__bar">
                                 <img id="guidesetup__bar-img" src= { bar3} />
                             </div>
+                            <div class="guidesetup__container_text">
+                                <h1>Tell us more about yourself</h1>
+                            </div>
+                            
 
                             <div id="guidesetup__textbox">
                                 <h2>9. What is your availability?</h2>
