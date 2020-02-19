@@ -38,7 +38,7 @@ class Register extends React.Component {
                         </InputGroup>
                         </div>
                         <button id="register__findbox-search">
-                            <a href="/#/register" class="register__fb-text-white" color='#ffffff'>Send a confirmation code</a>
+                            <a href="/#/registerpw" class="register__fb-text-white" color='#ffffff'>Send a confirmation code</a>
                         </button>
                     </div>
                 </div>

@@ -5,6 +5,8 @@ import Tour from './components/Tour/Tour';
 import Tourguide from './components/Tourguide/Tourguide'
 import Tourconfirmation from './components/Tourconfirmation/Tourconfirmation'
 import Register from './components/Register/Register'
+import RegisterPW from './components/RegisterPW/RegisterPW'
+import GuideSetup from './components/GuideSetup/GuideSetup'
 
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
       <Route path='/tourguide' component={Tourguide} />
       <Route path='/confirmation' component={Tourconfirmation} />
       <Route path='/register' component={Register} />
+      <Route path='/registerpw' component={RegisterPW} />
+      <Route path='guidesetup' component={GuideSetup} />
     </HashRouter>
   );
 }

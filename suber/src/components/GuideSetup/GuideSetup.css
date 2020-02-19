@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+
+*{
+    margin : 0;
+    padding : 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background: url('../../imgs/stanford-1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#menubar {
+    width: 100%;
+    height: 60px;
+
+    background-color: #ffffff;
+    display: inline-block;
+    text-align:center;
+}
+
+#guide-login{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #eb5757;
+
+    width: 40%;
+    display: inline-block;
+    text-align:left;
+}
+
+#logo {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+#logo-img {
+    vertical-align: middle;
+    height: 40px;
+}
+
+#guide-signup{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #eb5757;
+
+    display: inline-block;
+    width:40%;
+    text-align:right;
+    padding-right:10px;
+    margin-bottom:11px;
+}
+
+#mainpage {
+    text-align: center;
+    padding-left: 12%;
+    padding-top: 15%;
+}
+
+#container {
+    text-align: center;
+    width: 700px;
+    height: 350px;
+    display: inline-block;
+    border-radius: 10px;
+    background-color:#ffffff;
+    padding-left: 5%;
+    padding-right:5%;
+}
+
+#textbox {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    font-weight: bold;
+
+    padding : 40px 40px;
+}
+
+
+
+.tour__fb-text {
+    font-weight: 200;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.fb-text-red {
+    font-weight: 550;
+    font-size: 16px;
+    color: #eb5757;
+}
+
+.fb-text-white {
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+}
+
