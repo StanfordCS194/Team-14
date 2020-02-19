@@ -1,15 +1,47 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Login.css';
 
 import suberimg from '../../imgs/SUBER.png'
 
+// Redux
+import { connect } from 'react-redux';
+import { loginUser } from '../../redux/actions/userActions';
+
 class Login extends React.Component {
-    state = {
-        email: null
+    constructor() {
+        super();
+        this.state = {
+            email: '',
+            password: '',
+            errors: {}
+        };
+    }
+    
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.UI.errors) {
+            this.setState({ errors: nextProps.UI.errors });
+        }
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        const userData = {
+            email: this.state.email,
+            password: this.state.password
+        };
+        this.props.loginUser(userData, this.props.history);
+    };
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
     };
     
-    
     render() {
+        //const { classes, UI: { loading }} = this.props;
+        const { errors } = this.state;
         return (
             <body>
                 <div id="login__menubar">
@@ -27,20 +59,16 @@ class Login extends React.Component {
                             <form onSubmit={this.handleSubmit}>
                                 <label id="login__stanford_email">
                                     <p class="login__category_text">Stanford Email</p>
-                                    <input id="login__findbox-input" type="text" value={this.state.value} onChange={this.handleChange} />
+                                    <input id="login__findbox-input" name="email" type="email" value={this.state.email} onChange={this.handleChange}/>
                                 </label>
-                            </form>
-                            <form onSubmit={this.handleSubmit}>
-                                <label id="login__stanford_email">
+                                <label id="login__password">
                                     <p class="login__category_text">Password</p>
-                                    <input id="login__findbox-input" type="text" value={this.state.value} onChange={this.handleChange} />
+                                    <input id="login__findbox-input" name="password" type="password" value={this.state.password} onChange={this.handleChange} />
                                 </label>
-                            </form>
-                            <a href="/#/loggedin">
-                                <button id="login__findbox-search" type="submit" value="Submit">
+                            <button id="login__findbox-search" type="submit" value="Submit">
                                     Sign In
-                                </button>
-                            </a>
+                            </button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -49,4 +77,20 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+Login.propTypes = {
+    //classes: PropTypes.object.isRequired,
+    loginUser: PropTypes.func.isRequired,
+    user: PropTypes.object.isRequired,
+    UI: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => ({
+    user: state.user,
+    UI: state.UI
+});
+
+const mapActionsToProps = {
+    loginUser
+};
+
+export default connect(mapStateToProps, mapActionsToProps)(Login);

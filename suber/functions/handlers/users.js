@@ -1,7 +1,7 @@
 const {db,admin} = require('../util/admin');
-const config = require('../util/config')
+const config = require('../util/config');
 const firebase = require('firebase');
-firebase.initializeApp(config)
+firebase.initializeApp(config);
 const {validateSignupData, validateLoginData, reduceUserDetails} = require('../util/validators');
 
 exports.signup = (req,res) => {
@@ -64,7 +64,6 @@ exports.signup = (req,res) => {
     const {valid, errors} = validateLoginData(user);
     if(!valid) return res.status(400).json(errors);
   
-    
     firebase.auth().signInWithEmailAndPassword(user.email, user.password)
     .then(data => {
       return data.user.getIdToken();
@@ -74,14 +73,13 @@ exports.signup = (req,res) => {
     })
     .catch(err => {
       console.error(err);
-      if(err.code === 'auth/wrong-password'){
-        return res.status(403).json({general: 'wrong password1'})
+      if (err.code === 'auth/wrong-password') {
+        return res.status(403).json({general: 'wrong password'});
       }
-      else{
+      else {
         return res.status(500).json({error: err.code});
       }
-    })
-  
+    });
   }
 
   //Add user details
@@ -102,22 +100,18 @@ exports.getAuthenticatedUser = (req,res) => {
     let userData = {};
     db.doc(`/users/${req.user.handle}`).get()
         .then(doc => {
-            if(doc.exits){
+            if (doc.exits){
                 userData.credentials = doc.data();
-                return db.collection('likes').where('userHandle', '==', req.user.handle).get()
+                return db.collection('users').where('userHandle', '==', req.user.handle).get()
             }
         })
         .then(data => {
-            userData.likes = [];
-            data.forEach(doc => {
-                userData.likes.push(doc.data());
-            });
             return res.json(userData);
         })
         .catch(err => {
             console.error(err);
             return res.status(500).json({error: err.code});
-        })
+        });
 }
   //upload a profile image, or given default prof pic
   exports.uploadImage = (req, res) => {

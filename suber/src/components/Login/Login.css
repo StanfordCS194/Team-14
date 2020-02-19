@@ -99,6 +99,10 @@ body {
     font-size: 20px;
 }
 
+#login__password {
+    font-size: 20px;
+}
+
 .login__category_text {
     text-align: left;
     padding-left: 50px;

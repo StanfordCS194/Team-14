@@ -14,12 +14,12 @@ import Welcome from './components/Welcome/Welcome';
 import Cancel from './components/Cancel/Cancel';
 import Cancelconfirmation from './components/Cancelconfirmation/Cancelconfirmation';
 import Tourguideconfirmation from './components/Tourguideconfirmation/Tourguideconfirmation';
-import Login from './components/Login/Login'
+import Login from './components/Login/Login';
 import Loggedin from './components/Loggedin/Loggedin';
 
 // Redux
 import { Provider } from 'react-redux';
-import store from './redux/store'
+import store from './redux/store';
 
 function App() {
   return (
