@@ -1,5 +1,5 @@
 import React from 'react';
-import './Tourguide.css';
+import './Tourconfirmation.css';
 
 import StarRatings from "react-star-ratings";
 
@@ -99,7 +99,7 @@ class Home extends React.Component {
 
         return (
             <body>
-                <div id="tourguide_menubar">
+                <div id="tourconfirmation_menubar">
                     <div id="guide-login">
                         <p>Already a suber guide?</p>
                     </div>
@@ -110,33 +110,33 @@ class Home extends React.Component {
                         <p>Register Now</p>
                     </div>
                 </div>
-                <div id="tourguide_tour__mainpage">
-                    <div class="split" id="tourguide_sidebar">
-                    <div id="tourguide_guide_img_container">
-                            <img id="tourguide_guide_img" 
+                <div id="tourconfirmation_tour__mainpage">
+                    <div class="split" id="tourconfirmation_sidebar">
+                    <div id="tourconfirmation_guide_img_container">
+                            <img id="tourconfirmation_guide_img" 
                                  src= { require('../../imgs/default-profile-picture1.jpg') } 
                                  width='350px' />
                         </div>
                         <div class="guide-text">
-                            <div class="tourguide__guide_name">
+                            <div class="tourconfirmation__guide_name">
                                 <b>Collin</b>
                             </div>
-                            <div class="tourguide__guide_description">
+                            <div class="tourconfirmation__guide_description">
                                 <p>
                                     <b>Languages: </b>English, Korean
                                 </p>
                             </div>
-                            <div class="tourguide__guide_description">
+                            <div class="tourconfirmation__guide_description">
                                 <p>
                                     <b>Major: </b>Electrical Engineering
                                 </p>
                             </div>
-                            <div class="tourguide__guide_description">
+                            <div class="tourconfirmation__guide_description">
                                 <p>
                                     <b>Rate: </b>$60/hr
                                 </p>
                             </div>
-                            <div class="tourguide__guide_bio">
+                            <div class="tourconfirmation__guide_bio">
                                 <p>
                                     Hello, I’m Collin, a junior studying EE. I’m 
                                     from Korea. I’m also involved in various
@@ -145,7 +145,7 @@ class Home extends React.Component {
                                 </p>
                             </div>
                             <div>
-                                <p id="tourguide__guide_review" ><b>Review</b></p>
+                                <p id="tourconfirmation__guide_review" ><b>Review</b></p>
                                 <StarRatings
                                     rating={this.state.rating}
                                     starRatedColor="#FEB156"
@@ -159,62 +159,32 @@ class Home extends React.Component {
                         </div>
 
                     </div>
-                    <div class="split" id="tourguide__tour_details">
-                        <div id="tourguide__detail_text">Selected Tour Details</div>
-                        <div>
-                            <p>
-                                <div class="tourguide__detail_details_1">Date/Time:&nbsp;</div>
-                                <div class="tourguide__detail_details_2">November 20, 2020, 8:30 AM - 9:00 AM</div>
-                            </p>
-                            <p>
-                                <div class="tourguide__detail_details_1">Total Price:&nbsp;</div>
-                                <div class="tourguide__detail_details_2">$30</div>
-                            </p>
-                            <p>
-                                <div class="tourguide__detail_details_1">Meetup Place:&nbsp;</div>
-                                <div class="tourguide__detail_details_2">Main Quad</div>
-                            </p>
-                            <p>
-                                <div class="tourguide__detail_details_1">Tour Group Size:&nbsp;</div>
-                                <div class="tourguide__detail_details_2">5</div>
-                            </p>
-                            <p>
-                                <div class="tourguide__detail_details_1">Language:&nbsp;</div>
-                                <div class="tourguide__detail_details_2">Chinese (Mandarin)</div>
-                            </p>
+                    <div class="split" id="tourconfirmation__tour_details">
+                        <div id="tourconfirmation__detail_text">Your Reservation</div>
+                        <div id="tourconfirmation__">
+                            <p>We will send you a confirmation email as soon as Collin accepts the reservation.</p>
                         </div>
-                        <div id="tourguide__recommended_course">
-                            <p id="tourguide__recommended_course_text">Collin's Recommended Tour Course</p>
-                            <div class="tourguide__recommended_course_box">
-                                <div class="tourguide__recommended_course_boxtext">&bull;&nbsp;&nbsp;Meet at the Main Quad</div>
-                            </div>
-                            <div class="tourguide__recommended_course_box">
-                                <div class="tourguide__recommended_course_boxtext">&bull;&nbsp;&nbsp;Visit the Memorial Church</div>
-                            </div>
-                            <div class="tourguide__recommended_course_box">
-                                <div class="tourguide__recommended_course_boxtext">&bull;&nbsp;&nbsp;Tour the Cantor Arts Center</div>
-                            </div>
-                            <div class="tourguide__recommended_course_box">
-                                <div class="tourguide__recommended_course_boxtext">&bull;&nbsp;&nbsp;Walk aroun the Engineering Quad</div>
-                            </div>
-                            <div class="tourguide__recommended_course_box">
-                                <div class="tourguide__recommended_course_boxtext">&bull;&nbsp;&nbsp;(Optional) Coffee Chat at Coupa Cafe</div>
-                            </div>
-                            <div class="tourguide__recommended_course_box">
-                                <div class="tourguide__recommended_course_boxtext">&bull;&nbsp;&nbsp;Stanford Bookstore</div>
-                            </div>
-                            <div class="tourguide__recommended_course_box">
-                                <div class="tourguide__recommended_course_boxtext">&bull;&nbsp;&nbsp;Tresidder Memorial Union</div>
-                            </div>
+                        <div id="tourconfirmation__recommended_course">
+                            <div class="tourconfirmation__detail_bullet">Reservation Number</div>
+                            <div>BXDKAL</div>
+                            <div>Reservation Status</div>
+                            <div>Awaiting Confirmation</div>
+                            <div>Tour Date/Time</div>
+                            <div>Reservation Status</div>
+                            <div>Meetup Place</div>
+                            <div>Reservation Status</div>
+                            <div>Total Price</div>
+                            <div>Reservation Status</div>
+                            <div>Instruction</div>
+                            <div>Please arrive at the meetup place 5 minutes before 
+                                the start of the tour. Payments for the tour service 
+                                will be directly made to the guide in cash.</div>
                         </div>
-                        <div class="tourguide__button">
-                            <a href="/#/tour" class="tourguide__btn_text">Back to list</a>
-                        </div>
-                        <div class="tourguide__button">
-                            <a href="/#/confirmation" class="tourguide__btn_text">Select Tour Guide</a>
+                        <div class="tourconfirmation__button">
+                            <a href="/#/" id="tourconfirmation__back_btn">Go Back Home</a>
                         </div>
                     </div>
-                    <div class="split" id="tourguide__tour_map">
+                    <div class="split" id="tourconfirmation__tour_map">
                         <img src={ mapimg } width='550px' height='850px' />
                     </div>
                 </div>

@@ -73,6 +73,12 @@ class Home extends React.Component {
     };
 
     render() {
+        const ExampleCustomInput = ({ value, onClick }) => (
+            <button class="home-custom-input" onClick={onClick}>
+              {value}
+            </button>
+        );
+
         return (
             <body>
                 <div id="menubar">
@@ -97,6 +103,7 @@ class Home extends React.Component {
                             <DatePicker id="date-picker"
                                 selected={this.state.startDate}
                                 onChange={this.handleChange}
+                                customInput={<ExampleCustomInput />}
                             />
                         </div>
                         <div id="findbox-time-duration">

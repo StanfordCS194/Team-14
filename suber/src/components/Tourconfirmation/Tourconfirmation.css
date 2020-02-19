@@ -10,7 +10,7 @@ body {
     flex-direction: column;
 }
 
-#tourguide_menubar {
+#tourconfirmation_menubar {
     flex: 0 0 60px;
 
     background-color: #ffffff;
@@ -20,53 +20,53 @@ body {
     border-bottom: 1px solid #e3e3e3;
 }
 
-.tourguide__guide_name {
+.tourconfirmation__guide_name {
     font-size: 26px;
     padding-bottom: 16px;
 }
 
-.tourguide__guide_description {
+.tourconfirmation__guide_description {
     padding: 2px;
     font-size: 16px;
 }
 
-.tourguide__guide_bio {
+.tourconfirmation__guide_bio {
     width: 300px;
     padding-left: 4px;
     padding-top: 30px;
     padding-bottom: 30px;
 }
 
-#tourguide__guide_review {
+#tourconfirmation__guide_review {
     padding-bottom: 6px;
 }
 
-#tourguide_guide-login{
+#tourconfirmation_guide-login{
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     font-size: 16px;
-    color: #eb5757;
+    color: #d65341;
 
     width: 40%;
     display: inline-block;
     text-align:left;
 }
 
-#tourguide_logo {
+#tourconfirmation_logo {
     display: inline-block;
     margin-top: 10px;
 }
 
-#tourguide_logo-img {
+#tourconfirmation_logo-img {
     vertical-align: middle;
     height: 40px;
 }
 
-#tourguide_guide-signup{
+#tourconfirmation_guide-signup{
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     font-size: 16px;
-    color: #eb5757;
+    color: #d65341;
 
     display: inline-block;
     width: 40%;
@@ -75,7 +75,7 @@ body {
     margin-bottom:11px;
 }
 
-#tourguide_tour__mainpage {
+#tourconfirmation_tour__mainpage {
     background-color: white;
 
     flex: 1 1 auto;
@@ -86,72 +86,55 @@ body {
     padding: 0%;
 }
 
-#tourguide_sidebar {
+#tourconfirmation_sidebar {
     flex: 0 0 350px;
     border-right: 1px solid #e3e3e3;
 }
 
-#tourguide__detail_text {
+#tourconfirmation__detail_text {
     font-style: bold;
     font-weight: 700;
     font-size: 24px;
     padding-bottom: 20px;
 }
 
-#tourguide__tour_details {
+#tourconfirmation__tour_details {
     flex: 1 1 50px;
     padding-top: 30px;
     padding-left: 30px;
     padding-right: 20px;
 }
 
-.tourguide__detail_details_1 {
+.tourconfirmation__detail_details_1 {
     display: inline-block;
-    color: #eb5757;
+    color: #d65341;
     font-weight: 600;
     font-size: 18px;
     padding-left: 4px;
     padding-bottom: 4px;
 }
 
-.tourguide__detail_details_2 {
+.tourconfirmation__detail_details_2 {
     display: inline-block;
     font-size: 18px;
 }
 
-#tourguide__recommended_course {
+#tourconfirmation__recommended_course {
     margin-top: 30px;
 }
 
-#tourguide__recommended_course_text {
+#tourconfirmation__recommended_course_text {
     font-style: bold;
     font-weight: 700;
     font-size: 24px;
 }
 
-.tourguide__recommended_course_box {
-    border: 1px solid #e3e3e3;
-    border-radius: 10px;
-    min-height: 50px;
-    text-align: left;
-
-    margin-top: 10px;
-    margin-right: 20px;
-}
-
-.tourguide__recommended_course_boxtext {
-    padding-left: 25px;
-    padding-top: 12px;
-    font-size: 16px;
-}
-
-.tourguide__button {
-    width: 270px;
+.tourconfirmation__button {
+    width: 450px;
     height: 50px;
     border: 1px solid #e3e3e3;
     border-radius: 8px;
-    background-color: #eb5757;
-    color: #ffffff;
+    background-color: #d65341;
     text-align: center;
     padding-top: 18px;
     display: inline-block;
@@ -159,11 +142,11 @@ body {
     font-size: 20px;
 }
 
-.tourguide__btn_text {
+#tourconfirmation__back_btn {
     color: white;
 }
 
-#tourguide__tour_map {
+#tourconfirmation__tour_map {
     border-left: 1px solid #e3e3e3;
     flex: 0 0 60px;
 }
