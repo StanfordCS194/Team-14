@@ -61,6 +61,7 @@ exports.postNewTour = (req, res) => {
   exports.getTourForTourist = (req, res) => {
     admin.firestore().collection('tours')
         .orderBy('touristContact').equalTo(req.touristContact)
+        .orderBy('startTime','desc')
         .get()
         .then((data) => {
             let tours = [];
@@ -86,10 +87,11 @@ exports.postNewTour = (req, res) => {
          res.status(500).json({error: err.code});
      });
 
-  exports.getTourForGuserIde = (req, res) => {
+  exports.getTourForGuide = (req, res) => {
     admin.firestore().collection('tours')
         .orderBy('userId').equalTo(req.userId)
         .orderBy('status').equalTo(req.status)
+        .orderBy('startTime','desc')
         .get()
         .then((data) => {
             let tours = [];
