@@ -6,6 +6,8 @@ import suberimg from '../../imgs/SUBER.png'
 import bar1 from '../../imgs/bar1.jpg'
 import bar2 from '../../imgs/bar2.jpg'
 import bar3 from '../../imgs/bar3.jpg'
+import ScheduleSelector from 'react-schedule-selector'
+
 
 const options_language = [
     { value: '1', label: 'English' },
@@ -24,6 +26,8 @@ const options_major = [
     { value: '5', label: 'Other' }
 ];
 
+
+
 class GuideSetup extends React.Component {
     
     constructor(props) {
@@ -31,14 +35,17 @@ class GuideSetup extends React.Component {
 
         this.state = {
             page: 1,
-            placeholder_first_name: 'First Name',
-            placeholder_last_name: 'Last Name',
-            placeholder_bio: 'Introduce yourself'
+            schedule: []
         }
     }
+
+ 
+    handleChange = newSchedule => {
+      this.setState({ schedule: newSchedule })
+    }
+   
+  
     
-
-
     page1 = () => {
         return(
             <div>
@@ -47,7 +54,7 @@ class GuideSetup extends React.Component {
                             <div id="guidesetup__bar">
                                 <img id="guidesetup__bar-img" src= { bar1 } />
                             </div>
-                            <div class="guidesetup__container_text">
+                            <div>
                                 <h1>Tell us more about yourself</h1>
                             </div>
                             
@@ -107,9 +114,11 @@ class GuideSetup extends React.Component {
                             <div id="guidesetup__bar">
                                 <img id="guidesetup__bar-img" src= { bar2 } />
                             </div>
-                            <div class="guidesetup__container_text">
+
+                            <div>
                                 <h1>Tell us more about yourself</h1>
                             </div>
+                            
 
                             <div id="guidesetup__textbox">
                                 <h2>6. Contact Information</h2>
@@ -130,19 +139,36 @@ class GuideSetup extends React.Component {
         return(
             <div>
                 <div id="guidesetup__mainbox">
-                        <div id="guidesetup__container">
+                        <div id="guidesetup__container3">
                             <div id="guidesetup__bar">
                                 <img id="guidesetup__bar-img" src= { bar3} />
                             </div>
-                            <div class="guidesetup__container_text">
+                            <div>
                                 <h1>Tell us more about yourself</h1>
                             </div>
                             
 
-                            <div id="guidesetup__textbox">
+                            <div id="guidesetup__textbox3" >
                                 <h2>9. What is your availability?</h2>
                                 Remember, you can always change this later.
-                                
+                            </div>
+
+                            <ScheduleSelector
+                                selection={this.state.schedule}
+                                numDays={7}
+                                minTime={8}
+                                maxTime={17}
+                                onChange={this.handleChange}
+                            />
+                            <div id="guidesetup__textred"> 
+                                <div class="guidesetup__fb-text-red">
+                                    Drag down the time slots that you’re able to offer tours
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="guidesetup__fb-text-grey"> 
+                                You're almost there!
                             </div>
 
                             <a href="/#/welcome"> 

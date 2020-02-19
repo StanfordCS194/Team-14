@@ -79,6 +79,37 @@ body {
     padding-right:0%;
 }
 
+#guidesetup__container3 {
+    text-align: center;
+    width: 880px;
+    height: 830px;
+    display: inline-block;
+    border-radius: 10px;
+    background-color:#ffffff;
+    padding-left: 0%;
+    padding-right:2%;
+}
+
+
+#guidesetup__textbox3 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    font-weight: bold;
+    padding-top: 10px;
+    text-align: left;
+    padding-left: 210px;
+    padding-bottom: 50px;
+
+}
+
+#guidesetup__textred {
+    text-align: center;
+    padding-left: 50px;
+    padding-bottom: 150px;
+}
+
+
 .guidesetup__container_text {
     margin-top: 5px;
     margin-bottom: 10px;
@@ -137,6 +168,13 @@ body {
     font-size: 16px;
     color: #eb5757;
 }
+
+.guidesetup__fb-text-grey {
+    font-weight: 550;
+    font-size: 16px;
+    color: grey;
+}
+
 
 .guidesetup__fb-text-white {
     font-weight: 600;
