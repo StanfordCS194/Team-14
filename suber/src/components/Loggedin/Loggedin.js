@@ -1,5 +1,5 @@
 import React from 'react';
-import './Home.css';
+import './Loggedin.css';
 
 import DatePicker from "react-datepicker";
 import Select from "react-select";
@@ -40,7 +40,7 @@ const options_size = [
     { value: '6', label: '6' },
 ];
 
-class Home extends React.Component {
+class Loggedin extends React.Component {
     state = {
         startDate: new Date(),
         startTime: null,
@@ -83,7 +83,7 @@ class Home extends React.Component {
             <body>
                 <div id="menubar">
                     <div id="guide-login">
-                        <a id="guide_login_link" href="/#/loggedin">Already a suber guide?</a>
+                        <p></p>
                     </div>
                     <a id="logo" href="/#/">
                         <img id="logo-img" src= { suberimg } />
@@ -94,51 +94,31 @@ class Home extends React.Component {
                 </div>
                 <div id="mainpage">
                     <div id="container">
-                        <div id="textbox">
-                            <h1>Find a personal guide for</h1>
-                            <h1>Stanford University</h1>
-                        </div>
-                        <div id="findbox-date">
-                            <div class="tour__fb-text">Tour Date</div>
-                            <DatePicker id="date-picker"
-                                selected={this.state.startDate}
-                                onChange={this.handleChange}
-                                customInput={<ExampleCustomInput />}
-                            />
-                        </div>
-                        <div id="findbox-time-duration">
-                            <div id="findbox-time">
-                                <div class="fb-text">Starting Time</div>
-                                <Select
-                                    value={this.state.startTime}
-                                    onChange={this.handleTimeChange}
-                                    options={options_time}
-                                />
-                            </div>
-                            <div id="findbox-duration">
-                                <div class="fb-text">Duration</div>
-                                <Select
-                                    value={this.state.duration}
-                                    onChange={this.handleDurationChange}
-                                    options={options_duration}
-                                />
-                            </div>
-                        </div>
-                        <div id="findbox-size">
-                            <div class="fb-text">Group Size</div>
-                            <Select
-                                value={this.state.groupSize}
-                                onChange={this.handleSizeChange}
-                                options={options_size}
-                            />
-                        </div>
-                        <div id="findbox-size">
-                            <a href="/#/search" class="fb-text-red">Find an Existing Reservation</a>
+                        <div id="loggedin__textbox">
+                            <h1>Manage Your Profile</h1>
                         </div>
                         <a href="/#/tour">
-                            <button id="findbox-search">
-                                <p class="fb-text-white">Find a Tour Guide</p>
+                            <button id="loggedin__navigation_button">
+                                <p class="loggedin__fb-text-white">Update Personal Information</p>
                             </button>
+                        </a>
+                        <a href="/#/tour">
+                            <button id="loggedin__navigation_button">
+                                <p class="loggedin__fb-text-white">Update Availability</p>
+                            </button>
+                        </a>
+                        <a href="/#/tour">
+                            <button id="loggedin__navigation_button">
+                                <p class="loggedin__fb-text-white">Update Tour Information</p>
+                            </button>
+                        </a>
+                        <a href="/#/tour">
+                            <button id="loggedin__navigation_button">
+                                <p class="loggedin__fb-text-white">View Reservation</p>
+                            </button>
+                        </a>
+                        <a href="/#/">
+                            <div id="loggedin__signout">Sign Out</div>
                         </a>
                     </div>
                 </div>
@@ -147,4 +127,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default Loggedin;
