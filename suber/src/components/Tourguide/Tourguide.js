@@ -212,7 +212,7 @@ class Tourguide extends React.Component {
                                 <p class="tourguide__btn_text">Back to list</p>
                             </div>
                         </a>
-                        <a href="/#/tourguide/confirmation">
+                        <a href="/#/reservation/confirmation">
                             <div class="tourguide__button">
                                 <p class="tourguide__btn_text">Select Tour Guide</p>
                             </div>
