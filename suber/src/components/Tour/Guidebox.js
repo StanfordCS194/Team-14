@@ -13,7 +13,7 @@ class Guidebox extends React.Component {
             <div class="guidebox">
                 <div class="guide-image"></div>
                     <div class="guide-text">
-                        <a class="guide-name" href="/#/tourguide">
+                        <a class="guide-name" href= "/#/tourguide/3" >
                             <b>{firstName}</b>
                                 </a>
                                 <div class="guide-language">
