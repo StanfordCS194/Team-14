@@ -5,8 +5,9 @@ import './Tour.css';
 import DatePicker from "react-datepicker";
 import Select from "react-select";
 import Guidebox from './Guidebox';
-
 import suberimg from '../../imgs/SUBER.png'
+
+import { options_language, options_major } from '../Option/Option'
 
 
 const options_time = [
@@ -43,22 +44,9 @@ const options_size = [
     { value: '6', label: '6' }
 ];
 
-const options_language = [
-    { value: '1', label: 'English' },
-    { value: '2', label: 'Spanish' },
-    { value: '3', label: 'Chinese' },
-    { value: '4', label: 'Japanese' },
-    { value: '5', label: 'Korean' },
-    { value: '6', label: 'Hindi' }
-];
 
-const options_major = [
-    { value: '1', label: 'Computer Science' },
-    { value: '2', label: 'Engineering' },
-    { value: '3', label: 'Social Sciences' },
-    { value: '4', label: 'Humanities' },
-    { value: '5', label: 'Other' }
-];
+
+
 
 class Tour extends React.Component {
     state = {
