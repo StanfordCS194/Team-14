@@ -71,7 +71,16 @@ class GuideSetup extends React.Component {
         localStorage.removeItem('newUserPW');
         const newUserData = {
             email: newUserEmail,
-            password: newUserPW
+            password: newUserPW,
+            confirmPassword: newUserPW,
+            schedule: this.state.schedule,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            major: this.state.major,
+            language: this.state.language,
+            note: this.state.note,
+            phone: this.state.phone,
+            startLoc: this.state.startLoc
         };
         this.props.signupUser(newUserData, this.props.history);
     }
@@ -82,18 +91,18 @@ class GuideSetup extends React.Component {
         });
     }
 
-    handleMultiChange = (attr, options) => {
+    handleMultiChange = (attr, selects) => {
        this.setState({
-           [attr]: options
+           [attr]: selects
         });
     }
 
-    handleChangeMajor = (options) => {
-       this.handleMultiChange('major', options);
+    handleChangeMajor = (selects) => {
+       this.handleMultiChange('major', selects);
     }
 
-    handleChangeLanguage = (options) => {
-       this.handleMultiChange('language', options);
+    handleChangeLanguage = (selects) => {
+       this.handleMultiChange('language', selects);
     }
 
     handleChangeSchedule = newSchedule => {

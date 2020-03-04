@@ -21,7 +21,7 @@ class Register extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        localStorage.setItem('newUserEmail', this.state.email);
+        localStorage.setItem('newUserEmail', this.state.email + '@stanford.edu');
         this.props.history.push('/registerpw');
     }
 
