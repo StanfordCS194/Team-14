@@ -61,7 +61,7 @@ class GuideSetup extends React.Component {
                             </div>
 
                             <div id="guidesetup__textbox">
-                                <div>
+                                <div id="guidesetup__imageupload_container">
                                     <h2>1. Upload your profile picture</h2>
                                     <ImageUploader
                                         withIcon={true}

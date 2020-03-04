@@ -71,7 +71,7 @@ body {
 #guidesetup__container {
     text-align: center;
     width: 550px;
-    height: 800px;
+    height: 820px;
     display: inline-block;
     border-radius: 10px;
     background-color:#ffffff;
@@ -107,6 +107,10 @@ body {
     text-align: center;
     padding-left: 50px;
     padding-bottom: 150px;
+}
+
+#guidesetup__imageupload_container {
+    margin-right: 66px;
 }
 
 .guidesetup__choose_button {
@@ -186,7 +190,7 @@ body {
 .guidesetup__bio_input_box {
     border: 2px solid #e3e3e3;
     width: 430px;
-    height: 160px;
+    height: 90px;
     font-size: 16px;
     margin-top: 6px;
     border-radius: 5px;
