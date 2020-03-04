@@ -10,6 +10,8 @@ import bar3 from '../../imgs/bar3.jpg'
 import ScheduleSelector from 'react-schedule-selector'
 import ReactUploadFile from 'react-upload-file'
 
+import ImageUploader from 'react-images-upload';
+
 import { options_language, options_major } from '../Option/Option'
 
 const options = {
@@ -61,9 +63,13 @@ class GuideSetup extends React.Component {
                             <div id="guidesetup__textbox">
                                 <div>
                                     <h2>1. Upload your profile picture</h2>
-                                    <ReactUploadFile options={options} 
-                                        chooseFileButton={chooseButton} 
-                                        uploadFileButton={uploadButton} />
+                                    <ImageUploader
+                                        withIcon={true}
+                                        buttonText='Choose images'
+                                        onChange={this.onDrop}
+                                        imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                                        maxFileSize={5242880}
+                                    />
                                 </div>
                                 <div>
                                     <h2>2. What's your name?</h2>
