@@ -8,10 +8,10 @@ exports.signup = (req,res) => {
     const newUser = {
       email: req.body.email,
       password: req.body.password,
-      confirmPassword: req.body.confirmPassword,
+      confirmPassword: req.body.password, // TODO: actually implement this
       handle: req.body.handle
     };
-  
+    
     const {valid, errors} = validateSignupData(newUser);
     if(!valid) return res.status(400).json(errors);
     const noImg = 'blank_profpic.png'

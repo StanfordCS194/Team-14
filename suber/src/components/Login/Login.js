@@ -65,9 +65,9 @@ class Login extends React.Component {
                                     <p class="login__category_text">Password</p>
                                     <input id="login__findbox-input" name="password" type="password" value={this.state.password} onChange={this.handleChange} />
                                 </label>
-                            <button id="login__findbox-search" type="submit" value="Submit">
+                                <button id="login__findbox-search" type="submit" value="Submit">
                                     Sign In
-                            </button>
+                                </button>
                             </form>
                         </div>
                     </div>
