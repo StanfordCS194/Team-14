@@ -10,30 +10,12 @@ import bar3 from '../../imgs/bar3.jpg'
 import ScheduleSelector from 'react-schedule-selector'
 import ReactUploadFile from 'react-upload-file'
 
-
-const options_language = [
-    { value: '1', label: 'English' },
-    { value: '2', label: 'Spanish' },
-    { value: '3', label: 'Chinese' },
-    { value: '4', label: 'Japanese' },
-    { value: '5', label: 'Korean' },
-    { value: '6', label: 'Hindi' }
-];
-
-const options_major = [
-    { value: '1', label: 'Computer Science' },
-    { value: '2', label: 'Engineering' },
-    { value: '3', label: 'Social Sciences' },
-    { value: '4', label: 'Humanities' },
-    { value: '5', label: 'Other' }
-];
+import { options_language, options_major } from '../Option/Option'
 
 const options = {
     multiple: true,
     dataType: 'json'
 }
-
-
 
 class GuideSetup extends React.Component {
     
