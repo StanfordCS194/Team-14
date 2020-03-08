@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+
+body {
+    background: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#guidesetup__menubar {
+    width: 100%;
+    height: 60px;
+
+    background-color: #ffffff;
+    display: inline-block;
+    text-align:center;
+}
+
+#guidesetup__guide-login{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #eb5757;
+
+    width: 40%;
+    display: inline-block;
+    text-align:left;
+}
+
+#guidesetup__logo {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+#guidesetup__logo-img {
+    vertical-align: middle;
+    height: 40px;
+}
+
+#guidesetup__bar {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+#guidesetup__bar-img {
+    vertical-align: middle;
+    height: 5px;
+    width: 400px;
+}
+
+
+#guidesetup__guide-signup{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #eb5757;
+
+    display: inline-block;
+    width:40%;
+    text-align:right;
+    padding-right:10px;
+    margin-bottom:11px;
+}
+
+#guidesetup__mainbox {
+    text-align: center;
+
+    padding-top: 1%;
+}
+
+#guidesetup__container {
+    text-align: center;
+    width: 550px;
+    height: 820px;
+    display: inline-block;
+    border-radius: 10px;
+    background-color:#ffffff;
+    padding-left: 0%;
+    padding-right:0%;
+}
+
+#guidesetup__container3 {
+    text-align: center;
+    width: 880px;
+    height: 830px;
+    display: inline-block;
+    border-radius: 10px;
+    background-color:#ffffff;
+    padding-left: 0%;
+    padding-right:2%;
+}
+
+
+#guidesetup__textbox3 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    font-weight: bold;
+    padding-top: 10px;
+    text-align: left;
+    padding-left: 210px;
+    padding-bottom: 50px;
+
+}
+
+#guidesetup__textred {
+    text-align: center;
+    padding-left: 50px;
+    padding-bottom: 150px;
+}
+
+#guidesetup__imageupload_container {
+    margin-right: 66px;
+}
+
+.guidesetup__choose_button {
+    width: 80px;
+    height: 20px;
+    color: #d65341;
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 2;
+    margin: 5px;
+}
+
+.guidesetup__choose_button_text {
+    color: #d65341;
+    font-size: 12px;
+}
+
+.guidesetup__container_text {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.guidesetup__select {
+    padding-top: 10px;
+    margin-bottom: 16px;
+    width: 440px;
+    height: 40px;
+    font-size: 16px;
+}
+
+#guidesetup__textbox {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    padding-top: 10px;
+    text-align: left;
+    padding-left: 45px;
+
+}
+
+.guidesetup__name_input_box {
+    width: 200px;
+    height: 26px;
+    font-size: 16px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    margin-right: 14px;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.guidesetup__contact_input_box {
+    width: 400px;
+    height: 26px;
+    font-size: 16px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    margin-right: 14px;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.guidesetup__path_input_box {
+    width: 400px;
+    height: 26px;
+    font-size: 16px;
+    margin-top: 6px;
+    margin-bottom: 2px;
+    margin-right: 14px;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.guidesetup__bio_input_box {
+    border: 2px solid #e3e3e3;
+    width: 430px;
+    height: 90px;
+    font-size: 16px;
+    margin-top: 6px;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.guidesetup__tour__fb-text {
+    font-weight: 200;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.guidesetup__fb-text-red {
+    font-weight: 550;
+    font-size: 16px;
+    color: #eb5757;
+}
+
+.guidesetup__fb-text-grey {
+    font-weight: 550;
+    font-size: 16px;
+    color: grey;
+}
+
+
+.guidesetup__fb-text-white {
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+#guidesetup__findbox-search {
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    width: 350px;
+    border-radius: 10px;
+    background-color: #eb5757;
+    text-align: center;
+}
+
