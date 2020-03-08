@@ -7,9 +7,12 @@ import Tour from './Tour';
 class Guidebox extends React.Component {
     render() {
         const { classes, guide : { uid, firstName, lastName, imageUrl, handle, email, language, major, completedTours, netRating, note } } = this.props
-        let avgRating = netRating * 1.0 / completedTours;
-        let languages = language.join(', ');
-        let majors = major.join(', ');
+        let avgRating = 0.0;
+        let languages = [];
+        let majors = [];
+        if (netRating && completedTours) avgRating = netRating * 1.0 / completedTours;
+        if (language) languages = language.join(', ');
+        if (major) majors = major.join(', ');
         return (
             <div class="guidebox">
                 <div class="guide-image"></div>
