@@ -14,12 +14,11 @@ const options = {
     dataType: 'json'
 }
 
-class GuideSetup extends React.Component {
+class UpdateAvailability extends React.Component {
     
     constructor(props) {
         super(props)
         this.state = {
-            page: 1,
             schedule: [],
             placeholder_first_name: 'First Name',
             placeholder_last_name: 'Last Name'
@@ -30,10 +29,15 @@ class GuideSetup extends React.Component {
       this.setState({ schedule: newSchedule })
     }
     
-
-    page1 = () => {
-        return(
-            <div>
+    render() {
+        return (
+            <body>
+                <div id="guidesetup__menubar">
+                    <a id="logo" href="/#/">
+                        <img id="logo-img" src= { suberimg } />
+                    </a>
+                </div>
+                 <div>
                 <div id="guidesetup__mainbox">
                         <div id="guidesetup__container3">
                             <div>
@@ -56,37 +60,10 @@ class GuideSetup extends React.Component {
                                 <button id="guidesetup__findbox-search" class="fb-text-white" color='#ffffff'> 
                                     Next
                                 </button>
-                            </a>
-                            
-                            
+                            </a>    
                         </div>
                     </div>
             </div>
-        );
-    }
-
-
-    PageChange = (param) => {
-        switch (param) {
-            case 1:
-                return this.page1();
-            case 2:
-                return this.page2();
-            case 3:
-                console.log("3")
-                return this.page3();
-        }
-    }
-    
-    render() {
-        return (
-            <body>
-                <div id="guidesetup__menubar">
-                    <a id="logo" href="/#/">
-                        <img id="logo-img" src= { suberimg } />
-                    </a>
-                </div>
-                {this.PageChange(this.state.page)}
             </body>
         )
     }
