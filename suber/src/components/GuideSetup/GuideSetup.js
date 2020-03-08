@@ -1,6 +1,7 @@
 import React from 'react';
 import './GuideSetup.css';
 import Select from "react-select";
+import PropTypes from 'prop-types';
 
 import suberimg from '../../imgs/SUBER.png'
 import bar1 from '../../imgs/bar1.jpg'
@@ -9,6 +10,10 @@ import bar3 from '../../imgs/bar3.jpg'
 
 import ScheduleSelector from 'react-schedule-selector'
 import ImageUploader from 'react-images-upload';
+
+// Redux
+import { connect } from 'react-redux';
+import { signupUser } from '../../redux/actions/userActions';
 
 import { options_language, options_major } from '../Option/Option'
 
@@ -24,13 +29,67 @@ class GuideSetup extends React.Component {
         this.state = {
             page: 1,
             schedule: [],
-            placeholder_first_name: 'First Name',
-            placeholder_last_name: 'Last Name'
+            firstName: '',
+            lastName: '',
+            major: [],
+            language: [],
+            note: '',
+            phone: '',
+            startLoc: '',
+            errors: {}
+        }
+    }
+    
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.UI.errors) {
+            this.setState({ errors: nextProps.UI.errors });
         }
     }
 
-    handleChange = newSchedule => {
-      this.setState({ schedule: newSchedule })
+    handleSubmit = (event) => {
+        event.preventDefault();
+        let newUserEmail = localStorage.getItem('newUserEmail');
+        localStorage.removeItem('newUserEmail');
+        let newUserPW = localStorage.getItem('newUserPW');
+        localStorage.removeItem('newUserPW');
+        const newUserData = {
+            email: newUserEmail,
+            password: newUserPW,
+            confirmPassword: newUserPW,
+            schedule: this.state.schedule,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            major: this.state.major.map(({ label }) => label),
+            language: this.state.language.map(({ label }) => label),
+            note: this.state.note,
+            phone: this.state.phone,
+            startLoc: this.state.startLoc
+        };
+        this.props.signupUser(newUserData, this.props.history);
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    }
+
+    handleMultiChange = (attr, selects) => {
+        this.setState({
+           [attr]: selects
+        });
+    }
+
+    handleChangeMajor = (selects) => {
+       this.handleMultiChange('major', selects);
+    }
+
+    handleChangeLanguage = (selects) => {
+       this.handleMultiChange('language', selects);
+    }
+
+    handleChangeSchedule = newSchedule => {
+      this.setState({ schedule: newSchedule });
     }
     
   
@@ -71,18 +130,18 @@ class GuideSetup extends React.Component {
                                 </div>
                                 <div>
                                     <h2>2. What's your name?</h2>
-                                    <input class="guidesetup__name_input_box" type="text" placeholder="First Name"
-                                           value={this.state.value} onChange={this.handleChange} />
-                                    <input class="guidesetup__name_input_box" type="text" placeholder="Last Name"
-                                           value={this.state.value} onChange={this.handleChange} />
+                                    <input class="guidesetup__name_input_box" name="firstName" type="text" placeholder="First Name"
+                                           value={this.state.firstName} onChange={this.handleChange} />
+                                    <input class="guidesetup__name_input_box" name="lastName" type="text" placeholder="Last Name"
+                                           value={this.state.lastName} onChange={this.handleChange} />
                                 </div>
                                 <div>
                                     <h2>3. What is your major(s)?</h2>
                                     <div class="guidesetup__select">
                                         <Select
                                             isMulti={true}
-                                            value={this.state.startTime}
-                                            onChange={this.handleTimeChange}
+                                            value={this.state.major}
+                                            onChange={this.handleChangeMajor}
                                             options={options_major}
                                         />
                                     </div>
@@ -91,17 +150,18 @@ class GuideSetup extends React.Component {
                                     <h2>4. What language(s) do you speak?</h2>
                                     <div class="guidesetup__select">
                                         <Select
+                                            name="language"
                                             isMulti={true}
-                                            value={this.state.startTime}
-                                            onChange={this.handleTimeChange}
+                                            value={this.state.language}
+                                            onChange={this.handleChangeLanguage}
                                             options={options_language}
                                         />
                                     </div>
                                 </div>
                                 <div>
                                     <h2>5. Write a short bio to introduce yourself</h2>
-                                    <textarea class="guidesetup__bio_input_box" placeholder="Example) Hi! I am Collin, a junior studying..."
-                                              value={this.state.value} onChange={this.handleChange}/>
+                                    <textarea class="guidesetup__bio_input_box" name='note' placeholder="e.g. Hi! I'm Collin, a junior studying..."
+                                              value={this.state.name} onChange={this.handleChange}/>
                                 </div>
                             </div>
 
@@ -128,12 +188,12 @@ class GuideSetup extends React.Component {
                             <div id="guidesetup__textbox">
                                 <div>
                                     <h2>6. Contact Information</h2>
-                                    <input class="guidesetup__contact_input_box" type="text" placeholder="Mobile Number"
-                                           value={this.state.value} onChange={this.handleChange} />
+                                    <input class="guidesetup__contact_input_box" name="phone" type="text" placeholder="Mobile Number"
+                                           value={this.state.phone} onChange={this.handleChange} />
                                 </div>
                                 <h2>7. Where would you prefer to meet with visitors?</h2>
-                                <input class="guidesetup__contact_input_box" type="text" placeholder="Example) Tresidder Union"
-                                           value={this.state.value} onChange={this.handleChange} />
+                                <input class="guidesetup__contact_input_box" name="startLoc" type="text" placeholder="e.g. Tresidder Union"
+                                           value={this.state.loc} onChange={this.handleChange} />
                                 <h2>8. Please describe an example tour path you can lead</h2>
                                 <input class="guidesetup__path_input_box" type="text" placeholder="Place 1"
                                            value={this.state.value} onChange={this.handleChange} />
@@ -175,7 +235,7 @@ class GuideSetup extends React.Component {
                                 numDays={7}
                                 minTime={8}
                                 maxTime={17}
-                                onChange={this.handleChange}
+                                onChange={this.handleChangeSchedule}
                             />
                             <div id="guidesetup__textred"> 
                                 <div class="guidesetup__fb-text-red">
@@ -188,13 +248,11 @@ class GuideSetup extends React.Component {
                                 You're almost there!
                             </div>
 
-                            <a href="/#/welcome"> 
+                            <form onSubmit={this.handleSubmit}>
                                 <button id="guidesetup__findbox-search" class="fb-text-white" color='#ffffff'> 
                                     Next
                                 </button>
-                            </a>
-                            
-                            
+                            </form>
                         </div>
                     </div>
             </div>
@@ -220,7 +278,6 @@ class GuideSetup extends React.Component {
             case 2:
                 return this.page2();
             case 3:
-                console.log("3")
                 return this.page3();
         }
     }
@@ -239,4 +296,16 @@ class GuideSetup extends React.Component {
     }
 }
 
-export default GuideSetup;
+GuideSetup.propTypes = {
+    classes: PropTypes.object.isRequired,
+    user: PropTypes.object.isRequired,
+    UI: PropTypes.object.isRequired,
+    signupUser: PropTypes.func.isRequired
+}
+
+const mapStateToProps = (state) => ({
+    user: state.user,
+    UI: state.UI
+})
+
+export default connect(mapStateToProps, { signupUser })(GuideSetup);

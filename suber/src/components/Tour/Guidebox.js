@@ -1,6 +1,7 @@
 import React from 'react';
 import './Tour.css';
 
+import { Link } from 'react-router-dom'
 import StarRatings from "react-star-ratings";
 import Tour from './Tour';
 
@@ -17,9 +18,12 @@ class Guidebox extends React.Component {
             <div class="guidebox">
                 <div class="guide-image"></div>
                 <div class="guide-text">
-                    <button class="guide-name" onClick={this.props.nextPage} href= {"/#/tourguide/" + handle} >
+                    <Link class="guide-name" href= {"/#/tourguide/" + handle} to={{
+                                pathname: "/tourguide",
+                                state: this.props,
+                     }}>
                         <b>{firstName}</b>
-                    </button>
+                    </Link>
                     <div class="guide-language">
                         <p>
                             <b>Languages: </b>{languages}

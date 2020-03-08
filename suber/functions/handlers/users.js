@@ -20,7 +20,6 @@ exports.signup = (req,res) => {
       startLoc: req.body.startLoc,
       handle: req.body.email.split('@')[0]
     };
-    //newUser.handle = newUser.email.split('@')[0]; // First part of email address
 
     const {valid, errors} = validateSignupData(newUser);
     if(!valid) return res.status(400).json(errors);
@@ -30,7 +29,7 @@ exports.signup = (req,res) => {
     db.doc(`/users/${newUser.handle}`).get()
     .then((doc) => {
       if(doc.exists) {
-        return res.status(400).json({handle: 'this handle is taken'});
+        return res.status(400).json({handle: 'this user ID is taken'});
       } else {
         return firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password);
       }
@@ -68,7 +67,7 @@ exports.signup = (req,res) => {
       if(err.code === 'auth/email-already-in-use'){
         return res.status(400).json({email: 'Email is already taken'});
       }
-      return res.status(500).json({general: 'something is wron43g'});
+      return res.status(500).json({err: err.code});
     })
 
   }

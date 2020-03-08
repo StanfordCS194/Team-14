@@ -1,0 +1,170 @@
+@import url('https://fonts.tourguide_googleapis.tourguide_com/css?family=Open+Sans:400,600,700&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+#tourguide_guide-login{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #eb5757;
+
+    width: 40%;
+    display: inline-block;
+    text-align:left;
+}
+
+#tourguide_menubar {
+    flex: 0 0 60px;
+    background-color: #ffffff;
+    display: inline-block;
+    text-align:center;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.tourguide__guide_name {
+    font-size: 26px;
+    padding-bottom: 16px;
+}
+
+.tourguide__guide_description {
+    padding: 2px;
+    font-size: 16px;
+}
+
+.tourguide__guide_bio {
+    width: 250px;
+    padding-left: 4px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#tourguide__guide_review {
+    padding-bottom: 6px;
+}
+
+
+#tourguide_logo {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+#tourguide_logo-img {
+    vertical-align: middle;
+    height: 40px;
+}
+
+#tourguide_guide-signup{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #eb5757;
+    display: inline-block;
+    width: 40%;
+    text-align:right;
+    padding-right:10px;
+    margin-bottom:11px;
+}
+
+#tourguide_tour__mainpage {
+    background-color: white;
+
+    flex: 1 1 auto;
+    width: 100%;
+    height: 850px;
+    text-align: left;
+    display: flex;
+    padding: 0%;
+}
+
+#tourguide_sidebar {
+    flex: 0 0 300px;
+    border-right: 1px solid #e3e3e3;
+}
+
+#tourguide__detail_text {
+    font-style: bold;
+    font-weight: 700;
+    font-size: 24px;
+    padding-bottom: 20px;
+}
+
+#tourguide__tour_details {
+    flex: 1 1 50px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 20px;
+}
+
+.tourguide__detail_details_1 {
+    display: inline-block;
+    color: #eb5757;
+    font-weight: 600;
+    font-size: 18px;
+    padding-left: 4px;
+    padding-bottom: 4px;
+}
+
+.tourguide__detail_details_2 {
+    display: inline-block;
+    font-size: 18px;
+}
+
+.tourguide__button {
+    width: 270px;
+    height: 40px;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    background-color: #eb5757;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 12px;
+    display: inline-block;
+    margin: 30px 15px;
+    font-size: 20px;
+}
+
+
+#tourguide__recommended_course {
+    margin-top: 30px;
+}
+
+#tourguide__recommended_course_text {
+    font-style: bold;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.tourguide__recommended_course_box {
+    border: 1px solid #e3e3e3;
+    border-radius: 10px;
+    min-height: 50px;
+    text-align: left;
+
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.tourguide__recommended_course_boxtext {
+    padding-left: 25px;
+    padding-top: 12px;
+    font-size: 16px;
+}
+
+
+#tourguide__tour_map {
+    border-left: 1px solid #e3e3e3;
+    flex: 0 0 60px;
+}
+
+.tourguide__btn_text {
+    color: white;
+}
+
+
+.tour_map {
+    object-fit: cover;
+}
