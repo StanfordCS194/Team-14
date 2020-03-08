@@ -36,6 +36,11 @@ class GuideSetup extends React.Component {
             note: '',
             phone: '',
             startLoc: '',
+            place1: '',
+            place2: '',
+            place3: '',
+            place4: '',
+            place5: '',
             errors: {}
         }
     }
@@ -63,7 +68,8 @@ class GuideSetup extends React.Component {
             language: this.state.language.map(({ label }) => label),
             note: this.state.note,
             phone: this.state.phone,
-            startLoc: this.state.startLoc
+            startLoc: this.state.startLoc,
+            places: [this.state.place1, this.state.place2, this.state.place3, this.state.place4, this.state.place5]
         };
         this.props.signupUser(newUserData, this.props.history);
     }
@@ -195,16 +201,16 @@ class GuideSetup extends React.Component {
                                 <input class="guidesetup__contact_input_box" name="startLoc" type="text" placeholder="e.g. Tresidder Union"
                                            value={this.state.loc} onChange={this.handleChange} />
                                 <h2>8. Please describe an example tour path you can lead</h2>
-                                <input class="guidesetup__path_input_box" type="text" placeholder="Place 1"
-                                           value={this.state.value} onChange={this.handleChange} />
-                                <input class="guidesetup__path_input_box" type="text" placeholder="Place 2"
-                                       value={this.state.value} onChange={this.handleChange} />
-                                <input class="guidesetup__path_input_box" type="text" placeholder="Place 3"
-                                       value={this.state.value} onChange={this.handleChange} />
-                                <input class="guidesetup__path_input_box" type="text" placeholder="Place 4"
-                                       value={this.state.value} onChange={this.handleChange} />
-                                <input class="guidesetup__path_input_box" type="text" placeholder="Place 5"
-                                       value={this.state.value} onChange={this.handleChange} />
+                                <input class="guidesetup__path_input_box" type="text" placeholder="Place 1" name='place1'
+                                           value={this.state.place1} onChange={this.handleChange} />
+                                <input class="guidesetup__path_input_box" type="text" placeholder="Place 2" name='place2'
+                                       value={this.state.place2} onChange={this.handleChange} />
+                                <input class="guidesetup__path_input_box" type="text" placeholder="Place 3" name='place3'
+                                       value={this.state.place3} onChange={this.handleChange} />
+                                <input class="guidesetup__path_input_box" type="text" placeholder="Place 4" name='place4'
+                                       value={this.state.place4} onChange={this.handleChange} />
+                                <input class="guidesetup__path_input_box" type="text" placeholder="Place 5" name='place5'
+                                       value={this.state.place5} onChange={this.handleChange} />
                             </div>
 
                             <button id="guidesetup__findbox-search" onClick = {this.nextPage2} class="fb-text-white" color='#ffffff'> Next</button>

@@ -9,8 +9,8 @@ exports.signup = (req,res) => {
     const newUser = {
       email: req.body.email,
       password: req.body.password,
-      confirmPassword: req.body.confirmPassword, // TODO: actually implement this
-      schedule: req.body.schedule,
+      confirmPassword: req.body.confirmPassword, // TODO: actually implement this,
+      handle: req.body.email.split('@')[0],
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       major: req.body.major,
@@ -18,7 +18,8 @@ exports.signup = (req,res) => {
       note: req.body.note,
       phone: req.body.phone,
       startLoc: req.body.startLoc,
-      handle: req.body.email.split('@')[0]
+      places: req.body.places,
+      schedule: req.body.schedule
     };
 
     const {valid, errors} = validateSignupData(newUser);
@@ -51,6 +52,7 @@ exports.signup = (req,res) => {
         note: newUser.note,
         phone: newUser.phone,
         startLoc: newUser.startLoc,
+        places: newUser.places,
         completedTours: 0,
         netRating: 0,
         createdAt: new Date().toISOString(),
