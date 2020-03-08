@@ -40,6 +40,8 @@ function App() {
         <Route path='/cancel/confirmation' component={Cancelconfirmation} />
         <Route path='/login' component={Login} />
         <Route path='/loggedin' component={Loggedin} />
+        <Route path='/updateavailability' component={UpdateAvailability} />
+
       </HashRouter>
     </Provider>
   );
