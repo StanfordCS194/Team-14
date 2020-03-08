@@ -2,7 +2,7 @@ import React from 'react';
 import { HashRouter, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Tour from './components/Tour/Tour';
-// import Tourguide from './components/Tourguide/Tourguide';
+import Tourguide from './components/Tourguide/Tourguide';
 import Tourconfirmation from './components/Tourconfirmation/Tourconfirmation';
 import Register from './components/Register/Register';
 import RegisterPW from './components/RegisterPW/RegisterPW';
@@ -16,6 +16,7 @@ import Cancelconfirmation from './components/Cancelconfirmation/Cancelconfirmati
 import Tourguideconfirmation from './components/Tourguideconfirmation/Tourguideconfirmation';
 import Login from './components/Login/Login';
 import Loggedin from './components/Loggedin/Loggedin';
+import UpdateAvailability from './components/UpdateAvailability/UpdateAvailability';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -27,7 +28,7 @@ function App() {
       <HashRouter>
         <Route path='/' exact={true} component={Home} />
         <Route path='/tour' component={Tour} />
-        {/* <Route path='/tourguide' component={Tourguide} /> */}
+        <Route path='/tourguide' component={Tourguide} />
         <Route path='/reservation/confirmation' component={Tourguideconfirmation} />
         <Route path='/confirmation' component={Tourconfirmation} />
         <Route path='/register' component={Register} />
@@ -40,6 +41,8 @@ function App() {
         <Route path='/cancel/confirmation' component={Cancelconfirmation} />
         <Route path='/login' component={Login} />
         <Route path='/loggedin' component={Loggedin} />
+        <Route path='/updateavailability' component={UpdateAvailability} />
+
       </HashRouter>
     </Provider>
   );
