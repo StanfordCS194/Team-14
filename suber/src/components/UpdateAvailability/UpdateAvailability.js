@@ -69,4 +69,4 @@ class UpdateAvailability extends React.Component {
     }
 }
 
-export default GuideSetup;
+export default UpdateAvailability;
