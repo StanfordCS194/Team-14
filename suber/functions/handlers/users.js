@@ -5,55 +5,72 @@ firebase.initializeApp(config);
 const {validateSignupData, validateLoginData, reduceUserDetails} = require('../util/validators');
 
 exports.signup = (req,res) => {
+  console.log('im not liking this')
     const newUser = {
       email: req.body.email,
       password: req.body.password,
-      confirmPassword: req.body.confirmPassword,
-      handle: req.body.handle
+      confirmPassword: req.body.confirmPassword, // TODO: actually implement this
+      schedule: req.body.schedule,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      major: req.body.major,
+      language: req.body.language,
+      note: req.body.note,
+      phone: req.body.phone,
+      startLoc: req.body.startLoc,
+      handle: req.body.email.split('@')[0]
     };
-  
+    //newUser.handle = newUser.email.split('@')[0]; // First part of email address
+
     const {valid, errors} = validateSignupData(newUser);
     if(!valid) return res.status(400).json(errors);
     const noImg = 'blank_profpic.png'
 
-    let token, userId;
+    let token, userId1;
     db.doc(`/users/${newUser.handle}`).get()
-    .then(doc => {
-      if(doc.exists){
+    .then((doc) => {
+      if(doc.exists) {
         return res.status(400).json({handle: 'this handle is taken'});
-      } else{
+      } else {
         return firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password);
       }
     })
-    .then(data => {
-      userId = data.user.uid;
+    .then((data) => {
+      userId1 = data.user.uid;
       return data.user.getIdToken();
     })
-    .then(idtoken => {
-      token = idtoken;
+    .then((idToken) => {
+      token = idToken;
       const userCredentials = {
         handle: newUser.handle,
         email: newUser.email,
+        schedule: newUser.schedule,
+        firstName: newUser.firstName,
+        lastName: newUser.lastName,
+        major: newUser.major,
+        language: newUser.language,
+        note: newUser.note,
+        phone: newUser.phone,
+        startLoc: newUser.startLoc,
+        completedTours: 0,
+        netRating: 0,
         createdAt: new Date().toISOString(),
-        imageUrl: `https://firebasestorage.googleapis.com/v0/b/${config.storageBucket}/o/${imageFileName}?alt=media`,
-        userId
+        imageUrl: `https://firebasestorage.googleapis.com/v0/b/${config.storageBucket}/o/${noImg}?alt=media`,
+        userId: userId1
       };
-      return db.doc(`/users/${newUser.handle}`).set(userCredentials)
-      //return res.status(201).json({token});
+      return db.doc(`/users/${newUser.handle}`).set(userCredentials);
     })
     .then(() => {
       return res.status(201).json({token});
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err);
       if(err.code === 'auth/email-already-in-use'){
-        return res.status(400).json({email: 'Email is already taken'})
-      } else{
-        return res.status(500).json({error: err.code})
+        return res.status(400).json({email: 'Email is already taken'});
       }
-      return res.status(500).json({error : err.code});
-    })  
-  
+      return res.status(500).json({general: 'something is wron43g'});
+    })
+
   }
 
   exports.login = (req, res) => {
