@@ -25,23 +25,21 @@ exports.signup = (req,res) => {
     if(!valid) return res.status(400).json(errors);
     const noImg = 'blank_profpic.png'
 
-    let token, userId;
-    db.collections('users').doc(`${newUser.handle}`).get()
-    .then(doc => {
+    let token, userId1;
+    db.doc(`/users/${newUser.handle}`).get()
+    .then((doc) => {
       if(doc.exists) {
-        return res.status(400).json({handle: 'this handle is taken'});
+        return res.status(400).json({handle: 'this user ID is taken'});
       } else {
         return firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password);
       }
     })
-    .then(data => {
-      userId = data.user.uid;
-      console.log(data)
-      console.log(userId)
+    .then((data) => {
+      userId1 = data.user.uid;
       return data.user.getIdToken();
     })
-    .then(idtoken => {
-      token = idtoken;
+    .then((idToken) => {
+      token = idToken;
       const userCredentials = {
         handle: newUser.handle,
         email: newUser.email,
@@ -56,22 +54,22 @@ exports.signup = (req,res) => {
         completedTours: 0,
         netRating: 0,
         createdAt: new Date().toISOString(),
-        imageUrl: `https://firebasestorage.googleapis.com/v0/b/${config.storageBucket}/o/${imageFileName}?alt=media`,
-        userId: userId
+        imageUrl: `https://firebasestorage.googleapis.com/v0/b/${config.storageBucket}/o/${noImg}?alt=media`,
+        userId: userId1
       };
-      return db.collections('users').doc(`${newUser.handle}`).set(userCredentials);
+      return db.doc(`/users/${newUser.handle}`).set(userCredentials);
     })
     .then(() => {
       return res.status(201).json({token});
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err);
       if(err.code === 'auth/email-already-in-use'){
         return res.status(400).json({email: 'Email is already taken'});
       }
-      return res.status(500).json({error : err.code});
-    })  
-  
+      return res.status(500).json({general: 'something is wrong'});
+    })
+
   }
 
   exports.login = (req, res) => {
