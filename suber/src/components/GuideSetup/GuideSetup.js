@@ -59,8 +59,8 @@ class GuideSetup extends React.Component {
             schedule: this.state.schedule,
             firstName: this.state.firstName,
             lastName: this.state.lastName,
-            major: this.state.major,
-            language: this.state.language,
+            major: this.state.major.map(({ label }) => label),
+            language: this.state.language.map(({ label }) => label),
             note: this.state.note,
             phone: this.state.phone,
             startLoc: this.state.startLoc
@@ -75,7 +75,7 @@ class GuideSetup extends React.Component {
     }
 
     handleMultiChange = (attr, selects) => {
-       this.setState({
+        this.setState({
            [attr]: selects
         });
     }
