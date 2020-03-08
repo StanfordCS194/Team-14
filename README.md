@@ -1,24 +1,9 @@
 # Four Bars
 
-### Team Logo
-<img src="./imgs/Logo_transparent.png" width="500">
+<img src="./imgs/Logo_transparent.png" width="300">
 
 ### Team Members
-Jihun Hong is the best.
-
-<img src="./imgs/Hong_Profile_Pic.jpg" width="300">
-
-Jonathan Kim
-
-<img src="./imgs/Kim_Profile_Pic.jpg" width="300">
-
-Collin Kwon
-
-<img src="./imgs/Kwon_Profile_Pic.jpg" width="300">
-
-Jin Woo Yu
-
-<img src="./imgs/Yu_Profile_Pic.jpg" height="300">
+<img src="./imgs/profile.png">
 
 
 ### Project Synposis

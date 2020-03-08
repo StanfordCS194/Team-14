@@ -9,35 +9,18 @@ import bar2 from '../../imgs/bar2.jpg'
 import bar3 from '../../imgs/bar3.jpg'
 
 import ScheduleSelector from 'react-schedule-selector'
-import ReactUploadFile from 'react-upload-file'
+import ImageUploader from 'react-images-upload';
 
 // Redux
 import { connect } from 'react-redux';
 import { signupUser } from '../../redux/actions/userActions';
 
-
-const options_language = [
-    { value: '1', label: 'English' },
-    { value: '2', label: 'Spanish' },
-    { value: '3', label: 'Chinese' },
-    { value: '4', label: 'Japanese' },
-    { value: '5', label: 'Korean' },
-    { value: '6', label: 'Hindi' }
-];
-
-const options_major = [
-    { value: '1', label: 'Computer Science' },
-    { value: '2', label: 'Engineering' },
-    { value: '3', label: 'Social Sciences' },
-    { value: '4', label: 'Humanities' },
-    { value: '5', label: 'Other' }
-];
+import { options_language, options_major } from '../Option/Option'
 
 const options = {
     multiple: true,
     dataType: 'json'
 }
-
 
 class GuideSetup extends React.Component {
     
@@ -135,11 +118,15 @@ class GuideSetup extends React.Component {
                             </div>
 
                             <div id="guidesetup__textbox">
-                                <div>
+                                <div id="guidesetup__imageupload_container">
                                     <h2>1. Upload your profile picture</h2>
-                                    <ReactUploadFile options={options} 
-                                        chooseFileButton={chooseButton} 
-                                        uploadFileButton={uploadButton} />
+                                    <ImageUploader
+                                        withIcon={true}
+                                        buttonText='Choose images'
+                                        onChange={this.onDrop}
+                                        imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                                        maxFileSize={5242880}
+                                    />
                                 </div>
                                 <div>
                                     <h2>2. What's your name?</h2>

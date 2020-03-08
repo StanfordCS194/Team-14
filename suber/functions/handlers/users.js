@@ -5,6 +5,7 @@ firebase.initializeApp(config);
 const {validateSignupData, validateLoginData, reduceUserDetails} = require('../util/validators');
 
 exports.signup = (req,res) => {
+  console.log('im not liking this')
     const newUser = {
       email: req.body.email,
       password: req.body.password,
@@ -19,7 +20,6 @@ exports.signup = (req,res) => {
       startLoc: req.body.startLoc,
       handle: req.body.email.split('@')[0]
     };
-    //newUser.handle = newUser.email.split('@')[0]; // First part of email address
 
     const {valid, errors} = validateSignupData(newUser);
     if(!valid) return res.status(400).json(errors);
@@ -67,7 +67,7 @@ exports.signup = (req,res) => {
       if(err.code === 'auth/email-already-in-use'){
         return res.status(400).json({email: 'Email is already taken'});
       }
-      return res.status(500).json({general: 'something is wrong'});
+      return res.status(500).json({err: err.code});
     })
 
   }
