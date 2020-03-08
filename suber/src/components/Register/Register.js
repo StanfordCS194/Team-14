@@ -5,10 +5,31 @@ import {InputGroup, FormControl} from 'react-bootstrap'
 import suberimg from '../../imgs/SUBER.png'
 
 class Register extends React.Component {
-    state = {
-        email: null
-    };
-    
+    constructor() {
+        super();
+        this.state = {
+            email: '',
+            errors: {}
+        };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.UI.errors) {
+            this.setState({ errors: nextProps.UI.errors });
+        }
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        localStorage.setItem('newUserEmail', this.state.email + '@stanford.edu');
+        this.props.history.push('/registerpw');
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    }
     
     render() {
         return (
@@ -27,15 +48,13 @@ class Register extends React.Component {
                         <div>
                             <form onSubmit={this.handleSubmit}>
                                 <label id="register__stanford_email">
-                                    <input id="register__findbox-input" type="text" value={this.state.value} onChange={this.handleChange} />
+                                    <input id="register__findbox-input" name="email" type="text" value={this.state.email} onChange={this.handleChange} />
                                     &nbsp;@stanford.edu
                                 </label>
-                            </form>
-                            <a href="/#/registerpw">
                                 <button id="search__findbox-search" type="submit" value="Submit">
                                     Send a confirmation code
                                 </button>
-                            </a>
+                            </form>
                         </div>
                     </div>
                 </div>
