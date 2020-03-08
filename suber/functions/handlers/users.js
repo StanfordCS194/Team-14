@@ -17,9 +17,9 @@ exports.signup = (req,res) => {
       note: req.body.note,
       phone: req.body.phone,
       startLoc: req.body.startLoc,
-      handle: req.body.email.split('@')[0]
+      //handle: req.body.email.split('@')[0]
     };
-    //newUser.handle = newUser.email.split('@')[0]; // First part of email address
+    newUser.handle = newUser.email.split('@')[0]; // First part of email address
 
     const {valid, errors} = validateSignupData(newUser);
     if(!valid) return res.status(400).json(errors);
@@ -36,8 +36,6 @@ exports.signup = (req,res) => {
     })
     .then(data => {
       userId = data.user.uid;
-      console.log(data)
-      console.log(userId)
       return data.user.getIdToken();
     })
     .then(idtoken => {
@@ -70,8 +68,7 @@ exports.signup = (req,res) => {
         return res.status(400).json({email: 'Email is already taken'});
       }
       return res.status(500).json({error : err.code});
-    })  
-  
+    })
   }
 
   exports.login = (req, res) => {
