@@ -21,6 +21,7 @@ app.post('/screams', FBAuth, postOneScream);
 
 //signup route
 app.post('/signup', signup);
+
 //login route
 app.post('/login', login);
 
