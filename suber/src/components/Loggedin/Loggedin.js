@@ -112,7 +112,7 @@ class Loggedin extends React.Component {
                                 <p class="loggedin__fb-text-white">Update Tour Information</p>
                             </button>
                         </a>
-                        <a href="/#/tour">
+                        <a href="/#/viewreservation">
                             <button id="loggedin__navigation_button">
                                 <p class="loggedin__fb-text-white">View Reservation</p>
                             </button>
