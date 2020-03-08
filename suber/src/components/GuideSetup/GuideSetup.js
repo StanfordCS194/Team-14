@@ -8,8 +8,6 @@ import bar2 from '../../imgs/bar2.jpg'
 import bar3 from '../../imgs/bar3.jpg'
 
 import ScheduleSelector from 'react-schedule-selector'
-import ReactUploadFile from 'react-upload-file'
-
 import ImageUploader from 'react-images-upload';
 
 import { options_language, options_major } from '../Option/Option'

@@ -2,6 +2,7 @@ import React from 'react';
 import './Tour.css';
 
 import StarRatings from "react-star-ratings";
+import Tour from './Tour';
 
 class Guidebox extends React.Component {
     render() {
@@ -12,32 +13,32 @@ class Guidebox extends React.Component {
         return (
             <div class="guidebox">
                 <div class="guide-image"></div>
-                    <div class="guide-text">
-                        <a class="guide-name" href= {"/#/tourguide/" + handle} >
-                            <b>{firstName}</b>
-                                </a>
-                                <div class="guide-language">
-                                    <p>
-                                        <b>Languages: </b>{languages}
-                                    </p>
-                                </div>
-                                <div class="guide-major">
-                                    <p>
-                                        <b>Major: </b>{majors}
-                                    </p>
-                                </div>
-                                <StarRatings
-                                    rating={avgRating}
-                                    starRatedColor="#FEB156"
-                                    numberOfStars={5}
-                                    name='rating'
-                                    class='ratings'
-                                    starDimension='25px'
-                                    starSpacing='1px'
-                                />
-                            </div>
-                        </div>
-        )
+                <div class="guide-text">
+                    <button class="guide-name" onClick={this.props.nextPage} href= {"/#/tourguide/" + handle} >
+                        <b>{firstName}</b>
+                    </button>
+                    <div class="guide-language">
+                        <p>
+                            <b>Languages: </b>{languages}
+                        </p>
+                    </div>
+                    <div class="guide-major">
+                        <p>
+                            <b>Major: </b>{majors}
+                        </p>
+                    </div>
+                    <StarRatings
+                        rating={avgRating}
+                        starRatedColor="#FEB156"
+                        numberOfStars={5}
+                        name='rating'
+                        class='ratings'
+                        starDimension='25px'
+                        starSpacing='1px'
+                    />
+                </div>
+            </div>
+    )
     }
 }
 
