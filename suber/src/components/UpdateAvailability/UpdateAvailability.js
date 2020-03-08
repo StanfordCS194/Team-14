@@ -56,7 +56,7 @@ class UpdateAvailability extends React.Component {
                                 </div>
                             </div>
 
-                            <a href="/#/welcome"> 
+                            <a href="/#/loggedin"> 
                                 <button id="guidesetup__findbox-search" class="fb-text-white" color='#ffffff'> 
                                     Next
                                 </button>
