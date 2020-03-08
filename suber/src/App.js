@@ -16,6 +16,7 @@ import Cancelconfirmation from './components/Cancelconfirmation/Cancelconfirmati
 import Tourguideconfirmation from './components/Tourguideconfirmation/Tourguideconfirmation';
 import Login from './components/Login/Login';
 import Loggedin from './components/Loggedin/Loggedin';
+import UpdateAvailability from './components/UpdateAvailability/UpdateAvailability';
 
 // Redux
 import { Provider } from 'react-redux';
