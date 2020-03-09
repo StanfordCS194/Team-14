@@ -248,13 +248,11 @@ class GuideSetup extends React.Component {
                             <div class="guidesetup__fb-text-grey"> 
                                 You're almost there!
                             </div>
-                            <Link to={{ pathname: "/welcome" }} >
-                                <form onSubmit={this.handleSubmit}>
-                                    <button id="guidesetup__findbox-search" class="fb-text-white" color='#ffffff'> 
-                                        Next
-                                    </button>
-                                </form>
-                            </Link>
+                            <form onSubmit={this.handleSubmit}>
+                                <button id="guidesetup__findbox-search" class="fb-text-white" color='#ffffff'> 
+                                    Next
+                                </button>
+                            </form>
                         </div>
                     </div>
             </div>

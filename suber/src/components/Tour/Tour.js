@@ -9,20 +9,7 @@ import Select from "react-select";
 import Guidebox from './Guidebox';
 import suberimg from '../../imgs/SUBER.png'
 
-import { options_language, options_major, options_time, options_duration } from '../Option/Option'
-
-
-
-
-const options_size = [
-    { value: '1', label: '1' },
-    { value: '2', label: '2' },
-    { value: '3', label: '3' },
-    { value: '4', label: '4' },
-    { value: '5', label: '5' },
-    { value: '6', label: '6' }
-];
-
+import { options_language, options_major, options_time, options_duration, options_size } from '../Option/Option'
 
 class Tour extends React.Component {
 
@@ -112,7 +99,7 @@ class Tour extends React.Component {
                 var startDate = this.state.startDate
                 var startTime = this.state.startTime
                 var clientDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(),
-                                            parseInt(startTime.label.slice(0, 2)), parseInt(startTime.label.slice(-2)), 0)
+                                            parseInt(startTime.label.slice(0, 2)), 0, 0)
                 var clientTime = clientDate.toISOString()
                 console.log(clientTime)
                 guides = guides.filter(guide => guide.schedule)

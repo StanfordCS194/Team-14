@@ -108,18 +108,18 @@ class Tourguide extends React.Component {
         
         const timeMap = new Map();
         timeMap.set(5, "5:00")
-            .set(5.5, "5:30")
             .set(6, "6:00")
-            .set(6.5, "6:30")
             .set(7, "7:00")
-            .set(7.5, "7:30")
             .set(8, "8:00")
-            .set(8.5, "8:30")
             .set(9, "9:00")
-            .set(9.5, "9:30")
             .set(10, "10:00")
-            .set(10.5, "10:30")
-
+            .set(11, "11:00")
+            .set(12, "12:00")
+            .set(13, "13:00")
+            .set(14, "14:00")
+            .set(15, "15:00")
+            .set(16, "16:00")
+            .set(17, "17:00")
 
         if (location.state) {
         console.log(this.props)
