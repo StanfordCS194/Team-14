@@ -9,13 +9,22 @@ import bar2 from '../../imgs/bar2.jpg'
 import bar3 from '../../imgs/bar3.jpg'
 
 import ScheduleSelector from 'react-schedule-selector'
-import ImageUploader from 'react-images-upload';
+//import ImageUploader from 'react-images-upload';
+import FileUploader from "react-firebase-file-uploader";
 
-// Redux
 import { connect } from 'react-redux';
 import { signupUser, uploadImage } from '../../redux/actions/userActions';
 
 import { options_language, options_major } from '../Option/Option'
+import firebase from "firebase";
+
+firebase.initializeApp({
+    apiKey: "AIzaSyBdlWQlaZXt9SPV4-OrPrGtMnluWq39Gwk",
+    storageBucket: "cs194w-387e8.appspot.com"
+});
+
+// Redux
+
 
 const options = {
     multiple: true,
@@ -37,16 +46,17 @@ class GuideSetup extends React.Component {
             phone: '',
             startLoc: '',
             errors: {},
-            pictures: null
+            imageUrl: `https://firebasestorage.googleapis.com/v0/b/cs194w-387e8.appspot.com/o/blank_profpic.png?alt=media`
+            //pictures: null
         }
-        this.onDrop = this.onDrop.bind(this);
+        //this.onDrop = this.onDrop.bind(this);
     }
 
-    onDrop(pictureFiles, pictureDataURLs) {
-        this.setState({
-            pictures: pictureFiles[0]
-        });
-    }
+    // onDrop(pictureFiles, pictureDataURLs) {
+    //     this.setState({
+    //         pictures: pictureFiles[0]
+    //     });
+    // }
 
     
     componentWillReceiveProps(nextProps) {
@@ -61,7 +71,7 @@ class GuideSetup extends React.Component {
         localStorage.removeItem('newUserEmail');
         let newUserPW = localStorage.getItem('newUserPW');
         localStorage.removeItem('newUserPW');
-        const formData = new FormData();
+        // const formData = new FormData();
         const newUserData = {
             email: newUserEmail,
             password: newUserPW,
@@ -73,12 +83,43 @@ class GuideSetup extends React.Component {
             language: this.state.language.map(({ label }) => label),
             note: this.state.note,
             phone: this.state.phone,
-            startLoc: this.state.startLoc
+            startLoc: this.state.startLoc,
+            imageUrl: this.state.imageUrl
         };
-        formData.append('image', this.state.pictures, 'ehl')
-        this.props.uploadImage(formData)
+        // formData.append('image', this.state.pictures, 'ehl')
+        // this.props.uploadImage(formData)
         this.props.signupUser(newUserData, this.props.history);
     }
+
+    // handleChangeUsername = (event) =>{
+    //     this.setState({ username: event.target.value });
+    // }
+
+    // handleUploadStart = () => {
+    //     this.setState({ isUploading: true, progress: 0 });
+    // }
+
+    // handleProgress = (progress) => {
+    //     this.setState({ progress });
+    // }
+    
+    handleUploadError = (error) => {
+        //this.setState({ isUploading: false });
+        console.error(error);
+    };
+
+    handleUploadSuccess = (filename) => {
+        // this.setState({ avatar: filename, progress: 100, isUploading: false });
+        // firebase
+        // .storage()
+        // .ref("images")
+        // .child(filename)
+        // .getDownloadURL()
+        // .then(url => this.setState({ avatarURL: url }));
+        firebase.storage().ref("profile_pic").child(filename)
+        .getDownloadURL()
+        .then(url => this.setState({ imageUrl: url }));
+    };
 
     handleChange = (event) => {
         this.setState({
@@ -132,6 +173,8 @@ class GuideSetup extends React.Component {
                             <div id="guidesetup__textbox">
                                 <div id="guidesetup__imageupload_container">
                                     <h2>1. Upload your profile picture</h2>
+                                    
+                                    {/*                                     
                                     <ImageUploader
                                         withIcon={true}
                                         buttonText='Choose images'
@@ -140,6 +183,20 @@ class GuideSetup extends React.Component {
                                         maxFileSize={5242880}
                                         withPreview={true}
                                     />
+                                     */}
+
+                                     <label style={{backgroundColor: 'red', color: 'white', padding: 10, borderRadius: 4, cursor: 'pointer'}}>
+                                        Choose images
+                                        <FileUploader
+                                        hidden
+                                        accept="image/*"
+                                        storageRef={firebase.storage().ref('profile_pic')}
+                                        randomizeFilename
+                                        onUploadError={this.handleUploadError}
+                                        onUploadSuccess={this.handleUploadSuccess}
+                                        //onProgress={this.handleProgress}
+                                        />
+                                    </label>
                                 </div>
                                 <div>
                                     <h2>2. What's your name?</h2>
