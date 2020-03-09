@@ -13,13 +13,13 @@ app.post('/signup', signup);
 //login route
 app.post('/login', login);
 
-app.post('/user/image', FBAuth, uploadImage);
-app.post('/user', FBAuth, addUserDetails);
+//user route
 app.get('/user', FBAuth, getAuthenticatedUser);
+app.post('/user', FBAuth, addUserDetails);
+app.post('/user/image', FBAuth, uploadImage);
 
-//Guides route
+//guides route
 app.get('/guides', getAllGuides);
-
 
 //functions
 exports.api = functions.https.onRequest(app);
