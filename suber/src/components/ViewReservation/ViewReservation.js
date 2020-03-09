@@ -8,7 +8,7 @@ import ReservationBox from './reservationbox';
 class ViewReservation extends React.Component {
   render() {
         return (
-            <body>
+            <body id="viewres_body">
                 <div id="viewReservation__menubar">
                     <a id="logo" href="/#/">
                         <img id="logo-img" src= { suberimg } />
