@@ -12,28 +12,38 @@ import { options_language, options_major } from '../Option/Option'
 
 
 const options_time = [
-    { value: '0500', label: '05:00' },
-    { value: '0530', label: '05:30' },
-    { value: '0600', label: '06:00' },
-    { value: '0630', label: '06:30' },
-    { value: '0700', label: '07:00' },
-    { value: '0730', label: '07:30' },
-    { value: '0800', label: '08:00' },
-    { value: '0830', label: '08:30' },
-    { value: '0900', label: '09:00' }
+    { value: 5, label: '05:00' },
+    { value: 5.5, label: '05:30' },
+    { value: 6, label: '06:00' },
+    { value: 6.5, label: '06:30' },
+    { value: 7, label: '07:00' },
+    { value: 7.5, label: '07:30' },
+    { value: 8, label: '08:00' },
+    { value: 8.5, label: '08:30' },
+    { value: 9, label: '09:00' },
+    { value: 9.5, label: '09:30' },
+    { value: 10, label: '10:00' },
+    { value: 10.5, label: '10:30' },
+    { value: 11, label: '11:00' },
+    { value: 11.5, label: '11:30' },
+    { value: 12, label: '12:00' },
+    { value: 12.5, label: '12:30' },
+    { value: 13, label: '13:00' },
+    { value: 13.5, label: '13:30' },
+    { value: 14, label: '14:00' }
 ];
 
 const options_duration = [
-    { value: '05', label: '0.5 hour' },
-    { value: '10', label: '1 hour' },
-    { value: '15', label: '1.5 hour' },
-    { value: '20', label: '2 hour' },
-    { value: '25', label: '2.5 hour' },
-    { value: '30', label: '3 hour' },
-    { value: '35', label: '3.5 hour' },
-    { value: '40', label: '4 hour' },
-    { value: '45', label: '4.5 hour' },
-    { value: '50', label: '5 hour' }
+    { value: 0.5, label: '0.5 hour' },
+    { value: 1, label: '1 hour' },
+    { value: 1.5, label: '1.5 hour' },
+    { value: 2, label: '2 hour' },
+    { value: 2.5, label: '2.5 hour' },
+    { value: 3, label: '3 hour' },
+    { value: 3.5, label: '3.5 hour' },
+    { value: 4, label: '4 hour' },
+    { value: 4.5, label: '4.5 hour' },
+    { value: 5, label: '5 hour' }
 ];
 
 const options_size = [
@@ -53,6 +63,7 @@ class Tour extends React.Component {
         duration: null,
         groupSize: null,
         guides: null,
+        language: null
     }
     
     handleChange = date => {
@@ -79,6 +90,12 @@ class Tour extends React.Component {
         );
     };
 
+    handleLanguageChange = language => {
+        this.setState(
+            { language }
+        )
+    }
+
     componentDidMount(){
         axios
             .get('/guides')
@@ -98,7 +115,7 @@ class Tour extends React.Component {
     )
 
     guidesMarkup = (guides) => guides ? (
-        guides.map(guide => <Guidebox state={this.state} guide={guide} />)
+        guides.slice(0, 8).map(guide => <Guidebox state={this.state} guide={guide} />)
     ) : (
         <p id="tour__loading_text">Loading...</p>
     )
@@ -149,6 +166,7 @@ class Tour extends React.Component {
                         <div className="fb-text">Language</div>
                         <Select
                             options={options_language}
+                            onChange={this.handleLanguageChange}
                         />
                     </div>
                     <div className="findbox">

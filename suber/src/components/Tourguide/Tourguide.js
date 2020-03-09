@@ -50,13 +50,79 @@ class Tourguide extends React.Component {
         places.map(place => <div class="tourguide__recommended_course_box">
                                 <div class="tourguide__recommended_course_boxtext">&bull;&nbsp;&nbsp;{place}</div>
                             </div>)
-    ) : ( <a>No information available</a>)
+    ) : ( <a>No information available.</a>)
 
     render() {
         const { location } = this.props;
+        
+        let group_size_label = "0"
+        let language_label = "English"
+        let meetup_place = "N/A"
+        let price = 0
+        let duration = 0
+        let month = 0
+        let day = 0
+        let year = 0
+        let time = 0
+
+        if (this.props.location.state) {
+            if (this.props.location.state.guide.startLoc) {
+                meetup_place = this.props.location.state.guide.startLoc;
+            }
+            if (this.props.location.state.state.duration) {
+                duration = this.props.location.state.state.duration.value
+                price = this.props.location.state.state.duration.value * 60
+            }
+            if (this.props.location.state.state.groupSize) {
+                const { state: {state: { groupSize }} } = this.props.location;
+                group_size_label = groupSize.label;
+            }
+            if (this.props.location.state.state.language) {
+                const { state: {state: { language } } } = this.props.location;
+                language_label = language.label;
+            }
+            if (this.props.location.state.state.startDate) {
+                year = this.props.location.state.state.startDate.getFullYear()
+                month = this.props.location.state.state.startDate.getMonth() + 1
+                day = this.props.location.state.state.startDate.getDate()
+                console.log(year, month, day)
+            }
+            if (this.props.location.state.state.startTime) {
+                time = this.props.location.state.state.startTime.value;
+            }
+        }
+
+        const monthMap = new Map()
+        monthMap.set(1, "January")
+            .set(2, "February")
+            .set(3, "March")
+            .set(4, "April")
+            .set(5, "May")
+            .set(6, "June")
+            .set(7, "July")
+            .set(8, "August")
+            .set(9, "September")
+            .set(10, "October")
+            .set(11, "November")
+            .set(12, "December")
+        
+        const timeMap = new Map();
+        timeMap.set(5, "5:00")
+            .set(5.5, "5:30")
+            .set(6, "6:00")
+            .set(6.5, "6:30")
+            .set(7, "7:00")
+            .set(7.5, "7:30")
+            .set(8, "8:00")
+            .set(8.5, "8:30")
+            .set(9, "9:00")
+            .set(9.5, "9:30")
+            .set(10, "10:00")
+            .set(10.5, "10:30")
+
 
         if (location.state) {
-            console.log(this.props)
+        console.log(this.props)
             return (
                 <body>
                     <div id="tourguide_menubar">
@@ -121,23 +187,23 @@ class Tourguide extends React.Component {
                             <div>
                                 <p>
                                     <div class="tourguide__detail_details_1">Date/Time:&nbsp;</div>
-                                    <div class="tourguide__detail_details_2">November 20, 2020, 8:30 AM - 9:00 AM</div>
+                                    <div class="tourguide__detail_details_2">{monthMap.get(month)} {day}th, {year}, {timeMap.get(time)} - {timeMap.get(time + duration)}</div>
                                 </p>
                                 <p>
                                     <div class="tourguide__detail_details_1">Total Price:&nbsp;</div>
-                                    <div class="tourguide__detail_details_2">$30</div>
+                                    <div class="tourguide__detail_details_2">${price}</div>
                                 </p>
                                 <p>
                                     <div class="tourguide__detail_details_1">Meetup Place:&nbsp;</div>
-                                    <div class="tourguide__detail_details_2">{location.state.guide.startLoc}</div>
+                                    <div class="tourguide__detail_details_2">{meetup_place}</div>
                                 </p>
                                 <p>
                                     <div class="tourguide__detail_details_1">Tour Group Size:&nbsp;</div>
-                                    <div class="tourguide__detail_details_2">5</div>
+                                    <div class="tourguide__detail_details_2">{group_size_label}</div>
                                 </p>
                                 <p>
                                     <div class="tourguide__detail_details_1">Language:&nbsp;</div>
-                                    <div class="tourguide__detail_details_2">Chinese (Mandarin)</div>
+                                    <div class="tourguide__detail_details_2">{language_label}</div>
                                 </p>
                             </div>
                             <div id="tourguide__recommended_course">
