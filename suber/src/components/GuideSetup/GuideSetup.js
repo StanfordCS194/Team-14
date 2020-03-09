@@ -9,7 +9,6 @@ import bar2 from '../../imgs/bar2.jpg'
 import bar3 from '../../imgs/bar3.jpg'
 
 import ScheduleSelector from 'react-schedule-selector'
-//import ImageUploader from 'react-images-upload';
 import FileUploader from "react-firebase-file-uploader";
 
 import { connect } from 'react-redux';
@@ -22,9 +21,6 @@ firebase.initializeApp({
     apiKey: "AIzaSyBdlWQlaZXt9SPV4-OrPrGtMnluWq39Gwk",
     storageBucket: "cs194w-387e8.appspot.com"
 });
-
-// Redux
-
 
 const options = {
     multiple: true,

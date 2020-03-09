@@ -5,7 +5,6 @@ firebase.initializeApp(config);
 const {validateSignupData, validateLoginData, reduceUserDetails} = require('../util/validators');
 
 exports.signup = (req,res) => {
-  console.log('im not liking this')
     const newUser = {
       email: req.body.email,
       password: req.body.password,
@@ -25,7 +24,7 @@ exports.signup = (req,res) => {
     const {valid, errors} = validateSignupData(newUser);
     if(!valid) return res.status(400).json(errors);
 
-    let token, userId1;
+    let token, userId;
     db.doc(`/users/${newUser.handle}`).get()
     .then((doc) => {
       if(doc.exists) {
@@ -35,7 +34,7 @@ exports.signup = (req,res) => {
       }
     })
     .then((data) => {
-      userId1 = data.user.uid;
+      userId = data.user.uid;
       return data.user.getIdToken();
     })
     .then((idToken) => {
@@ -55,7 +54,7 @@ exports.signup = (req,res) => {
         netRating: 0,
         createdAt: new Date().toISOString(),
         imageUrl: newUser.imageUrl,
-        userId: userId1
+        userId: userId
       };
       return db.doc(`/users/${newUser.handle}`).set(userCredentials);
     })
@@ -165,7 +164,7 @@ exports.getAuthenticatedUser = (req,res) => {
             return db.doc(`/users/${req.user.handle}`).update({imageUrl});
         })
         .then(() => {
-            return res.json({message: "Image uploaded successfully;"})
+            return res.json({message: "Image uploaded successfully"})
         })
         .catch(err => {
             console.error(err);
