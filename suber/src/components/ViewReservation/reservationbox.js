@@ -29,6 +29,12 @@ class ReservationBox extends React.Component {
 					650-709-7655
 				</div>
 				<div class = "res_detail_title">
+					# of People
+				</div>
+				<div class = "res_detail_contents">
+					4
+				</div>
+				<div class = "res_detail_title">
 					Language
 				</div>
 				<div class = "res_detail_contents">

@@ -88,13 +88,22 @@ body {
 	margin-bottom:24px;
 }
 
-#accept_button:focus{
+#accept_button:hover{
 	background: #49CE46;
 }
 
-#decline_button:focus{
+#decline_button:hover{
 	background: #E76452;
 }
+
+#accept_button:focus{
+	background: #38AD35;
+}
+
+#decline_button:focus{
+	background: #D65341;
+}
+
 #decline_button{
 	background-color: #D65341;
 	border-radius:8px;
