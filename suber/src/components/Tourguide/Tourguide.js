@@ -65,7 +65,7 @@ class Tourguide extends React.Component {
         let year = 0
         let time = 0
 
-        if (this.props.location.state) {
+        if (location.state) {
             if (this.props.location.state.guide.startLoc) {
                 meetup_place = this.props.location.state.guide.startLoc;
             }

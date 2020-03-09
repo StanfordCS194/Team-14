@@ -72,3 +72,38 @@ export const options_major = [
     { value: '50', label: 'Symbolic Systems' },
     { value: '51', label: 'Urban Studies' },
 ];
+
+export const options_time = [
+    { value: 5, label: '05:00' },
+    { value: 5.5, label: '05:30' },
+    { value: 6, label: '06:00' },
+    { value: 6.5, label: '06:30' },
+    { value: 7, label: '07:00' },
+    { value: 7.5, label: '07:30' },
+    { value: 8, label: '08:00' },
+    { value: 8.5, label: '08:30' },
+    { value: 9, label: '09:00' },
+    { value: 9.5, label: '09:30' },
+    { value: 10, label: '10:00' },
+    { value: 10.5, label: '10:30' },
+    { value: 11, label: '11:00' },
+    { value: 11.5, label: '11:30' },
+    { value: 12, label: '12:00' },
+    { value: 12.5, label: '12:30' },
+    { value: 13, label: '13:00' },
+    { value: 13.5, label: '13:30' },
+    { value: 14, label: '14:00' }
+];
+
+export const options_duration = [
+    { value: 0.5, label: '0.5 hour' },
+    { value: 1, label: '1 hour' },
+    { value: 1.5, label: '1.5 hour' },
+    { value: 2, label: '2 hour' },
+    { value: 2.5, label: '2.5 hour' },
+    { value: 3, label: '3 hour' },
+    { value: 3.5, label: '3.5 hour' },
+    { value: 4, label: '4 hour' },
+    { value: 4.5, label: '4.5 hour' },
+    { value: 5, label: '5 hour' }
+];

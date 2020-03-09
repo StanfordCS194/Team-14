@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import './Tour.css';
+import { Link } from 'react-router-dom';
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -8,43 +9,10 @@ import Select from "react-select";
 import Guidebox from './Guidebox';
 import suberimg from '../../imgs/SUBER.png'
 
-import { options_language, options_major } from '../Option/Option'
+import { options_language, options_major, options_time, options_duration } from '../Option/Option'
 
 
-const options_time = [
-    { value: 5, label: '05:00' },
-    { value: 5.5, label: '05:30' },
-    { value: 6, label: '06:00' },
-    { value: 6.5, label: '06:30' },
-    { value: 7, label: '07:00' },
-    { value: 7.5, label: '07:30' },
-    { value: 8, label: '08:00' },
-    { value: 8.5, label: '08:30' },
-    { value: 9, label: '09:00' },
-    { value: 9.5, label: '09:30' },
-    { value: 10, label: '10:00' },
-    { value: 10.5, label: '10:30' },
-    { value: 11, label: '11:00' },
-    { value: 11.5, label: '11:30' },
-    { value: 12, label: '12:00' },
-    { value: 12.5, label: '12:30' },
-    { value: 13, label: '13:00' },
-    { value: 13.5, label: '13:30' },
-    { value: 14, label: '14:00' }
-];
 
-const options_duration = [
-    { value: 0.5, label: '0.5 hour' },
-    { value: 1, label: '1 hour' },
-    { value: 1.5, label: '1.5 hour' },
-    { value: 2, label: '2 hour' },
-    { value: 2.5, label: '2.5 hour' },
-    { value: 3, label: '3 hour' },
-    { value: 3.5, label: '3.5 hour' },
-    { value: 4, label: '4 hour' },
-    { value: 4.5, label: '4.5 hour' },
-    { value: 5, label: '5 hour' }
-];
 
 const options_size = [
     { value: '1', label: '1' },
@@ -57,13 +25,16 @@ const options_size = [
 
 
 class Tour extends React.Component {
+
     state = {
         startDate: new Date(),
         startTime: null,
         duration: null,
         groupSize: null,
         guides: null,
-        language: null
+        all_guides: null,
+        language: null,
+        major: null
     }
     
     handleChange = date => {
@@ -96,17 +67,93 @@ class Tour extends React.Component {
         )
     }
 
+    handleMajorChange = major => {
+        this.setState(
+            { major }
+        )
+    }
+
     componentDidMount(){
         axios
             .get('/guides')
             .then((res) => {
                 console.log(res.data);
+                let guides = res.data
+                console.log(guides)
                 this.setState({
-                    guides: res.data
+                    guides: guides,
+                    all_guides: guides
                 });
             })
             .catch(err => console.log(err.response));
     }
+
+    filterResult = () => {
+        if (this.state.major || this.state.language || this.state.startTime) {
+            var guides = this.state.all_guides
+            if (this.state.major) {
+                guides = guides.filter(guide => guide.major.includes(this.state.major.label))
+            }
+            if (this.state.language) {
+                guides = guides.filter(guide => guide.language.includes(this.state.language.label))
+            }
+            if (this.state.startTime) {
+                var guideTimeMap = new Map()
+                for (let index = 0; index < guides.length; index++) {
+                    if (guides[index].schedule) {
+                        var guide = guides[index]
+                        var availableTimes = []
+                        for (let j = 0; j < guide.schedule.length; j++) {
+                            availableTimes.push(new Date(guide.schedule[j]))
+                        }
+                        guideTimeMap.set(guide, availableTimes)
+                    }
+                }
+                var startDate = this.state.startDate
+                var startTime = this.state.startTime
+                var clientDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(),
+                                            parseInt(startTime.label.slice(0, 2)), parseInt(startTime.label.slice(-2)), 0)
+                var clientTime = clientDate.toISOString()
+                console.log(clientTime)
+                guides = guides.filter(guide => guide.schedule)
+                console.log(guides)
+                guides = guides.filter(guide =>
+                    guide.schedule.includes(clientTime)    
+                )
+            }
+
+            this.setState({
+                guides: guides,
+            })
+        }
+    }
+
+    // shouldComponentUpdate(){
+    //     console.log("reached")
+    //     let guides = this.state.guides
+    //     if (this.state.major) {
+    //         console.log("reached 1")
+    //         guides = guides.filter(guide => guide.major.includes(this.state.major.label))
+    //         this.setState({
+    //             guides: guides,
+    //         })
+    //         return true;
+    //     }
+        
+    //     // axios
+    //     //     .get('/guides')
+    //     //     .then((res) => {
+    //     //         console.log(res.data);
+    //     //         console.log(this.state.major)
+    //     //         let guides = res.data
+    //     //         
+    //     //         console.log(guides)
+    //     //         this.setState({
+    //     //             guides: guides
+    //     //         });
+    //     //     })
+    //     //     .catch(err => console.log(err.response));
+    // }
 
     ExampleCustomInput = ({ value, onClick }) => (
         <button className="custom-input" onClick={onClick}>
@@ -172,12 +219,14 @@ class Tour extends React.Component {
                     <div className="findbox">
                         <div className="fb-text">Major</div>
                         <Select
+                            value={this.state.major}
                             options={options_major}
+                            onChange={this.handleMajorChange}
                         />
                     </div>
-                    <button id="tour__findbox-search">
-                            <p className="fb-text-white">Filter Result</p>
-                    </button>
+                        <button id="tour__findbox-search" onClick={this.filterResult}>
+                                <p className="fb-text-white">Filter Result</p>
+                        </button>
                 </div>
                 <div className="split" id="guide-list">
                     {this.guidesMarkup(this.state.guides)}

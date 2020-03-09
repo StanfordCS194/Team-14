@@ -19,7 +19,7 @@ class Guidebox extends React.Component {
             <div class="guidebox">
                 <div class="guide-image"></div>
                 <div class="guide-text">
-                    <Link class="guide-name" href= {"/#/tourguide/" + handle} to={{
+                    <Link class="guide-name"  to={{
                             pathname: "/tourguide",
                             state: this.props,
                      }}>
