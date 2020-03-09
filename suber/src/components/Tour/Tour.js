@@ -1,59 +1,27 @@
 import React from 'react';
 import axios from 'axios';
 import './Tour.css';
+import { Link } from 'react-router-dom';
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Select from "react-select";
 import Guidebox from './Guidebox';
 import suberimg from '../../imgs/SUBER.png'
-// import './Tourguide.css';
 
-import { options_language, options_major } from '../Option/Option'
-
-
-const options_time = [
-    { value: '0500', label: '05:00' },
-    { value: '0530', label: '05:30' },
-    { value: '0600', label: '06:00' },
-    { value: '0630', label: '06:30' },
-    { value: '0700', label: '07:00' },
-    { value: '0730', label: '07:30' },
-    { value: '0800', label: '08:00' },
-    { value: '0830', label: '08:30' },
-    { value: '0900', label: '09:00' }
-];
-
-const options_duration = [
-    { value: '05', label: '0.5 hour' },
-    { value: '10', label: '1 hour' },
-    { value: '15', label: '1.5 hour' },
-    { value: '20', label: '2 hour' },
-    { value: '25', label: '2.5 hour' },
-    { value: '30', label: '3 hour' },
-    { value: '35', label: '3.5 hour' },
-    { value: '40', label: '4 hour' },
-    { value: '45', label: '4.5 hour' },
-    { value: '50', label: '5 hour' }
-];
-
-const options_size = [
-    { value: '1', label: '1' },
-    { value: '2', label: '2' },
-    { value: '3', label: '3' },
-    { value: '4', label: '4' },
-    { value: '5', label: '5' },
-    { value: '6', label: '6' }
-];
-
+import { options_language, options_major, options_time, options_duration, options_size } from '../Option/Option'
 
 class Tour extends React.Component {
+
     state = {
         startDate: new Date(),
         startTime: null,
         duration: null,
         groupSize: null,
         guides: null,
+        all_guides: null,
+        language: null,
+        major: null
     }
     
     handleChange = date => {
@@ -80,17 +48,99 @@ class Tour extends React.Component {
         );
     };
 
+    handleLanguageChange = language => {
+        this.setState(
+            { language }
+        )
+    }
+
+    handleMajorChange = major => {
+        this.setState(
+            { major }
+        )
+    }
+
     componentDidMount(){
         axios
             .get('/guides')
             .then((res) => {
                 console.log(res.data);
+                let guides = res.data
+                console.log(guides)
                 this.setState({
-                    guides: res.data
+                    guides: guides,
+                    all_guides: guides
                 });
             })
             .catch(err => console.log(err.response));
     }
+
+    filterResult = () => {
+        if (this.state.major || this.state.language || this.state.startTime) {
+            var guides = this.state.all_guides
+            if (this.state.major) {
+                guides = guides.filter(guide => guide.major.includes(this.state.major.label))
+            }
+            if (this.state.language) {
+                guides = guides.filter(guide => guide.language.includes(this.state.language.label))
+            }
+            if (this.state.startTime) {
+                var guideTimeMap = new Map()
+                for (let index = 0; index < guides.length; index++) {
+                    if (guides[index].schedule) {
+                        var guide = guides[index]
+                        var availableTimes = []
+                        for (let j = 0; j < guide.schedule.length; j++) {
+                            availableTimes.push(new Date(guide.schedule[j]))
+                        }
+                        guideTimeMap.set(guide, availableTimes)
+                    }
+                }
+                var startDate = this.state.startDate
+                var startTime = this.state.startTime
+                var clientDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(),
+                                            parseInt(startTime.label.slice(0, 2)), 0, 0)
+                var clientTime = clientDate.toISOString()
+                console.log(clientTime)
+                guides = guides.filter(guide => guide.schedule)
+                console.log(guides)
+                guides = guides.filter(guide =>
+                    guide.schedule.includes(clientTime)    
+                )
+            }
+
+            this.setState({
+                guides: guides,
+            })
+        }
+    }
+
+    // shouldComponentUpdate(){
+    //     console.log("reached")
+    //     let guides = this.state.guides
+    //     if (this.state.major) {
+    //         console.log("reached 1")
+    //         guides = guides.filter(guide => guide.major.includes(this.state.major.label))
+    //         this.setState({
+    //             guides: guides,
+    //         })
+    //         return true;
+    //     }
+        
+    //     // axios
+    //     //     .get('/guides')
+    //     //     .then((res) => {
+    //     //         console.log(res.data);
+    //     //         console.log(this.state.major)
+    //     //         let guides = res.data
+    //     //         
+    //     //         console.log(guides)
+    //     //         this.setState({
+    //     //             guides: guides
+    //     //         });
+    //     //     })
+    //     //     .catch(err => console.log(err.response));
+    // }
 
     ExampleCustomInput = ({ value, onClick }) => (
         <button className="custom-input" onClick={onClick}>
@@ -99,7 +149,7 @@ class Tour extends React.Component {
     )
 
     guidesMarkup = (guides) => guides ? (
-        guides.map(guide => <Guidebox nextPage={this.nextPage} guide={guide}/>)
+        guides.slice(0, 8).map(guide => <Guidebox state={this.state} guide={guide} />)
     ) : (
         <p id="tour__loading_text">Loading...</p>
     )
@@ -150,17 +200,20 @@ class Tour extends React.Component {
                         <div className="fb-text">Language</div>
                         <Select
                             options={options_language}
+                            onChange={this.handleLanguageChange}
                         />
                     </div>
                     <div className="findbox">
                         <div className="fb-text">Major</div>
                         <Select
+                            value={this.state.major}
                             options={options_major}
+                            onChange={this.handleMajorChange}
                         />
                     </div>
-                    <button id="tour__findbox-search">
-                            <p className="fb-text-white">Filter Result</p>
-                    </button>
+                        <button id="tour__findbox-search" onClick={this.filterResult}>
+                                <p className="fb-text-white">Filter Result</p>
+                        </button>
                 </div>
                 <div className="split" id="guide-list">
                     {this.guidesMarkup(this.state.guides)}

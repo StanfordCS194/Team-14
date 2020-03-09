@@ -8,7 +8,6 @@ class Welcome extends React.Component {
         email: null
     };
     
-    
     render() {
         return (
             <body>
@@ -22,8 +21,6 @@ class Welcome extends React.Component {
                     <div id="welcome__container">
                         <div id="welcome__textbox">
                             <h1>Welcome!</h1>
-
-
                             <h2> Your are now registered as a Suber guide.</h2>
                             <h2> We will reach out to you via email & text</h2>
                             <h2> once you receive a tour request.</h2>
