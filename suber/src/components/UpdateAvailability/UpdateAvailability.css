@@ -1,15 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
 
 body {
-    background: white;
-    background-repeat: no-repeat;
-    background-size: cover;
+
+}
+
+
+#guidesetup_header{
+    margin-top:16px;
+    margin-bottom:16px;
 }
 
 #guidesetup__menubar {
     width: 100%;
     height: 60px;
-
     background-color: #ffffff;
     display: inline-block;
     text-align:center;

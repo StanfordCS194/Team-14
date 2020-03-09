@@ -21,7 +21,8 @@ exports.getAllGuides = (req, res) => {
                 phone: doc.data().phone,
                 completedTours: doc.data().completedTours,
                 netRating: doc.data().netRating,
-                note: doc.data().note
+                note: doc.data().note,
+                places: doc.data().places
             });
         });
         return res.json(guides);

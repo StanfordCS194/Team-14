@@ -1,11 +1,8 @@
 import React from 'react';
 import './UpdateAvailability.css';
 import Select from "react-select";
-
 import suberimg from '../../imgs/SUBER.png'
-
 import ScheduleSelector from 'react-schedule-selector'
-import ImageUploader from 'react-images-upload';
 
 import { options_language, options_major } from '../Option/Option'
 
@@ -40,7 +37,7 @@ class UpdateAvailability extends React.Component {
                  <div>
                 <div id="guidesetup__mainbox">
                         <div id="guidesetup__container3">
-                            <div>
+                            <div id = "guidesetup_header">
                                 <h1>Update Your Availability</h1>
                             </div>
                             <ScheduleSelector
@@ -58,7 +55,7 @@ class UpdateAvailability extends React.Component {
 
                             <a href="/#/loggedin"> 
                                 <button id="guidesetup__findbox-search" class="fb-text-white" color='#ffffff'> 
-                                    Next
+                                    Save Changes
                                 </button>
                             </a>    
                         </div>

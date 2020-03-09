@@ -17,6 +17,8 @@ import Tourguideconfirmation from './components/Tourguideconfirmation/Tourguidec
 import Login from './components/Login/Login';
 import Loggedin from './components/Loggedin/Loggedin';
 import UpdateAvailability from './components/UpdateAvailability/UpdateAvailability';
+import ViewReservation from './components/ViewReservation/ViewReservation';
+
 
 // Redux
 import { Provider } from 'react-redux';
@@ -42,7 +44,7 @@ function App() {
         <Route path='/login' component={Login} />
         <Route path='/loggedin' component={Loggedin} />
         <Route path='/updateavailability' component={UpdateAvailability} />
-
+        <Route path='/viewreservation' component={ViewReservation} />
       </HashRouter>
     </Provider>
   );
