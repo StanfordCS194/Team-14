@@ -37,7 +37,7 @@ class UpdateAvailability extends React.Component {
                  <div>
                 <div id="guidesetup__mainbox">
                         <div id="guidesetup__container3">
-                            <div>
+                            <div id = "guidesetup_header">
                                 <h1>Update Your Availability</h1>
                             </div>
                             <ScheduleSelector
