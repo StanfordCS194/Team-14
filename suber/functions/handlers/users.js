@@ -5,74 +5,72 @@ firebase.initializeApp(config);
 const {validateSignupData, validateLoginData, reduceUserDetails} = require('../util/validators');
 
 exports.signup = (req,res) => {
-  console.log('im not liking this')
-    const newUser = {
-      email: req.body.email,
-      password: req.body.password,
-      confirmPassword: req.body.confirmPassword, // TODO: actually implement this,
-      handle: req.body.email.split('@')[0],
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      major: req.body.major,
-      language: req.body.language,
-      note: req.body.note,
-      phone: req.body.phone,
-      startLoc: req.body.startLoc,
-      places: req.body.places,
-      schedule: req.body.schedule
+  const newUser = {
+    email: req.body.email,
+    password: req.body.password,
+    confirmPassword: req.body.confirmPassword, // TODO: actually implement this,
+    handle: req.body.email.split('@')[0],
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    major: req.body.major,
+    language: req.body.language,
+    note: req.body.note,
+    phone: req.body.phone,
+    startLoc: req.body.startLoc,
+    places: req.body.places,
+    schedule: req.body.schedule
+  };
+
+  const {valid, errors} = validateSignupData(newUser);
+  if(!valid) return res.status(400).json(errors);
+  const noImg = 'blank_profpic.png'
+
+  let token, userId1;
+  db.doc(`/users/${newUser.handle}`).get()
+  .then((doc) => {
+    if(doc.exists) {
+      return res.status(400).json({handle: 'this user ID is taken'});
+    } else {
+      return firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password);
+    }
+  })
+  .then((data) => {
+    userId1 = data.user.uid;
+    return data.user.getIdToken();
+  })
+  .then((idToken) => {
+    token = idToken;
+    const userCredentials = {
+      handle: newUser.handle,
+      email: newUser.email,
+      schedule: newUser.schedule,
+      firstName: newUser.firstName,
+      lastName: newUser.lastName,
+      major: newUser.major,
+      language: newUser.language,
+      note: newUser.note,
+      phone: newUser.phone,
+      startLoc: newUser.startLoc,
+      places: newUser.places,
+      completedTours: 0,
+      netRating: 0,
+      createdAt: new Date().toISOString(),
+      imageUrl: `https://firebasestorage.googleapis.com/v0/b/${config.storageBucket}/o/${noImg}?alt=media`,
+      userId: userId1
     };
-
-    const {valid, errors} = validateSignupData(newUser);
-    if(!valid) return res.status(400).json(errors);
-    const noImg = 'blank_profpic.png'
-
-    let token, userId1;
-    db.doc(`/users/${newUser.handle}`).get()
-    .then((doc) => {
-      if(doc.exists) {
-        return res.status(400).json({handle: 'this user ID is taken'});
-      } else {
-        return firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password);
-      }
-    })
-    .then((data) => {
-      userId1 = data.user.uid;
-      return data.user.getIdToken();
-    })
-    .then((idToken) => {
-      token = idToken;
-      const userCredentials = {
-        handle: newUser.handle,
-        email: newUser.email,
-        schedule: newUser.schedule,
-        firstName: newUser.firstName,
-        lastName: newUser.lastName,
-        major: newUser.major,
-        language: newUser.language,
-        note: newUser.note,
-        phone: newUser.phone,
-        startLoc: newUser.startLoc,
-        places: newUser.places,
-        completedTours: 0,
-        netRating: 0,
-        createdAt: new Date().toISOString(),
-        imageUrl: `https://firebasestorage.googleapis.com/v0/b/${config.storageBucket}/o/${noImg}?alt=media`,
-        userId: userId1
-      };
-      return db.doc(`/users/${newUser.handle}`).set(userCredentials);
-    })
-    .then(() => {
-      return res.status(201).json({token});
-    })
-    .catch((err) => {
-      console.error(err);
-      if(err.code === 'auth/email-already-in-use'){
-        return res.status(400).json({email: 'Email is already taken'});
-      }
-      return res.status(500).json({err: err.code});
-    })
-
-  }
+    return db.doc(`/users/${newUser.handle}`).set(userCredentials);
+  })
+  .then(() => {
+    return res.status(201).json({token});
+  })
+  .catch((err) => {
+    console.error(err);
+    if(err.code === 'auth/email-already-in-use'){
+      return res.status(400).json({email: 'Email is already taken'});
+    }
+    return res.status(500).json({err: err.code});
+  })
+}
 
   exports.login = (req, res) => {
     const user = {
@@ -98,18 +96,18 @@ exports.signup = (req,res) => {
         return res.status(500).json({error: err.code});
       }
     });
-  }
+}
 
-  //Add user details
+//Add or change user details
 exports.addUserDetails = (req,res) => {
-    let userDetails = reduceUserDetails(req.body);
-    db.doc(`/users/${req.user.handle}`).update(userDetails)
+  let userDetails = reduceUserDetails(req.body);
+  db.doc(`/users/${req.user.handle}`).update(userDetails)
     .then(() => {
-        return res.json({message: 'Details added successfully'});
+      return res.json({message: 'Details added successfully'});
     })
     .catch(err => {
-        console.error(err);
-        return res.status(500).json({error: err.code});
+      console.error(err);
+      return res.status(500).json({error: err.code});
     })
 }
 
@@ -120,11 +118,12 @@ exports.getAuthenticatedUser = (req,res) => {
         .then(doc => {
             if (doc.exits){
                 userData.credentials = doc.data();
-                return db.collection('users').where('userHandle', '==', req.user.handle).get()
+                return db.collection('users').where('handle', '==', req.user.handle).get()
             }
         })
         .then(data => {
-            return res.json(userData);
+          return res.json({datas: req.user, alive: "yes", data: data});
+            //return res.json(userData);
         })
         .catch(err => {
             console.error(err);

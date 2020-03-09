@@ -4,21 +4,17 @@ import Select from "react-select";
 import suberimg from '../../imgs/SUBER.png'
 import ScheduleSelector from 'react-schedule-selector'
 
-import { options_language, options_major } from '../Option/Option'
-
-const options = {
-    multiple: true,
-    dataType: 'json'
-}
+// Redux
+import { connect } from 'react-redux';
+import { addUserDetails } from '../../redux/actions/userActions';
+import PropTypes from 'prop-types';
 
 class UpdateAvailability extends React.Component {
     
     constructor(props) {
         super(props)
         this.state = {
-            schedule: [],
-            placeholder_first_name: 'First Name',
-            placeholder_last_name: 'Last Name'
+            schedule: []
         }
     }
 
@@ -26,6 +22,14 @@ class UpdateAvailability extends React.Component {
       this.setState({ schedule: newSchedule })
     }
     
+    handleSubmit = (event) => {
+        event.preventDefault();
+        const userData = {
+            schedule: this.state.schedule
+        };
+        this.props.addUserDetails(userData, this.props.history);
+    }
+
     render() {
         return (
             <body>
@@ -52,12 +56,11 @@ class UpdateAvailability extends React.Component {
                                     Drag down the time slots that you’re able to offer tours
                                 </div>
                             </div>
-
-                            <a href="/#/loggedin"> 
+                            <form onSubmit={this.handleSubmit}>
                                 <button id="guidesetup__findbox-search" class="fb-text-white" color='#ffffff'> 
                                     Save Changes
                                 </button>
-                            </a>    
+                            </form>
                         </div>
                     </div>
             </div>
@@ -66,4 +69,16 @@ class UpdateAvailability extends React.Component {
     }
 }
 
-export default UpdateAvailability;
+UpdateAvailability.propTypes = {
+    classes: PropTypes.object.isRequired,
+    user: PropTypes.object.isRequired,
+    UI: PropTypes.object.isRequired,
+    addUserDetails: PropTypes.func.isRequired
+}
+
+const mapStateToProps = (state) => ({
+    user: state.user,
+    UI: state.UI
+})
+
+export default connect(mapStateToProps, { addUserDetails })(UpdateAvailability);

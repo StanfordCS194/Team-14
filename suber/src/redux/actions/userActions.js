@@ -37,6 +37,23 @@ export const signupUser = (userData, history) => (dispatch) => {
 		});
 }
 
+export const addUserDetails = (userData, history) => (dispatch) => {
+	dispatch({ type: LOADING_UI });
+	axios
+		.post('/user', userData)
+		.then((res) => {
+			dispatch({ type: CLEAR_ERRORS });
+			history.push('/loggedin');
+		})
+		.catch((err) => {
+			console.log(err);
+			dispatch({
+				type: SET_ERRORS,
+				payload: err.response.data
+			});
+		});
+}
+
 export const logoutUser = () => (dispatch) => {
 	localStorage.removeItem('FBIdToken');
 	delete axios.defaults.headers.common['Authorization'];
@@ -46,7 +63,6 @@ export const logoutUser = () => (dispatch) => {
 export const getUserData = () => (dispatch) => {
 	axios.get('/user')
 		.then(res => {
-			console.log(res);
 			dispatch({
 				type: SET_USER,
 				payload: res.data

@@ -43,14 +43,14 @@ const isEmpty = (string) => {
 
   exports.reduceUserDetails = (data) => {
     let userDetails = {};
-    if(!isEmpty(data.bio.trim())) userDetails.bio = data.bio;
-    if(!isEmpty(data.website.trim())){
-      if(data.website.trim().substring(0,4) !== 'http') {
-        userDetails.website = `http://${data.website.trim()}`;
-      }
-      else userDetails.website = data.website
-    }
-    if(!isEmpty(data.location.trim())) userDetails.location = data.location;
-
+    console.log(data);
+    if(data.schedule && !isEmpty(data.schedule)) userDetails.schedule = data.schedule;
+    if(data.major && !isEmpty(data.major)) userDetails.major = data.major;
+    if(data.language && !isEmpty(data.language)) userDetails.language = data.language;
+    if(data.note && !isEmpty(data.note)) userDetails.note = data.note;
+    if(data.phone && !isEmpty(data.phone)) userDetails.phone = data.phone;
+    if(data.startLoc && !isEmpty(data.startLoc)) userDetails.startLoc = data.startLoc;
+    if(data.places && !isEmpty(data.places)) userDetails.places = data.places;
+    console.log(userDetails);
     return userDetails;
   }
