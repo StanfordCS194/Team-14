@@ -5,7 +5,6 @@ firebase.initializeApp(config);
 const {validateSignupData, validateLoginData, reduceUserDetails} = require('../util/validators');
 
 exports.signup = (req,res) => {
-  console.log('im not liking this')
     const newUser = {
       email: req.body.email,
       password: req.body.password,
@@ -17,16 +16,16 @@ exports.signup = (req,res) => {
       language: req.body.language,
       note: req.body.note,
       phone: req.body.phone,
-      startLoc: req.body.startLoc,
+      startLoc: req.body.startLoc
       places: req.body.places,
-      schedule: req.body.schedule
+      schedule: req.body.schedule,
+      imageUrl: req.body.imageUrl
     };
 
     const {valid, errors} = validateSignupData(newUser);
     if(!valid) return res.status(400).json(errors);
-    const noImg = 'blank_profpic.png'
 
-    let token, userId1;
+    let token, userId;
     db.doc(`/users/${newUser.handle}`).get()
     .then((doc) => {
       if(doc.exists) {
@@ -36,7 +35,7 @@ exports.signup = (req,res) => {
       }
     })
     .then((data) => {
-      userId1 = data.user.uid;
+      userId = data.user.uid;
       return data.user.getIdToken();
     })
     .then((idToken) => {
@@ -56,8 +55,8 @@ exports.signup = (req,res) => {
         completedTours: 0,
         netRating: 0,
         createdAt: new Date().toISOString(),
-        imageUrl: `https://firebasestorage.googleapis.com/v0/b/${config.storageBucket}/o/${noImg}?alt=media`,
-        userId: userId1
+        imageUrl: newUser.imageUrl,
+        userId: userId
       };
       return db.doc(`/users/${newUser.handle}`).set(userCredentials);
     })
@@ -167,7 +166,7 @@ exports.getAuthenticatedUser = (req,res) => {
             return db.doc(`/users/${req.user.handle}`).update({imageUrl});
         })
         .then(() => {
-            return res.json({message: "Image uploaded successfully;"})
+            return res.json({message: "Image uploaded successfully"})
         })
         .catch(err => {
             console.error(err);
