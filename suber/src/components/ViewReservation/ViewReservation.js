@@ -2,6 +2,8 @@ import React from 'react';
 import './ViewReservation.css';
 import Select from "react-select";
 import suberimg from '../../imgs/SUBER.png'
+import ReservationBox from './ReservationBox';
+
 
 class ViewReservation extends React.Component {
   render() {
@@ -15,8 +17,14 @@ class ViewReservation extends React.Component {
                 <div class="reservation_header">
                 	Pending Reservation
                 </div>
+                <div class="reservation_list">
+
+                </div>
                 <div class="reservation_header">
                 	Confirmed Reservation
+                </div>
+                <div class="reservation_list">
+
                 </div>
             </body>	
         )
