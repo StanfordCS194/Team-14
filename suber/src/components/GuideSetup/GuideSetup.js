@@ -42,7 +42,7 @@ class GuideSetup extends React.Component {
             note: '',
             phone: '',
             startLoc: '',
-            imageUrl: `https://firebasestorage.googleapis.com/v0/b/cs194w-387e8.appspot.com/o/blank_profpic.png?alt=media`
+            imageUrl: `https://firebasestorage.googleapis.com/v0/b/cs194w-387e8.appspot.com/o/blank_profpic.png?alt=media`,
             place1: '',
             place2: '',
             place3: '',
@@ -90,7 +90,7 @@ class GuideSetup extends React.Component {
     handleUploadSuccess = (filename) => {
         firebase.storage().ref("profile_pic").child(filename)
         .getDownloadURL()
-        .then(url => this.setState({ imageUrl: url }));
+        .then(url => this.setState({ imageUrl: `https://firebasestorage.googleapis.com/v0/b/cs194w-387e8.appspot.com/o/${localStorage.getItem('newUserEmail').split('@')[0]}?alt=media` }));
     };
 
     handleChange = (event) => {
@@ -152,7 +152,7 @@ class GuideSetup extends React.Component {
                                         hidden
                                         accept="image/*"
                                         storageRef={firebase.storage().ref('profile_pic')}
-                                        randomizeFilename
+                                        filename={localStorage.getItem('newUserEmail').split('@')[0]}
                                         onUploadError={this.handleUploadError}
                                         onUploadSuccess={this.handleUploadSuccess}
                                         />
