@@ -2,7 +2,7 @@ import React from 'react';
 import './ViewReservation.css';
 import Select from "react-select";
 import suberimg from '../../imgs/SUBER.png'
-import ReservationBox from './ReservationBox';
+import ReservationBox from './reservationbox';
 
 
 class ViewReservation extends React.Component {
