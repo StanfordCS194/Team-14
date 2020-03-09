@@ -22,6 +22,7 @@ exports.getAllGuides = (req, res) => {
                 completedTours: doc.data().completedTours,
                 netRating: doc.data().netRating,
                 note: doc.data().note
+                places: doc.data().places
             });
         });
         return res.json(guides);
