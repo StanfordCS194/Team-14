@@ -11,8 +11,14 @@ class ViewReservation extends React.Component {
                     <a id="logo" href="/#/">
                         <img id="logo-img" src= { suberimg } />
                     </a>
+                </div>	
+                <div class="reservation_header">
+                	Pending Reservation
                 </div>
-            </body>
+                <div class="reservation_header">
+                	Confirmed Reservation
+                </div>
+            </body>	
         )
     }
 }
