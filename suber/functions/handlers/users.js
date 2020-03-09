@@ -101,7 +101,7 @@ exports.signup = (req,res) => {
 //Add or change user details
 exports.addUserDetails = (req,res) => {
   let userDetails = reduceUserDetails(req.body);
-  db.doc(`/users/${req.user.handle}`).update(userDetails)
+  db.doc(`/users/${req.user.handle}`).set(userDetails, {merge: true})
     .then(() => {
       return res.json({message: 'Details added successfully'});
     })
@@ -116,14 +116,13 @@ exports.getAuthenticatedUser = (req,res) => {
     let userData = {};
     db.doc(`/users/${req.user.handle}`).get()
         .then(doc => {
-            if (doc.exits){
+            if (doc.exists) {
                 userData.credentials = doc.data();
                 return db.collection('users').where('handle', '==', req.user.handle).get()
             }
         })
         .then(data => {
-          return res.json({datas: req.user, alive: "yes", data: data});
-            //return res.json(userData);
+          return res.json(userData);
         })
         .catch(err => {
             console.error(err);
