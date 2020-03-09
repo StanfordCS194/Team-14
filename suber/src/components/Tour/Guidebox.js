@@ -7,7 +7,8 @@ import Tour from './Tour';
 
 class Guidebox extends React.Component {
     render() {
-        const { classes, guide : { uid, firstName, lastName, imageUrl, handle, email, language, major, completedTours, netRating, note } } = this.props
+        console.log(this.props)
+        const { classes, guide : { uid, firstName, lastName, imageUrl, handle, email, language, major, completedTours, netRating } } = this.props
         let avgRating = 0.0;
         let languages = [];
         let majors = [];
@@ -19,8 +20,8 @@ class Guidebox extends React.Component {
                 <div class="guide-image"></div>
                 <div class="guide-text">
                     <Link class="guide-name" href= {"/#/tourguide/" + handle} to={{
-                                pathname: "/tourguide",
-                                state: this.props,
+                            pathname: "/tourguide",
+                            state: this.props,
                      }}>
                         <b>{firstName}</b>
                     </Link>

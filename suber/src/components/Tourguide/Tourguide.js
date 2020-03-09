@@ -46,11 +46,17 @@ class Tourguide extends React.Component {
         );
     };
 
+    tourCourse = (places) => places ? (
+        places.map(place => <div class="tourguide__recommended_course_box">
+                                <div class="tourguide__recommended_course_boxtext">&bull;&nbsp;&nbsp;{place}</div>
+                            </div>)
+    ) : ( <a>No information available</a>)
+
     render() {
         const { location } = this.props;
 
         if (location.state) {
-            console.log(location)
+            console.log(this.props)
             return (
                 <body>
                     <div id="tourguide_menubar">
@@ -92,7 +98,7 @@ class Tourguide extends React.Component {
                                 </div>
                                 <div class="tourguide__guide_bio">
                                     <p>
-                                        { location.state.guide.note }
+                                        {location.state.guide.note}
                                     </p>
                                 </div>
                                 <div>
@@ -123,7 +129,7 @@ class Tourguide extends React.Component {
                                 </p>
                                 <p>
                                     <div class="tourguide__detail_details_1">Meetup Place:&nbsp;</div>
-                                    <div class="tourguide__detail_details_2">Main Quad</div>
+                                    <div class="tourguide__detail_details_2">{location.state.guide.startLoc}</div>
                                 </p>
                                 <p>
                                     <div class="tourguide__detail_details_1">Tour Group Size:&nbsp;</div>
@@ -135,28 +141,8 @@ class Tourguide extends React.Component {
                                 </p>
                             </div>
                             <div id="tourguide__recommended_course">
-                                <p id="tourguide__recommended_course_text">Collin's Recommended Tour Course</p>
-                                <div class="tourguide__recommended_course_box">
-                                    <div class="tourguide__recommended_course_boxtext">&bull;&nbsp;&nbsp;Meet at the Main Quad</div>
-                                </div>
-                                <div class="tourguide__recommended_course_box">
-                                    <div class="tourguide__recommended_course_boxtext">&bull;&nbsp;&nbsp;Visit the Memorial Church</div>
-                                </div>
-                                <div class="tourguide__recommended_course_box">
-                                    <div class="tourguide__recommended_course_boxtext">&bull;&nbsp;&nbsp;Tour the Cantor Arts Center</div>
-                                </div>
-                                <div class="tourguide__recommended_course_box">
-                                    <div class="tourguide__recommended_course_boxtext">&bull;&nbsp;&nbsp;Walk aroun the Engineering Quad</div>
-                                </div>
-                                <div class="tourguide__recommended_course_box">
-                                    <div class="tourguide__recommended_course_boxtext">&bull;&nbsp;&nbsp;(Optional) Coffee Chat at Coupa Cafe</div>
-                                </div>
-                                <div class="tourguide__recommended_course_box">
-                                    <div class="tourguide__recommended_course_boxtext">&bull;&nbsp;&nbsp;Stanford Bookstore</div>
-                                </div>
-                                <div class="tourguide__recommended_course_box">
-                                    <div class="tourguide__recommended_course_boxtext">&bull;&nbsp;&nbsp;Tresidder Memorial Union</div>
-                                </div>
+                                <p id="tourguide__recommended_course_text">{location.state.guide.firstName}'s Recommended Tour Course</p>
+                                {this.tourCourse(location.state.guide.places)}
                             </div>
                             <a href="/#/tour">
                                 <div class="tourguide__button">

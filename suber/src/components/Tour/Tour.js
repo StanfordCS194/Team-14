@@ -7,7 +7,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import Select from "react-select";
 import Guidebox from './Guidebox';
 import suberimg from '../../imgs/SUBER.png'
-// import './Tourguide.css';
 
 import { options_language, options_major } from '../Option/Option'
 
@@ -99,7 +98,7 @@ class Tour extends React.Component {
     )
 
     guidesMarkup = (guides) => guides ? (
-        guides.map(guide => <Guidebox nextPage={this.nextPage} guide={guide}/>)
+        guides.map(guide => <Guidebox state={this.state} guide={guide} />)
     ) : (
         <p id="tour__loading_text">Loading...</p>
     )
