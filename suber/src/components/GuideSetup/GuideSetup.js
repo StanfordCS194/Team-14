@@ -10,13 +10,18 @@ import bar2 from '../../imgs/bar2.jpg'
 import bar3 from '../../imgs/bar3.jpg'
 
 import ScheduleSelector from 'react-schedule-selector'
-import ImageUploader from 'react-images-upload';
+import FileUploader from "react-firebase-file-uploader";
 
-// Redux
 import { connect } from 'react-redux';
-import { signupUser } from '../../redux/actions/userActions';
+import { signupUser, uploadImage } from '../../redux/actions/userActions';
 
 import { options_language, options_major } from '../Option/Option'
+import firebase from "firebase";
+
+firebase.initializeApp({
+    apiKey: "AIzaSyBdlWQlaZXt9SPV4-OrPrGtMnluWq39Gwk",
+    storageBucket: "cs194w-387e8.appspot.com"
+});
 
 const options = {
     multiple: true,
@@ -37,6 +42,7 @@ class GuideSetup extends React.Component {
             note: '',
             phone: '',
             startLoc: '',
+            imageUrl: `https://firebasestorage.googleapis.com/v0/b/cs194w-387e8.appspot.com/o/blank_profpic.png?alt=media`,
             place1: '',
             place2: '',
             place3: '',
@@ -70,10 +76,22 @@ class GuideSetup extends React.Component {
             note: this.state.note,
             phone: this.state.phone,
             startLoc: this.state.startLoc,
+            imageUrl: this.state.imageUrl,
             places: [this.state.place1, this.state.place2, this.state.place3, this.state.place4, this.state.place5]
         };
         this.props.signupUser(newUserData, this.props.history);
     }
+
+    
+    handleUploadError = (error) => {
+        console.error(error);
+    };
+
+    handleUploadSuccess = (filename) => {
+        firebase.storage().ref("profile_pic").child(filename)
+        .getDownloadURL()
+        .then(url => this.setState({ imageUrl: `https://firebasestorage.googleapis.com/v0/b/cs194w-387e8.appspot.com/o/${localStorage.getItem('newUserEmail').split('@')[0]}?alt=media` }));
+    };
 
     handleChange = (event) => {
         this.setState({
@@ -127,13 +145,18 @@ class GuideSetup extends React.Component {
                             <div id="guidesetup__textbox">
                                 <div id="guidesetup__imageupload_container">
                                     <h2>1. Upload your profile picture</h2>
-                                    <ImageUploader
-                                        withIcon={true}
-                                        buttonText='Choose images'
-                                        onChange={this.onDrop}
-                                        imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                                        maxFileSize={5242880}
-                                    />
+
+                                     <label style={{backgroundColor: 'red', color: 'white', padding: 10, borderRadius: 4, cursor: 'pointer'}}>
+                                        Choose images
+                                        <FileUploader
+                                        hidden
+                                        accept="image/*"
+                                        storageRef={firebase.storage().ref('profile_pic')}
+                                        filename={localStorage.getItem('newUserEmail').split('@')[0]}
+                                        onUploadError={this.handleUploadError}
+                                        onUploadSuccess={this.handleUploadSuccess}
+                                        />
+                                    </label>
                                 </div>
                                 <div>
                                     <h2>2. What's your name?</h2>
@@ -306,12 +329,15 @@ GuideSetup.propTypes = {
     classes: PropTypes.object.isRequired,
     user: PropTypes.object.isRequired,
     UI: PropTypes.object.isRequired,
-    signupUser: PropTypes.func.isRequired
+    signupUser: PropTypes.func.isRequired,
+    uploadImage: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
     user: state.user,
     UI: state.UI
 })
+const mapActionsToProps = { uploadImage, signupUser };
 
-export default connect(mapStateToProps, { signupUser })(GuideSetup);
+
+export default connect(mapStateToProps, mapActionsToProps)(GuideSetup);
