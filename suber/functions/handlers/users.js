@@ -16,7 +16,7 @@ exports.signup = (req,res) => {
       language: req.body.language,
       note: req.body.note,
       phone: req.body.phone,
-      startLoc: req.body.startLoc
+      startLoc: req.body.startLoc,
       places: req.body.places,
       schedule: req.body.schedule,
       imageUrl: req.body.imageUrl
