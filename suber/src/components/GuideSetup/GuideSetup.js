@@ -2,6 +2,7 @@ import React from 'react';
 import './GuideSetup.css';
 import Select from "react-select";
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import suberimg from '../../imgs/SUBER.png'
 import bar1 from '../../imgs/bar1.jpg'
@@ -253,7 +254,6 @@ class GuideSetup extends React.Component {
                             <div class="guidesetup__fb-text-grey"> 
                                 You're almost there!
                             </div>
-
                             <form onSubmit={this.handleSubmit}>
                                 <button id="guidesetup__findbox-search" class="fb-text-white" color='#ffffff'> 
                                     Next
