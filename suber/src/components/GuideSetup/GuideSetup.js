@@ -13,7 +13,7 @@ import ImageUploader from 'react-images-upload';
 
 // Redux
 import { connect } from 'react-redux';
-import { signupUser } from '../../redux/actions/userActions';
+import { signupUser, uploadImage } from '../../redux/actions/userActions';
 
 import { options_language, options_major } from '../Option/Option'
 
@@ -36,9 +36,18 @@ class GuideSetup extends React.Component {
             note: '',
             phone: '',
             startLoc: '',
-            errors: {}
+            errors: {},
+            pictures: null
         }
+        this.onDrop = this.onDrop.bind(this);
     }
+
+    onDrop(pictureFiles, pictureDataURLs) {
+        this.setState({
+            pictures: pictureFiles[0]
+        });
+    }
+
     
     componentWillReceiveProps(nextProps) {
         if(nextProps.UI.errors) {
@@ -52,6 +61,7 @@ class GuideSetup extends React.Component {
         localStorage.removeItem('newUserEmail');
         let newUserPW = localStorage.getItem('newUserPW');
         localStorage.removeItem('newUserPW');
+        const formData = new FormData();
         const newUserData = {
             email: newUserEmail,
             password: newUserPW,
@@ -65,6 +75,8 @@ class GuideSetup extends React.Component {
             phone: this.state.phone,
             startLoc: this.state.startLoc
         };
+        formData.append('image', this.state.pictures, 'ehl')
+        this.props.uploadImage(formData)
         this.props.signupUser(newUserData, this.props.history);
     }
 
@@ -126,6 +138,7 @@ class GuideSetup extends React.Component {
                                         onChange={this.onDrop}
                                         imgExtension={['.jpg', '.gif', '.png', '.gif']}
                                         maxFileSize={5242880}
+                                        withPreview={true}
                                     />
                                 </div>
                                 <div>
@@ -300,12 +313,15 @@ GuideSetup.propTypes = {
     classes: PropTypes.object.isRequired,
     user: PropTypes.object.isRequired,
     UI: PropTypes.object.isRequired,
-    signupUser: PropTypes.func.isRequired
+    signupUser: PropTypes.func.isRequired,
+    uploadImage: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
     user: state.user,
     UI: state.UI
 })
+const mapActionsToProps = { uploadImage, signupUser };
 
-export default connect(mapStateToProps, { signupUser })(GuideSetup);
+
+export default connect(mapStateToProps, mapActionsToProps)(GuideSetup);
