@@ -140,7 +140,7 @@ class Tourguide extends React.Component {
                         <div class="split" id="tourguide_sidebar">
                         <div id="tourguide_guide_img_container">
                                 <img id="tourguide_guide_img" 
-                                     src= { require('../../imgs/default-profile-picture1.jpg') } 
+                                     src= { location.state.guide.imageUrl } 
                                      width='300px' />
                             </div>
                             <div class="guide-text">

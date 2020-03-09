@@ -17,7 +17,12 @@ class Guidebox extends React.Component {
         if (major) majors = major.join(', ');
         return (
             <div class="guidebox">
-                <div class="guide-image"></div>
+                <div class="guide-image">
+                <img 
+                    src= { imageUrl } 
+                    width='150px'
+                    height='150px' />
+                </div>
                 <div class="guide-text">
                     <Link class="guide-name"  to={{
                             pathname: "/tourguide",

@@ -90,7 +90,7 @@ class GuideSetup extends React.Component {
     handleUploadSuccess = (filename) => {
         firebase.storage().ref("profile_pic").child(filename)
         .getDownloadURL()
-        .then(url => this.setState({ imageUrl: `https://firebasestorage.googleapis.com/v0/b/cs194w-387e8.appspot.com/o/${localStorage.getItem('newUserEmail').split('@')[0]}?alt=media` }));
+        .then(url => this.setState({ imageUrl: url }));
     };
 
     handleChange = (event) => {
