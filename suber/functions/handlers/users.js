@@ -18,12 +18,13 @@ exports.signup = (req,res) => {
       note: req.body.note,
       phone: req.body.phone,
       startLoc: req.body.startLoc,
-      handle: req.body.email.split('@')[0]
+      handle: req.body.email.split('@')[0],
+      imageUrl: req.body.imageUrl
     };
 
     const {valid, errors} = validateSignupData(newUser);
     if(!valid) return res.status(400).json(errors);
-    const noImg = 'blank_profpic.png'
+    //const noImg = 'blank_profpic.png'
 
     let token, userId1;
     db.doc(`/users/${newUser.handle}`).get()
@@ -54,7 +55,8 @@ exports.signup = (req,res) => {
         completedTours: 0,
         netRating: 0,
         createdAt: new Date().toISOString(),
-        imageUrl: `https://firebasestorage.googleapis.com/v0/b/${config.storageBucket}/o/${noImg}?alt=media`,
+        imageUrl: newUser.imageUrl,
+        //`https://firebasestorage.googleapis.com/v0/b/${config.storageBucket}/o/${noImg}?alt=media`,
         userId: userId1
       };
       return db.doc(`/users/${newUser.handle}`).set(userCredentials);

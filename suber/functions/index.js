@@ -13,10 +13,6 @@ const {getAllGuides} = require('./handlers/guides');
 //Screams route
 app.get('/screams', getAllScreams);
 app.post('/screams', FBAuth, postOneScream);
-//TODO : delete scream
-//TODO : like scream
-//TODO : unlike scream
-//TODO : comment on scream
 
 
 //signup route
@@ -25,7 +21,7 @@ app.post('/signup', signup);
 //login route
 app.post('/login', login);
 
-app.post('/user/image', FBAuth, uploadImage);
+app.post('/user/image', uploadImage);
 app.post('/user', FBAuth, addUserDetails);
 app.get('/user', FBAuth, getAuthenticatedUser);
 
