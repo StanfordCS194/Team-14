@@ -47,17 +47,8 @@ class GuideSetup extends React.Component {
             startLoc: '',
             errors: {},
             imageUrl: `https://firebasestorage.googleapis.com/v0/b/cs194w-387e8.appspot.com/o/blank_profpic.png?alt=media`
-            //pictures: null
         }
-        //this.onDrop = this.onDrop.bind(this);
     }
-
-    // onDrop(pictureFiles, pictureDataURLs) {
-    //     this.setState({
-    //         pictures: pictureFiles[0]
-    //     });
-    // }
-
     
     componentWillReceiveProps(nextProps) {
         if(nextProps.UI.errors) {
@@ -71,7 +62,6 @@ class GuideSetup extends React.Component {
         localStorage.removeItem('newUserEmail');
         let newUserPW = localStorage.getItem('newUserPW');
         localStorage.removeItem('newUserPW');
-        // const formData = new FormData();
         const newUserData = {
             email: newUserEmail,
             password: newUserPW,
@@ -86,36 +76,15 @@ class GuideSetup extends React.Component {
             startLoc: this.state.startLoc,
             imageUrl: this.state.imageUrl
         };
-        // formData.append('image', this.state.pictures, 'ehl')
-        // this.props.uploadImage(formData)
         this.props.signupUser(newUserData, this.props.history);
     }
 
-    // handleChangeUsername = (event) =>{
-    //     this.setState({ username: event.target.value });
-    // }
-
-    // handleUploadStart = () => {
-    //     this.setState({ isUploading: true, progress: 0 });
-    // }
-
-    // handleProgress = (progress) => {
-    //     this.setState({ progress });
-    // }
     
     handleUploadError = (error) => {
-        //this.setState({ isUploading: false });
         console.error(error);
     };
 
     handleUploadSuccess = (filename) => {
-        // this.setState({ avatar: filename, progress: 100, isUploading: false });
-        // firebase
-        // .storage()
-        // .ref("images")
-        // .child(filename)
-        // .getDownloadURL()
-        // .then(url => this.setState({ avatarURL: url }));
         firebase.storage().ref("profile_pic").child(filename)
         .getDownloadURL()
         .then(url => this.setState({ imageUrl: url }));
@@ -173,17 +142,6 @@ class GuideSetup extends React.Component {
                             <div id="guidesetup__textbox">
                                 <div id="guidesetup__imageupload_container">
                                     <h2>1. Upload your profile picture</h2>
-                                    
-                                    {/*                                     
-                                    <ImageUploader
-                                        withIcon={true}
-                                        buttonText='Choose images'
-                                        onChange={this.onDrop}
-                                        imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                                        maxFileSize={5242880}
-                                        withPreview={true}
-                                    />
-                                     */}
 
                                      <label style={{backgroundColor: 'red', color: 'white', padding: 10, borderRadius: 4, cursor: 'pointer'}}>
                                         Choose images
@@ -194,7 +152,6 @@ class GuideSetup extends React.Component {
                                         randomizeFilename
                                         onUploadError={this.handleUploadError}
                                         onUploadSuccess={this.handleUploadSuccess}
-                                        //onProgress={this.handleProgress}
                                         />
                                     </label>
                                 </div>
