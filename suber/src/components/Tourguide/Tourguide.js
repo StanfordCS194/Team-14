@@ -22,7 +22,7 @@ class Tourguide extends React.Component {
         startTime: null,
         duration: null,
         groupSize: null,
-        rating: 4.0,
+        rating: 0.0,
     };
     
     handleChange = date => {
@@ -249,7 +249,5 @@ class Tourguide extends React.Component {
         }
     }
 }
-
-
 
 export default Tourguide;

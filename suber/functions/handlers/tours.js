@@ -15,8 +15,9 @@ exports.getAllTours = (req, res) => {
                 userId: doc.data().userId,
                 touristName: doc.data().touristName,
                 touristContact: doc.data().touristContact,
+                startDate: doc.data().startDate,
                 startTime: doc.data().startTime,
-                endTime: doc.data().endTime,
+                duration: doc.data().duration,
                 startLoc: doc.data().startLoc,
                 language: doc.data().language,
                 partySize: doc.data().partySize,
@@ -34,34 +35,31 @@ exports.getAllTours = (req, res) => {
 exports.postNewTour = (req, res) => {
     const newTour = {
       status: 'pending',
-      userId: req.user.userId,
-      touristName: req.touristName,
-      touristContact: req.touristContact,
-      partySize: req.partySize,
-      startTime: req.startTime,
-      endTime: req.endTime,
-      startLoc: req.startLoc,
-      language: req.language,
-      note: req.note
+      userId: req.body.userId,
+      touristName: req.body.touristName,
+      touristContact: req.body.touristContact,
+      partySize: req.body.partySize,
+      startDate: req.body.startDate,
+      startTime: req.body.startTime,
+      duration: req.body.duration,
+      startLoc: req.body.startLoc,
+      language: req.body.language,
+      note: req.body.note
     };
-  
-    admin
-    .firestore()
-    .collection('tours')
-    .add(newTour)
+
+    db.collection('tours').add(newTour)
     .then((doc) => {
-      res.json({message: `document ${doc.id} created successfully`});
+      return res.status(201).json({message: `document ${doc.id} created successfully`});
     })
     .catch((err)=> {
-      res.status(500).json({error: 'something went wrong'});
+      return res.status(500).json({error: 'something went wrong'});
       console.error(err);
     });
   }
 
   exports.getTourForTourist = (req, res) => {
     admin.firestore().collection('tours')
-        .orderBy('touristContact').equalTo(req.touristContact)
-        .orderBy('startTime','desc')
+        .orderBy('touristContact').equalTo(req.body.touristContact)
         .get()
         .then((data) => {
             let tours = [];
@@ -72,8 +70,9 @@ exports.postNewTour = (req, res) => {
                 userId: doc.data().userId,
                 touristName: doc.data().touristName,
                 touristContact: doc.data().touristContact,
+                startDate: doc.data().startDate,
                 startTime: doc.data().startTime,
-                endTime: doc.data().endTime,
+                duration: doc.data().duration,
                 startLoc: doc.data().startLoc,
                 language: doc.data().language,
                 partySize: doc.data().partySize,
@@ -86,6 +85,7 @@ exports.postNewTour = (req, res) => {
          console.error(err);
          res.status(500).json({error: err.code});
      });
+   }
 
   exports.getTourForGuide = (req, res) => {
     admin.firestore().collection('tours')
@@ -94,26 +94,27 @@ exports.postNewTour = (req, res) => {
         .orderBy('startTime','desc')
         .get()
         .then((data) => {
-            let tours = [];
-            data.forEach((doc) => {
-                tours.push({
+          let tours = [];
+          data.forEach((doc) => {
+              tours.push({
                 tourId: doc.id,
                 status: doc.data().status,
                 userId: doc.data().userId,
                 touristName: doc.data().touristName,
                 touristContact: doc.data().touristContact,
+                startDate: doc.data().startDate,
                 startTime: doc.data().startTime,
-                endTime: doc.data().endTime,
+                duration: doc.data().duration,
                 startLoc: doc.data().startLoc,
                 language: doc.data().language,
                 partySize: doc.data().partySize,
                 note: doc.data().note,
-            });
-        });
-        return res.json(tours);
-     })
-     .catch((err) => {
+              });
+          });
+          return res.json(tours);
+        })
+        .catch((err) => {
          console.error(err);
          res.status(500).json({error: err.code});
-     });
+        });
   }

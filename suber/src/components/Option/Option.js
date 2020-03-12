@@ -74,9 +74,6 @@ export const options_major = [
 ];
 
 export const options_time = [
-    { value: 5, label: '05:00' },
-    { value: 6, label: '06:00' },
-    { value: 7, label: '07:00' },
     { value: 8, label: '08:00' },
     { value: 9, label: '09:00' },
     { value: 10, label: '10:00' },
