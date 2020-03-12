@@ -4,19 +4,19 @@ import Select from "react-select";
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import suberimg from '../../imgs/SUBER.png'
-import bar1 from '../../imgs/bar1.jpg'
-import bar2 from '../../imgs/bar2.jpg'
-import bar3 from '../../imgs/bar3.jpg'
+import suberimg from '../../imgs/SUBER.png';
+import bar1 from '../../imgs/bar1.jpg';
+import bar2 from '../../imgs/bar2.jpg';
+import bar3 from '../../imgs/bar3.jpg';
 
-import ScheduleSelector from 'react-schedule-selector'
+import ScheduleSelector from 'react-schedule-selector';
 import FileUploader from "react-firebase-file-uploader";
 
 import { connect } from 'react-redux';
 import { signupUser, uploadImage } from '../../redux/actions/userActions';
 
-import { options_language, options_major } from '../Option/Option'
-import firebase from "firebase";
+import { options_language, options_major } from '../Option/Option';
+import firebase from 'firebase';
 
 firebase.initializeApp({
     apiKey: "AIzaSyBdlWQlaZXt9SPV4-OrPrGtMnluWq39Gwk",
