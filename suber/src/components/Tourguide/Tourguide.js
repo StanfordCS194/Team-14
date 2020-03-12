@@ -141,7 +141,8 @@ class Tourguide extends React.Component {
                         <div id="tourguide_guide_img_container">
                                 <img id="tourguide_guide_img" 
                                      src= { location.state.guide.imageUrl } 
-                                     width='300px' />
+                                     width ='300px'
+                                     height='300px' />
                             </div>
                             <div class="guide-text">
                                 <div class="tourguide__guide_name">
