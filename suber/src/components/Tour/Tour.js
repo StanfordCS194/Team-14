@@ -16,10 +16,10 @@ class Tour extends React.Component {
         startDate: new Date(),
         startTime: null,
         duration: null,
-        groupSize: null,
+        groupSize: 1,
         guides: null,
         all_guides: null,
-        language: null,
+        language: "English",
         major: null
     }
     
