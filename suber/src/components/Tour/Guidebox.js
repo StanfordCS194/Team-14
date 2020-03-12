@@ -3,7 +3,6 @@ import './Tour.css';
 
 import { Link } from 'react-router-dom'
 import StarRatings from "react-star-ratings";
-import Tour from './Tour';
 
 class Guidebox extends React.Component {
     render() {

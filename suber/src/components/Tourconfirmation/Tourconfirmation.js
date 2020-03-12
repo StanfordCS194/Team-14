@@ -101,7 +101,7 @@ class Tourconfirmation extends React.Component {
             <body>
                 <div id="tourconfirmation_menubar">
                     <div id="guide-login">
-                        <p>Already a suber guide?</p>
+                        <a id="guide_login_link" href="/#/login">Already a suber guide?</a>
                     </div>
                     <a id="logo" href="/#/">
                         <img id="logo-img" src= { suberimg } />

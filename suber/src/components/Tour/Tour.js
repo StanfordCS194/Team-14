@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import './Tour.css';
-import { Link } from 'react-router-dom';
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -115,33 +114,6 @@ class Tour extends React.Component {
         }
     }
 
-    // shouldComponentUpdate(){
-    //     console.log("reached")
-    //     let guides = this.state.guides
-    //     if (this.state.major) {
-    //         console.log("reached 1")
-    //         guides = guides.filter(guide => guide.major.includes(this.state.major.label))
-    //         this.setState({
-    //             guides: guides,
-    //         })
-    //         return true;
-    //     }
-        
-    //     // axios
-    //     //     .get('/guides')
-    //     //     .then((res) => {
-    //     //         console.log(res.data);
-    //     //         console.log(this.state.major)
-    //     //         let guides = res.data
-    //     //         
-    //     //         console.log(guides)
-    //     //         this.setState({
-    //     //             guides: guides
-    //     //         });
-    //     //     })
-    //     //     .catch(err => console.log(err.response));
-    // }
-
     ExampleCustomInput = ({ value, onClick }) => (
         <button className="custom-input" onClick={onClick}>
           {value}
@@ -227,7 +199,7 @@ class Tour extends React.Component {
             <body>
                 <div id="menubar">
                     <div id="guide-login">
-                        <p>Already a suber guide?</p>
+                        <a id="guide_login_link" href="/#/login">Already a suber guide?</a>
                     </div>
                     <a id="logo" href="/#/">
                         <img id="logo-img" src= { suberimg } />
