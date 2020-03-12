@@ -1,5 +1,6 @@
 import React from 'react';
 import './Tourconfirmation.css';
+import axios from 'axios';
 
 import StarRatings from "react-star-ratings";
 
@@ -9,36 +10,37 @@ import {timeMap, monthMap} from '../Option/Option'
 
 class Tourconfirmation extends React.Component {
     state = {
-        startDate: new Date(),
-        startTime: null,
-        duration: null,
-        groupSize: null,
-        rating: 0.0,
-    };
-    
-    handleChange = date => {
-        this.setState({
-            startDate: date
-        });
+        touristContact: this.props.location.state.touristContact,
+        guide: null,
+        tour: null
     };
 
-    handleTimeChange = startTime => {
-        this.setState(
-            { startTime }
-        );
-    };
-
-    handleDurationChange = duration => {
-        this.setState(
-            { duration }
-        );
-    };
-
-    handleSizeChange = groupSize => {
-        this.setState(
-            { groupSize }
-        );
-    };
+    componentDidMount() {
+        axios
+            .get('/tour')
+            .then((res) => {
+                let tours = res.data
+                tours = tours.filter(tour => tour.touristContact === this.state.touristContact)
+                this.setState(
+                    { tour: tours[0] }
+                )
+            })
+            .then(
+                axios
+                    .get('/guides')
+                    .then((res) => {
+                    console.log(res.data);
+                    let guides = res.data
+                    guides = guides.filter(guide => guide.userId === this.state.tour.userId)
+                    this.setState(
+                        {guide: guides[0]}
+                    )
+                    })
+            )
+            
+            .catch(err => console.log(err.response));
+        
+    }
 
     render() {
         if (this.props.location.state === undefined) {
@@ -46,16 +48,23 @@ class Tourconfirmation extends React.Component {
             return null
         }
 
-        console.log(this.props)
+        console.log(this.state);
+        if (this.state.guide == null || this.state.tour == null) {
+            return(<body>
+                <div>
+                    <h1>Loading...</h1>
+                </div>
+            </body>);
+        }
 
         let { imageUrl, firstName, language, major, 
-            note, netRating, completedTours, startLoc} = this.props.location.state.location.state.guide
+            note, netRating, completedTours, startLoc} = this.state.guide
         let avgRating = 0.0
         if (netRating && completedTours) {
             avgRating = netRating * 1.0 / completedTours;
         }
 
-        let { startDate, startTime, duration } = this.props.location.state.location.state.state
+        let { startDate, startTime, duration } = this.state.tour
         let price = 0
         if (duration !== null) {
             price = duration * 60
@@ -68,15 +77,17 @@ class Tourconfirmation extends React.Component {
         let year = 0
         let time = 0
 
-        if (startDate) {
-            year = startDate.getFullYear()
-            month = startDate.getMonth() + 1
-            day = startDate.getDate()
+        var start_date = new Date(startDate)
+        if (start_date) {
+            year = start_date.getFullYear()
+            month = start_date.getMonth() + 1
+            day = start_date.getDate()
         }
         if (startTime) {
-            time = startTime.value
+            time = startTime
         }
 
+        
         return (
             <body>
                 <div id="tourconfirmation_menubar">
@@ -142,10 +153,10 @@ class Tourconfirmation extends React.Component {
                         </div>
                         <div id="tourconfirmation__detail">
                             <div class="tourconfirmation__detail_important">Email</div>
-                            <div class="tourconfirmation__detail_content">{this.props.location.email}</div>
+                            <div class="tourconfirmation__detail_content">{this.state.tour.touristContact}</div>
                             <div class="tourconfirmation__detail_important">Reservation Status</div>
                             <div class="tourconfirmation__detail_content"
-                                 id="tourguideconfirmation__waiting">Awaiting Confirmation</div>
+                                 id="tourguideconfirmation__waiting">{this.state.tour.status.toUpperCase()}</div>
                             <div class="tourconfirmation__detail_important">Tour Date/Time</div>
                             <div class="tourconfirmation__detail_content">{monthMap.get(month)} {day}th, {year}, {timeMap.get(time)} - {timeMap.get(time + duration)}</div>
                             <div class="tourconfirmation__detail_important">Meetup Place</div>
