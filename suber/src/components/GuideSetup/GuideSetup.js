@@ -145,18 +145,19 @@ class GuideSetup extends React.Component {
                             <div id="guidesetup__textbox">
                                 <div id="guidesetup__imageupload_container">
                                     <h2>1. Upload your profile picture</h2>
-
-                                     <label style={{backgroundColor: 'red', color: 'white', padding: 10, borderRadius: 4, cursor: 'pointer'}}>
-                                        Choose images
-                                        <FileUploader
-                                        hidden
-                                        accept="image/*"
-                                        storageRef={firebase.storage().ref('profile_pic')}
-                                        filename={localStorage.getItem('newUserEmail').split('@')[0]}
-                                        onUploadError={this.handleUploadError}
-                                        onUploadSuccess={this.handleUploadSuccess}
-                                        />
-                                    </label>
+                                    <div id="guidesetup__imageupload_uploader">
+                                        <label style={{backgroundColor: 'red', color: 'white', padding: 10, borderRadius: 4, cursor: 'pointer'}}>
+                                            Choose images
+                                            <FileUploader
+                                            hidden
+                                            accept="image/*"
+                                            storageRef={firebase.storage().ref('profile_pic')}
+                                            filename={localStorage.getItem('newUserEmail').split('@')[0]}
+                                            onUploadError={this.handleUploadError}
+                                            onUploadSuccess={this.handleUploadSuccess}
+                                            />
+                                        </label>
+                                    </div>
                                 </div>
                                 <div>
                                     <h2>2. What's your name?</h2>
