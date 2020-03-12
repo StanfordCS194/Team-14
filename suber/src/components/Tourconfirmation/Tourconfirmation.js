@@ -13,7 +13,7 @@ class Tourconfirmation extends React.Component {
         startTime: null,
         duration: null,
         groupSize: null,
-        rating: 4,
+        rating: 0.0,
     };
     
     handleChange = date => {
