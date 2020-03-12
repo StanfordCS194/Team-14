@@ -127,7 +127,6 @@ body {
 }
 
 .guide-image {
-    background-image: url('../../imgs/default-profile-picture1.jpg');
     background-size: cover;
     height: 150px;
     width: 150px;

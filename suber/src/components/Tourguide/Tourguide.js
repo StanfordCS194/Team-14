@@ -64,6 +64,11 @@ class Tourguide extends React.Component {
         let day = 0
         let year = 0
         let time = 0
+        
+        let avgRating = 0.0
+        if (location.state.guide.netRating && location.state.guide.completedTours) {
+            avgRating = location.state.guide.netRating * 1.0 / location.state.guide.completedTours;
+        }
 
         if (location.state) {
             if (this.props.location.state.guide.startLoc) {
@@ -170,7 +175,7 @@ class Tourguide extends React.Component {
                                 <div>
                                     <p id="tourguide__guide_review" ><b>Review</b></p>
                                     <StarRatings
-                                        rating={this.state.rating}
+                                        rating={avgRating}
                                         starRatedColor="#FEB156"
                                         numberOfStars={5}
                                         name='rating'

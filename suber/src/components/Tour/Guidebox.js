@@ -17,8 +17,8 @@ class Guidebox extends React.Component {
         return (
             <div class="guidebox">
                 <div class="guide-image">
-                <img 
-                    src= { imageUrl } 
+                <img class="guide-image"
+                    src={ imageUrl }
                     width='150px'
                     height='150px' />
                 </div>
