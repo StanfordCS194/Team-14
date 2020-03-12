@@ -74,9 +74,6 @@ export const options_major = [
 ];
 
 export const options_time = [
-    { value: 5, label: '05:00' },
-    { value: 6, label: '06:00' },
-    { value: 7, label: '07:00' },
     { value: 8, label: '08:00' },
     { value: 9, label: '09:00' },
     { value: 10, label: '10:00' },
@@ -105,3 +102,34 @@ export const options_size = [
     { value: '5', label: '5' },
     { value: '6', label: '6' }
 ];
+
+var monthMap = new Map()
+monthMap.set(1, "January")
+    .set(2, "February")
+    .set(3, "March")
+    .set(4, "April")
+    .set(5, "May")
+    .set(6, "June")
+    .set(7, "July")
+    .set(8, "August")
+    .set(9, "September")
+    .set(10, "October")
+    .set(11, "November")
+    .set(12, "December")
+export var monthMap
+
+var timeMap = new Map();
+timeMap.set(5, "5:00")
+    .set(6, "6:00")
+    .set(7, "7:00")
+    .set(8, "8:00")
+    .set(9, "9:00")
+    .set(10, "10:00")
+    .set(11, "11:00")
+    .set(12, "12:00")
+    .set(13, "13:00")
+    .set(14, "14:00")
+    .set(15, "15:00")
+    .set(16, "16:00")
+    .set(17, "17:00")
+export var timeMap

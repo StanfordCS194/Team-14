@@ -41,7 +41,7 @@ class GuideSetup extends React.Component {
             language: [],
             note: '',
             phone: '',
-            startLoc: '',
+            startLoc: 'Stanford Oval',
             imageUrl: `https://firebasestorage.googleapis.com/v0/b/cs194w-387e8.appspot.com/o/blank_profpic.png?alt=media`,
             place1: '',
             place2: '',
@@ -145,18 +145,19 @@ class GuideSetup extends React.Component {
                             <div id="guidesetup__textbox">
                                 <div id="guidesetup__imageupload_container">
                                     <h2>1. Upload your profile picture</h2>
-
-                                     <label style={{backgroundColor: 'red', color: 'white', padding: 10, borderRadius: 4, cursor: 'pointer'}}>
-                                        Choose images
-                                        <FileUploader
-                                        hidden
-                                        accept="image/*"
-                                        storageRef={firebase.storage().ref('profile_pic')}
-                                        filename={localStorage.getItem('newUserEmail').split('@')[0]}
-                                        onUploadError={this.handleUploadError}
-                                        onUploadSuccess={this.handleUploadSuccess}
-                                        />
-                                    </label>
+                                    <div id="guidesetup__imageupload_uploader">
+                                        <label style={{backgroundColor: 'red', color: 'white', padding: 10, borderRadius: 4, cursor: 'pointer'}}>
+                                            Choose images
+                                            <FileUploader
+                                            hidden
+                                            accept="image/*"
+                                            storageRef={firebase.storage().ref('profile_pic')}
+                                            filename={localStorage.getItem('newUserEmail').split('@')[0]}
+                                            onUploadError={this.handleUploadError}
+                                            onUploadSuccess={this.handleUploadSuccess}
+                                            />
+                                        </label>
+                                    </div>
                                 </div>
                                 <div>
                                     <h2>2. What's your name?</h2>
@@ -191,7 +192,7 @@ class GuideSetup extends React.Component {
                                 <div>
                                     <h2>5. Write a short bio to introduce yourself</h2>
                                     <textarea class="guidesetup__bio_input_box" name='note' placeholder="e.g. Hi! I'm Collin, a junior studying..."
-                                              value={this.state.name} onChange={this.handleChange}/>
+                                              value={this.state.note} onChange={this.handleChange}/>
                                 </div>
                             </div>
 

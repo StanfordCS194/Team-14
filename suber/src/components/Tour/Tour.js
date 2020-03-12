@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import './Tour.css';
-import { Link } from 'react-router-dom';
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -17,10 +16,10 @@ class Tour extends React.Component {
         startDate: new Date(),
         startTime: null,
         duration: null,
-        groupSize: null,
+        groupSize: 1,
         guides: null,
         all_guides: null,
-        language: null,
+        language: "English",
         major: null
     }
     
@@ -115,32 +114,9 @@ class Tour extends React.Component {
         }
     }
 
-    // shouldComponentUpdate(){
-    //     console.log("reached")
-    //     let guides = this.state.guides
-    //     if (this.state.major) {
-    //         console.log("reached 1")
-    //         guides = guides.filter(guide => guide.major.includes(this.state.major.label))
-    //         this.setState({
-    //             guides: guides,
-    //         })
-    //         return true;
-    //     }
-        
-    //     // axios
-    //     //     .get('/guides')
-    //     //     .then((res) => {
-    //     //         console.log(res.data);
-    //     //         console.log(this.state.major)
-    //     //         let guides = res.data
-    //     //         
-    //     //         console.log(guides)
-    //     //         this.setState({
-    //     //             guides: guides
-    //     //         });
-    //     //     })
-    //     //     .catch(err => console.log(err.response));
-    // }
+    clearFilter() {
+        window.location.reload(true);
+    }
 
     ExampleCustomInput = ({ value, onClick }) => (
         <button className="custom-input" onClick={onClick}>
@@ -214,6 +190,9 @@ class Tour extends React.Component {
                         <button id="tour__findbox-search" onClick={this.filterResult}>
                                 <p className="fb-text-white">Filter Result</p>
                         </button>
+                        <button id="tour__findbox-clear" onClick={this.clearFilter}>
+                                <p className="fb-text-white">Clear Filter</p>
+                        </button>
                 </div>
                 <div className="split" id="guide-list">
                     {this.guidesMarkup(this.state.guides)}
@@ -223,11 +202,12 @@ class Tour extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <body>
                 <div id="menubar">
                     <div id="guide-login">
-                        <p>Already a suber guide?</p>
+                        <a id="guide_login_link" href="/#/login">Already a suber guide?</a>
                     </div>
                     <a id="logo" href="/#/">
                         <img id="logo-img" src= { suberimg } />

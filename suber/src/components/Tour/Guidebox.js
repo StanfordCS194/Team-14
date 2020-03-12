@@ -3,7 +3,6 @@ import './Tour.css';
 
 import { Link } from 'react-router-dom'
 import StarRatings from "react-star-ratings";
-import Tour from './Tour';
 
 class Guidebox extends React.Component {
     render() {
@@ -18,8 +17,8 @@ class Guidebox extends React.Component {
         return (
             <div class="guidebox">
                 <div class="guide-image">
-                <img 
-                    src= { imageUrl } 
+                <img class="guide-image"
+                    src={ imageUrl }
                     width='150px'
                     height='150px' />
                 </div>
@@ -40,15 +39,17 @@ class Guidebox extends React.Component {
                             <b>Major: </b>{majors}
                         </p>
                     </div>
-                    <StarRatings
-                        rating={avgRating}
-                        starRatedColor="#FEB156"
-                        numberOfStars={5}
-                        name='rating'
-                        class='ratings'
-                        starDimension='25px'
-                        starSpacing='1px'
-                    />
+                    <div class="guide-rating">
+                        <StarRatings
+                            rating={avgRating}
+                            starRatedColor="#FEB156"
+                            numberOfStars={5}
+                            name='rating'
+                            class='ratings'
+                            starDimension='25px'
+                            starSpacing='1px'
+                        />
+                    </div>
                 </div>
             </div>
     )

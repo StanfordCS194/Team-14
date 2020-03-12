@@ -6,6 +6,7 @@ const FBAuth = require('./util/fbAuth');
 
 const {signup, login, uploadImage, addUserDetails, getAuthenticatedUser} = require('./handlers/users');
 const {getAllGuides} = require('./handlers/guides');
+const {postNewTour, getAllTours, getTourByTourist} = require('./handlers/tours');
 
 //signup route
 app.post('/signup', signup);
@@ -20,6 +21,10 @@ app.post('/user/image', FBAuth, uploadImage);
 
 //guides route
 app.get('/guides', getAllGuides);
+
+//tour route
+app.get('/tour', getAllTours);
+app.post('/tour', postNewTour);
 
 //functions
 exports.api = functions.https.onRequest(app);

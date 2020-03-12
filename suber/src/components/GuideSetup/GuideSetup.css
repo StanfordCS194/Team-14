@@ -71,7 +71,7 @@ body {
 #guidesetup__container {
     text-align: center;
     width: 550px;
-    height: 820px;
+    height: 750px;
     display: inline-block;
     border-radius: 10px;
     background-color:#ffffff;
@@ -111,6 +111,11 @@ body {
 
 #guidesetup__imageupload_container {
     margin-right: 66px;
+}
+
+#guidesetup__imageupload_uploader {
+    margin-top: 25px;
+    margin-bottom: 35px;
 }
 
 .guidesetup__choose_button {
