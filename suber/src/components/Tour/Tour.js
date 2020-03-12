@@ -202,6 +202,7 @@ class Tour extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <body>
                 <div id="menubar">

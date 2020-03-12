@@ -12,7 +12,8 @@ class Home extends React.Component {
         startDate: new Date(),
         startTime: null,
         duration: null,
-        groupSize: null
+        groupSize: null,
+        pathname: '/'
     };
     
     handleChange = date => {
@@ -25,18 +26,37 @@ class Home extends React.Component {
         this.setState(
             { startTime }
         );
+        if (this.state.startTime !== null && this.state.duration !== null && this.state.groupSize !== null) {
+            this.setState(
+                {pathname: '/tour'}
+            );
+        }
     };
 
     handleDurationChange = duration => {
         this.setState(
             { duration }
         );
+        if (this.state.startTime !== null && this.state.duration !== null && this.state.groupSize !== null) {
+            this.setState(
+                {pathname: '/tour'}
+            );
+        }
     };
 
     handleSizeChange = groupSize => {
         this.setState(
             { groupSize }
         );
+        if (this.state.startTime !== null && this.state.duration !== null && this.state.groupSize !== null) {
+            this.setState(
+                {pathname: '/tour'}
+            );
+        }
+    };
+
+    searchTour = () => {
+        this.props.history.push(this.state.pathname)
     };
 
     render() {
@@ -102,11 +122,9 @@ class Home extends React.Component {
                         <div id="findbox-size">
                             <a href="/#/search" class="fb-text-red">Find an Existing Reservation</a>
                         </div>
-                        <a href="/#/tour">
-                            <button id="findbox-search">
+                            <button id="findbox-search" onClick={this.searchTour}>
                                 <p class="fb-text-white">Find a Tour Guide</p>
                             </button>
-                        </a>
                     </div>
                 </div>
             </body>
