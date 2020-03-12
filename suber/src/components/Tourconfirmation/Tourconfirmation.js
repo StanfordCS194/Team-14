@@ -42,11 +42,11 @@ class Tourconfirmation extends React.Component {
     render() {
         console.log(this.props)
 
-        const ExampleCustomInput = ({ value, onClick }) => (
-            <button class="custom-input" onClick={onClick}>
-              {value}
-            </button>
-        );
+        let { imageUrl, firstName, language, major, note, netRating, completedTours, startLoc} = this.props.location.state.location.state.guide
+        let avgRating = 0.0
+        if (netRating && completedTours) {
+            avgRating = netRating * 1.0 / completedTours;
+        }
 
         return (
             <body>
@@ -65,21 +65,22 @@ class Tourconfirmation extends React.Component {
                     <div class="split" id="tourconfirmation_sidebar">
                     <div id="tourconfirmation_guide_img_container">
                             <img id="tourconfirmation_guide_img" 
-                                 src= { require('../../imgs/default-profile-picture1.jpg') } 
-                                 width='350px' />
+                                 src= { imageUrl } 
+                                 width='350px'
+                                 height='350px' />
                         </div>
                         <div class="guide-text">
                             <div class="tourconfirmation__guide_name">
-                                <b>Collin</b>
+                                <b>{firstName}</b>
                             </div>
                             <div class="tourconfirmation__guide_description">
                                 <p>
-                                    <b>Languages: </b>English, Korean
+                                    <b>Languages: </b>{language.join(', ')}
                                 </p>
                             </div>
                             <div class="tourconfirmation__guide_description">
                                 <p>
-                                    <b>Major: </b>Electrical Engineering
+                                    <b>Major: </b>{major.join(', ')}
                                 </p>
                             </div>
                             <div class="tourconfirmation__guide_description">
@@ -88,12 +89,7 @@ class Tourconfirmation extends React.Component {
                                 </p>
                             </div>
                             <div class="tourconfirmation__guide_bio">
-                                <p>
-                                    Hello, I’m Collin, a junior studying EE. I’m 
-                                    from Korea. I’m also involved in various
-                                    on-campus organizations related to tech. I’m
-                                    also part of an on-campus greek community.
-                                </p>
+                                <p>{note}</p>
                             </div>
                             <div>
                                 <p id="tourconfirmation__guide_review" ><b>Review</b></p>
@@ -113,18 +109,18 @@ class Tourconfirmation extends React.Component {
                     <div class="split" id="tourconfirmation__tour_details">
                         <div id="tourconfirmation__detail_text">Your Reservation</div>
                         <div id="tourconfirmation__">
-                            <p>We will send you a confirmation email as soon as Collin accepts the reservation.</p>
+                            <p>We will send you a confirmation email as soon as {firstName} accepts the reservation.</p>
                         </div>
                         <div id="tourconfirmation__detail">
-                            <div class="tourconfirmation__detail_important">Reservation Number</div>
-                            <div class="tourconfirmation__detail_content">BXDKAL</div>
+                            <div class="tourconfirmation__detail_important">Email</div>
+                            <div class="tourconfirmation__detail_content">{this.props.location.email}</div>
                             <div class="tourconfirmation__detail_important">Reservation Status</div>
                             <div class="tourconfirmation__detail_content"
                                  id="tourguideconfirmation__waiting">Awaiting Confirmation</div>
                             <div class="tourconfirmation__detail_important">Tour Date/Time</div>
                             <div class="tourconfirmation__detail_content">November 20, 2020, 8:30 AM - 9:00 AM</div>
                             <div class="tourconfirmation__detail_important">Meetup Place</div>
-                            <div class="tourconfirmation__detail_content">Main Quad</div>
+                            <div class="tourconfirmation__detail_content">{startLoc}</div>
                             <div class="tourconfirmation__detail_important">Total Price</div>
                             <div class="tourconfirmation__detail_content">$30</div>
                             <div class="tourconfirmation__detail_important">Instruction</div>

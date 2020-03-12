@@ -8,7 +8,7 @@ class Tourguideconfirmation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: "hjihun@gmail.com",
+            email: null,
         };
         
         this.handleChange = this.handleChange.bind(this);
