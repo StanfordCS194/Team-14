@@ -40,12 +40,69 @@ class Tourconfirmation extends React.Component {
     };
 
     render() {
+        if (this.props.location.state === undefined) {
+            this.props.history.push('/tour')
+            return null
+        }
+
+        const monthMap = new Map()
+        monthMap.set(1, "January")
+            .set(2, "February")
+            .set(3, "March")
+            .set(4, "April")
+            .set(5, "May")
+            .set(6, "June")
+            .set(7, "July")
+            .set(8, "August")
+            .set(9, "September")
+            .set(10, "October")
+            .set(11, "November")
+            .set(12, "December")
+        
+        const timeMap = new Map();
+        timeMap.set(5, "5:00")
+            .set(6, "6:00")
+            .set(7, "7:00")
+            .set(8, "8:00")
+            .set(9, "9:00")
+            .set(10, "10:00")
+            .set(11, "11:00")
+            .set(12, "12:00")
+            .set(13, "13:00")
+            .set(14, "14:00")
+            .set(15, "15:00")
+            .set(16, "16:00")
+            .set(17, "17:00")
+
         console.log(this.props)
 
-        let { imageUrl, firstName, language, major, note, netRating, completedTours, startLoc} = this.props.location.state.location.state.guide
+        let { imageUrl, firstName, language, major, 
+            note, netRating, completedTours, startLoc} = this.props.location.state.location.state.guide
         let avgRating = 0.0
         if (netRating && completedTours) {
             avgRating = netRating * 1.0 / completedTours;
+        }
+
+        let { startDate, startTime, duration } = this.props.location.state.location.state.state
+        let price = 0
+        if (duration !== null) {
+            price = duration * 60
+        } else {
+            duration = 0
+        }
+
+        let month = 0
+        let day = 0
+        let year = 0
+        let time = 0
+
+        if (startDate) {
+            year = startDate.getFullYear()
+            month = startDate.getMonth() + 1
+            day = startDate.getDate()
+        }
+        if (startTime) {
+            time = startTime.value
         }
 
         return (
@@ -118,11 +175,11 @@ class Tourconfirmation extends React.Component {
                             <div class="tourconfirmation__detail_content"
                                  id="tourguideconfirmation__waiting">Awaiting Confirmation</div>
                             <div class="tourconfirmation__detail_important">Tour Date/Time</div>
-                            <div class="tourconfirmation__detail_content">November 20, 2020, 8:30 AM - 9:00 AM</div>
+                            <div class="tourconfirmation__detail_content">{monthMap.get(month)} {day}th, {year}, {timeMap.get(time)} - {timeMap.get(time + duration)}</div>
                             <div class="tourconfirmation__detail_important">Meetup Place</div>
                             <div class="tourconfirmation__detail_content">{startLoc}</div>
                             <div class="tourconfirmation__detail_important">Total Price</div>
-                            <div class="tourconfirmation__detail_content">$30</div>
+                            <div class="tourconfirmation__detail_content">${price}</div>
                             <div class="tourconfirmation__detail_important">Instruction</div>
                             <div class="tourconfirmation__detail_content">Please arrive at the meetup place 5 minutes before 
                                 the start of the tour. Payments for the tour service 
