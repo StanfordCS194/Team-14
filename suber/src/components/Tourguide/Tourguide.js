@@ -125,7 +125,7 @@ class Tourguide extends React.Component {
                         <div class="split" id="tourguide_sidebar">
                         <div id="tourguide_guide_img_container">
                                 <img id="tourguide_guide_img" 
-                                     src= { location.state.guide.imageUrl } 
+                                     src= { location.state.guide.imageUrl }
                                      width='300px'
                                      height='300px'/>
                             </div>
@@ -198,7 +198,7 @@ class Tourguide extends React.Component {
                             </div>
                             <a href="/#/tour">
                                 <div class="tourguide__button">
-                                    <p class="tourguide__btn_text">Back to list</p>
+                                    <p class="tourguide__btn_text">Back to List</p>
                                 </div>
                             </a>
                             <Link to={{

@@ -36,7 +36,7 @@ class Search extends React.Component {
                             <h1>Search Reservation</h1>
                         </div>
                         <div>
-                            <h1 id="search__reservation_code_text">Reservation Code</h1>
+                            <h1 id="search__reservation_code_text">Please enter your email address</h1>
                             <form onSubmit={this.handleSubmit}>
                                 <input id="search__findbox-input" type="text" value={this.state.value} onChange={this.handleChange} />
                             </form>
