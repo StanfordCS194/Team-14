@@ -40,6 +40,8 @@ class Tourconfirmation extends React.Component {
     };
 
     render() {
+        console.log(this.props)
+
         const ExampleCustomInput = ({ value, onClick }) => (
             <button class="custom-input" onClick={onClick}>
               {value}

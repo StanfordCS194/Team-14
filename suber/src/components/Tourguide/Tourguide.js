@@ -2,14 +2,17 @@ import React from 'react';
 import './Tourguide.css';
 
 import StarRatings from "react-star-ratings";
+import {Link} from 'react-router-dom'
 
 import suberimg from '../../imgs/SUBER.png';
 import mapimg from '../../imgs/sample-map.png';
 
 class Tourguide extends React.Component {
     componentDidMount() {
+        console.log("Props!")
+        console.log(this.props)
         const { location, history } = this.props;
-        if (location.state === undefined) {
+        if (location.state === null) {
             history.push("/tour")
         }
     }
@@ -54,6 +57,11 @@ class Tourguide extends React.Component {
 
     render() {
         const { location } = this.props;
+
+        if (location.state === undefined) {
+            this.props.history.push('/tour')
+            return null;
+        }
         
         let group_size_label = "0"
         let language_label = "English"
@@ -126,7 +134,7 @@ class Tourguide extends React.Component {
             .set(16, "16:00")
             .set(17, "17:00")
 
-        if (location.state) {
+        if (location.state !== undefined) {
         console.log(this.props)
             return (
                 <body>
@@ -146,7 +154,8 @@ class Tourguide extends React.Component {
                         <div id="tourguide_guide_img_container">
                                 <img id="tourguide_guide_img" 
                                      src= { location.state.guide.imageUrl } 
-                                     width='300px' />
+                                     width='300px'
+                                     height='300px'/>
                             </div>
                             <div class="guide-text">
                                 <div class="tourguide__guide_name">
@@ -220,11 +229,14 @@ class Tourguide extends React.Component {
                                     <p class="tourguide__btn_text">Back to list</p>
                                 </div>
                             </a>
-                            <a href="/#/reservation/confirmation">
+                            <Link to={{
+                                pathname: "/reservation/confirmation",
+                                state: this.props.location.state,
+                            }}>
                                 <div class="tourguide__button">
                                     <p class="tourguide__btn_text">Select Tour Guide</p>
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                         <div class="split" id="tourguide__tour_map">
                             <img src={ mapimg } width='550px' height='850px' class="tour_map"/>

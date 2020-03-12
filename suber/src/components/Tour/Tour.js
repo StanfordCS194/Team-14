@@ -114,6 +114,10 @@ class Tour extends React.Component {
         }
     }
 
+    clearFilter() {
+        window.location.reload(true);
+    }
+
     ExampleCustomInput = ({ value, onClick }) => (
         <button className="custom-input" onClick={onClick}>
           {value}
@@ -185,6 +189,9 @@ class Tour extends React.Component {
                     </div>
                         <button id="tour__findbox-search" onClick={this.filterResult}>
                                 <p className="fb-text-white">Filter Result</p>
+                        </button>
+                        <button id="tour__findbox-clear" onClick={this.clearFilter}>
+                                <p className="fb-text-white">Clear Filter</p>
                         </button>
                 </div>
                 <div className="split" id="guide-list">

@@ -39,15 +39,17 @@ class Guidebox extends React.Component {
                             <b>Major: </b>{majors}
                         </p>
                     </div>
-                    <StarRatings
-                        rating={avgRating}
-                        starRatedColor="#FEB156"
-                        numberOfStars={5}
-                        name='rating'
-                        class='ratings'
-                        starDimension='25px'
-                        starSpacing='1px'
-                    />
+                    <div class="guide-rating">
+                        <StarRatings
+                            rating={avgRating}
+                            starRatedColor="#FEB156"
+                            numberOfStars={5}
+                            name='rating'
+                            class='ratings'
+                            starDimension='25px'
+                            starSpacing='1px'
+                        />
+                    </div>
                 </div>
             </div>
     )

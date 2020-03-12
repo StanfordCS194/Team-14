@@ -91,7 +91,21 @@ body {
 }
 
 #tour__findbox-search {
-    margin-top: 80px;
+    margin-top: 50px;
+    margin-left: 40px;
+    margin-right: 40px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    width: 320px;
+    border-radius: 10px;
+    background-color: #eb5757;
+    text-align: center;
+}
+
+#tour__findbox-clear {
+    margin-top: 25px;
     margin-left: 40px;
     margin-right: 40px;
 
@@ -124,6 +138,7 @@ body {
     display: inline-block;
     border: 1px solid #e3e3e3;
     border-radius: 15px;
+    position: relative;
 }
 
 .guide-image {
@@ -140,7 +155,7 @@ body {
     display: inline-block;
     vertical-align: top;
     margin-left: 20px;
-    margin-top: 10px;
+    margin-top: 8px;
     font-size: 14px;
 }
 
@@ -158,7 +173,12 @@ body {
 }
 
 .guide-major {
-    margin-bottom: 7px;
+    margin-bottom: 2px;
+}
+
+.guide-rating {
+    position: absolute;
+    bottom: 2px;
 }
 
 .ratings {
