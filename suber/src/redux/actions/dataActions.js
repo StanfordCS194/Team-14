@@ -16,7 +16,7 @@ export const postTour = (tourData, history) => (dispatch) => {
 		.catch((err) => {
 			dispatch({
 				type: SET_ERRORS,
-				payload: err.response.data
+				payload: err
 			});
 		});
 }

@@ -41,7 +41,7 @@ class GuideSetup extends React.Component {
             language: [],
             note: '',
             phone: '',
-            startLoc: '',
+            startLoc: 'Stanford Oval',
             imageUrl: `https://firebasestorage.googleapis.com/v0/b/cs194w-387e8.appspot.com/o/blank_profpic.png?alt=media`,
             place1: '',
             place2: '',
